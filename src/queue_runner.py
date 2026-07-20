@@ -12,6 +12,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SSH_OPTIONS = ["-o", "ConnectTimeout=15", "-o", "ServerAliveInterval=30", "-o", "ServerAliveCountMax=3"]
 
 
 def stamp():
@@ -20,7 +21,10 @@ def stamp():
 
 def write_status(node: str, **fields):
     path = ROOT / "queue" / f"{node}_status.json"
-    current = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    current = {} if fields.get("state") == "queued" else (
+        json.loads(path.read_text(encoding="utf-8")) if path.exists() else {})
+    if fields.get("state") != "node_unreachable":
+        current.pop("error", None)
     current.update(fields, node=node, updated_at=stamp())
     temp = path.with_suffix(".tmp")
     temp.write_text(json.dumps(current, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -28,19 +32,27 @@ def write_status(node: str, **fields):
 
 
 def node_busy(node: str):
-    result = subprocess.run(["ssh", "-o", "ConnectTimeout=8", node, "pgrep -x fds >/dev/null"], timeout=15)
+    command = "printf '%s %s %s\\n' \"$(pgrep -c -x fds || true)\" \"$(nproc --all)\" \"$(cut -d' ' -f1 /proc/loadavg)\""
+    result = subprocess.run(["ssh", "-o", "ConnectTimeout=8", node, command],
+                            capture_output=True, text=True, timeout=15)
     if result.returncode == 255:
         raise ConnectionError(f"SSH connection to {node} failed")
-    return result.returncode == 0
+    fds_count, logical_cpus, load_1m = result.stdout.strip().split()[-3:]
+    telemetry = {"fds_processes": int(fds_count), "logical_cpus": int(logical_cpus),
+                 "load_1m": round(float(load_1m), 2)}
+    telemetry["busy_reason"] = "fds" if telemetry["fds_processes"] else (
+        "insufficient_free_cpu" if telemetry["load_1m"] > telemetry["logical_cpus"] - 32 else "idle")
+    return telemetry["busy_reason"] != "idle", telemetry
 
 
 def wait_for_idle(node: str):
     clear = 0
     while clear < 2:
         try:
-            busy = node_busy(node)
+            busy, telemetry = node_busy(node)
             clear = 0 if busy else clear + 1
-            write_status(node, state="waiting_for_idle" if busy else "confirming_idle", clear_checks=clear)
+            write_status(node, state="waiting_for_idle" if busy else "confirming_idle",
+                         clear_checks=clear, **telemetry)
         except Exception as exc:
             clear = 0
             write_status(node, state="node_unreachable", error=str(exc))
@@ -71,7 +83,7 @@ def run_preflight(node: str, case_name: str):
         f"/home/zsh/FDS/FDS6/bin/fds '{fds.name}' > preflight.log 2>&1"
     )
     write_status(node, state="preflight", case=case_name, preflight_chid=chid)
-    result = subprocess.run(["ssh", "-o", "ServerAliveInterval=30", node, command])
+    result = subprocess.run(["ssh", *SSH_OPTIONS, node, command])
     log = (work / "preflight.log").read_text(encoding="utf-8", errors="replace") if (work / "preflight.log").exists() else ""
     accepted = result.returncode == 0 and "ERROR:" not in log and "completed successfully" in log.lower()
     write_status(node, state="preflight_passed" if accepted else "preflight_failed",
@@ -85,7 +97,7 @@ def run_case(node: str, case_name: str):
     fds = case_dir / f"{case_name}.fds"
     command = f"cd '{case_dir}' && mpiexec -n 32 /home/zsh/FDS/FDS6/bin/fds '{fds.name}' > run.log 2>&1"
     write_status(node, state="running", case=case_name, started_at=stamp())
-    result = subprocess.run(["ssh", "-o", "ServerAliveInterval=30", node, command])
+    result = subprocess.run(["ssh", *SSH_OPTIONS, node, command])
     write_status(node, state="assessing", case=case_name, fds_exit_code=result.returncode)
     assessment = subprocess.run(["python3", str(ROOT / "src" / "assess_results.py"), str(case_dir)],
                                 capture_output=True, text=True)

@@ -15,8 +15,10 @@ Node allocation:
 | node03 | Q50, Q200, Q400 |
 | node04 | Q100, Q300 |
 
-Each queue waits until no `fds` process remains on its node. Only one new case
-runs on a node at a time.
+Each queue waits until no `fds` process remains and the one-minute load leaves
+capacity for 32 MPI ranks. Only one new case runs on a node at a time. Before
+the first formal case, the queue runs a 0.01 s FDS preflight and checks both
+the completion marker and the log for setup errors.
 
 ## Updated equipment
 
