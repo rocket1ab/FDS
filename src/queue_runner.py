@@ -5,6 +5,7 @@ import argparse
 import json
 import os
 import re
+import shlex
 import subprocess
 import time
 from datetime import datetime
@@ -62,7 +63,8 @@ def wait_for_idle(node: str):
 
 def run_preflight(node: str, case_name: str):
     """Run the first case to 0.01 s so formal work starts only after FDS accepts it."""
-    source = ROOT / "cases" / case_name / f"{case_name}.fds"
+    case_root = ROOT / ("cases_stable" if case_name.endswith("_v3_stable") else "cases")
+    source = case_root / case_name / f"{case_name}.fds"
     work = ROOT / "queue" / f"preflight_{node}"
     work.mkdir(parents=True, exist_ok=True)
     for path in work.iterdir():
@@ -72,7 +74,7 @@ def run_preflight(node: str, case_name: str):
     chid = f"preflight_{node}_H1H7_v2"
     text = source.read_text(encoding="utf-8", errors="replace")
     text, head_count = re.subn(r"&HEAD\s+CHID='[^']*'\s*/", f"&HEAD CHID='{chid}'/", text, count=1)
-    text, time_count = re.subn(r"&TIME\s+T_END\s*=\s*[^/]+/", "&TIME T_END=0.01/", text, count=1)
+    text, time_count = re.subn(r"(T_END\s*=\s*)[-+\d.E]+", r"\g<1>0.01", text, count=1, flags=re.I)
     if head_count != 1 or time_count != 1:
         raise ValueError("Could not create preflight input from HEAD/TIME records")
     fds = work / f"{chid}.fds"
@@ -93,19 +95,79 @@ def run_preflight(node: str, case_name: str):
 
 
 def run_case(node: str, case_name: str):
-    case_dir = ROOT / "cases" / case_name
+    case_root = ROOT / ("cases_stable" if case_name.endswith("_v3_stable") else "cases")
+    case_dir = case_root / case_name
     fds = case_dir / f"{case_name}.fds"
-    command = f"cd '{case_dir}' && mpiexec -n 32 /home/zsh/FDS/FDS6/bin/fds '{fds.name}' > run.log 2>&1"
+    marker = ".fds_exit_code"
+    inner = (
+        f"mpiexec -n 32 /home/zsh/FDS/FDS6/bin/fds {shlex.quote(fds.name)} > run.log 2>&1; "
+        f"printf '%s' $? > {marker}"
+    )
+    command = (
+        f"cd {shlex.quote(str(case_dir))} && rm -f {marker} && "
+        f"nohup bash -c {shlex.quote(inner)} > launcher.log 2>&1 < /dev/null &"
+    )
     write_status(node, state="running", case=case_name, started_at=stamp())
-    result = subprocess.run(["ssh", *SSH_OPTIONS, node, command])
-    write_status(node, state="assessing", case=case_name, fds_exit_code=result.returncode)
+    launched = subprocess.run(["ssh", *SSH_OPTIONS, node, command], timeout=30)
+    if launched.returncode != 0:
+        write_status(node, state="case_failed", case=case_name,
+                     failure_reason="remote_launch_failed", fds_exit_code=launched.returncode)
+        return False
+
+    lost_checks = 0
+    result_code = None
+    while result_code is None:
+        poll = (
+            f"cd {shlex.quote(str(case_dir))} && "
+            f"if [ -f {marker} ]; then printf 'DONE '; cat {marker}; "
+            f"elif pgrep -af {shlex.quote('fds.*' + case_name)} >/dev/null || "
+            f"pgrep -af {shlex.quote('mpiexec.*' + case_name)} >/dev/null; then echo RUNNING; "
+            "else echo LOST; fi; "
+            "grep -a 'Time Step:' run.log 2>/dev/null | tail -1"
+        )
+        try:
+            status = subprocess.run(["ssh", *SSH_OPTIONS, node, poll], capture_output=True,
+                                    text=True, timeout=30)
+            output = status.stdout.strip()
+            done = re.search(r"DONE\s+(-?\d+)", output)
+            step = re.search(r"Time Step:\s+(\d+),\s+Simulation Time:\s+([\d.]+)\s+s", output)
+            if done:
+                result_code = int(done.group(1))
+            elif "RUNNING" in output:
+                lost_checks = 0
+                fields = {"state": "running", "case": case_name}
+                if step:
+                    fields.update(time_step=int(step.group(1)), simulation_time_s=float(step.group(2)))
+                write_status(node, **fields)
+            else:
+                lost_checks += 1
+                if lost_checks >= 3:
+                    write_status(node, state="case_failed", case=case_name,
+                                 failure_reason="remote_process_lost")
+                    return False
+        except Exception as exc:
+            write_status(node, state="running_unreachable", case=case_name, error=str(exc))
+        if result_code is None:
+            time.sleep(30)
+
+    log_path = case_dir / "run.log"
+    log = log_path.read_text(encoding="utf-8", errors="replace") if log_path.exists() else ""
+    completed = "STOP: FDS completed successfully" in log and "Numerical Instability" not in log
+    if result_code != 0 or not completed:
+        write_status(node, state="case_failed", case=case_name,
+                     fds_exit_code=result_code, normal_fds_completion=False,
+                     failure_reason="numerical_instability" if "Numerical Instability" in log else "incomplete_fds_run",
+                     completed_at=stamp())
+        return False
+    write_status(node, state="assessing", case=case_name, fds_exit_code=result_code,
+                 normal_fds_completion=True)
     assessment = subprocess.run(["python3", str(ROOT / "src" / "assess_results.py"), str(case_dir)],
                                 capture_output=True, text=True)
     (case_dir / "assessment.log").write_text(assessment.stdout + assessment.stderr, encoding="utf-8")
-    write_status(node, state="case_complete" if result.returncode == 0 and assessment.returncode == 0 else "case_failed",
+    write_status(node, state="case_complete" if assessment.returncode == 0 else "case_failed",
                  case=case_name, fds_exit_code=result.returncode, assessment_exit_code=assessment.returncode,
                  completed_at=stamp())
-    return result.returncode == 0 and assessment.returncode == 0
+    return assessment.returncode == 0
 
 
 def main():
