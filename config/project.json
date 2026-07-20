@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "project": "aircraft_voxel_damage_20260720_H1_H7",
+  "source_fds": "reference/Separated_merge_20260720.fds",
+  "physics_reference_fds": "reference/Q0400_BA0_coat_T1500_v4.fds",
+  "fluence_J_cm2": [50, 100, 200, 300, 400],
+  "yield_kt": 100,
+  "azimuth_deg": 270,
+  "elevation_deg": 15,
+  "t_end_s": 1500,
+  "mpi_processes": 32,
+  "node_queues": {
+    "node03": [50, 200, 400],
+    "node04": [100, 300]
+  },
+  "burn_away": false,
+  "q400_reference_max_external_flux_kw_m2": 1749,
+  "probe_candidates_per_group": 10,
+  "h3_probe_candidates": 14
+}

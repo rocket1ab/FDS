@@ -1,0 +1,33 @@
+{
+  "case": "Q0100_W0100_az270_el15_H1H7_v2",
+  "Q_J_cm2": 100,
+  "yield_kt": 100,
+  "azimuth_deg": 270,
+  "elevation_deg": 15,
+  "t_end_s": 1500,
+  "mpi": 32,
+  "burn_away": false,
+  "surface_variants": 99,
+  "illuminated_vents": 1912,
+  "temperature_probes": 162,
+  "probe_counts": {
+    "RADM": 10,
+    "WINS": 10,
+    "BED": 10,
+    "CURT": 10,
+    "U4": 6,
+    "SEAT": 10,
+    "AL2024": 10,
+    "AL5052": 10,
+    "AL7075": 10,
+    "O2TANK": 10,
+    "H1": 10,
+    "H2": 10,
+    "H3": 14,
+    "H4": 10,
+    "H5": 10,
+    "H6": 8,
+    "H7": 4
+  },
+  "max_external_flux_kw_m2": 437
+}

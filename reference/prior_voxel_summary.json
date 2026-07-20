@@ -1,0 +1,17 @@
+{
+  "tag": "E3_100kt_az270_el15",
+  "E0": 1287.0,
+  "az": 270.0,
+  "el": 15.0,
+  "lit_obst": 796,
+  "sub_faces": 1053,
+  "surf_variants": 63,
+  "max_flux": 1250.0,
+  "material_counts": {
+    "EGFR": 386,
+    "ACRY": 209,
+    "NCUR": 267,
+    "NBED": 99,
+    "FOAM": 92
+  }
+}

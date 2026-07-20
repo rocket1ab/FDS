@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.1-H1-H7",
+  "root": "aircraft",
+  "systems": {
+    "airframe": {"major": ["RADM", "AL2024", "AL7075"], "secondary": []},
+    "avionics": {"major": ["H1", "H2"], "secondary": ["H4"]},
+    "power": {"major": ["H5", "H6"], "secondary": []},
+    "cockpit": {"major": ["WINS", "BED", "CURT", "SEAT", "U4", "H3", "H7"], "secondary": ["AL5052", "O2TANK"]}
+  },
+  "interpretation": {
+    "H2": "Mission subsystem is retained as a model-specific major avionics node.",
+    "H3": "Display subsystem is retained as a model-specific major cockpit node.",
+    "target_rule": "Aircraft level is the highest known system level.",
+    "unknown_rule": "Missing evidence remains unknown and is never treated as none."
+  }
+}
