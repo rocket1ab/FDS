@@ -105,7 +105,7 @@ def run_case(node: str, case_name: str):
     )
     command = (
         f"cd {shlex.quote(str(case_dir))} && rm -f {marker} && "
-        f"nohup bash -c {shlex.quote(inner)} > launcher.log 2>&1 < /dev/null &"
+        f"setsid -f bash -c {shlex.quote(inner)} > launcher.log 2>&1 < /dev/null"
     )
     write_status(node, state="running", case=case_name, started_at=stamp())
     launched = subprocess.run(["ssh", *SSH_OPTIONS, node, command], timeout=30)
