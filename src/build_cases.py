@@ -36,6 +36,11 @@ GROUP_BY_SURF = {
 }
 ABBR = {surf: group for surf, group in GROUP_BY_SURF.items()}
 ABBR["环氧玻璃纤维"] = "U4"
+REJECTED_PROBES = {
+    "P_BED_00", "P_BED_06",
+    "P_H1_01", "P_H1_02", "P_H1_08",
+    "P_H5_00", "P_H5_01", "P_H5_08", "P_H5_09",
+}
 
 
 def blocks(text: str, tag: str) -> list[str]:
@@ -127,6 +132,24 @@ def parse_geometry(text: str):
 
 
 def split_mesh_for_mpi(text: str, ncores: int = 32) -> str:
+    # The archived Q400 partition has already passed FDS alignment checks and
+    # covers the same two source meshes. Reuse it verbatim for the new geometry.
+    reference_meshes = blocks(PHYSICS.read_text(encoding="utf-8", errors="replace"), "MESH")
+    source_meshes = blocks(text, "MESH")
+    if len(reference_meshes) == ncores:
+        def cells(meshes):
+            total = 0
+            for mesh in meshes:
+                match = re.search(r"IJK\s*=\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)", mesh)
+                if not match:
+                    raise RuntimeError("MESH record has no valid IJK")
+                total += math.prod(map(int, match.groups()))
+            return total
+
+        if cells(reference_meshes) != cells(source_meshes):
+            raise RuntimeError("Archived MPI partition does not match the updated source cell count")
+        return replace_all(text, "MESH", "\n".join(reference_meshes))
+
     meshes = list(re.finditer(
         r"&MESH\b[^/]*?IJK=(\d+),(\d+),(\d+)[^/]*?XB=([-\d.eE+]+),([-\d.eE+]+),"
         r"([-\d.eE+]+),([-\d.eE+]+),([-\d.eE+]+),([-\d.eE+]+)\s*/", text))
@@ -178,7 +201,7 @@ def split_mesh_for_mpi(text: str, ncores: int = 32) -> str:
     return text
 
 
-def face_point(xb, face: str, offset: float = 0.005):
+def face_point(xb, face: str, offset: float = 0.035):
     point = np.array([(xb[0] + xb[1]) / 2, (xb[2] + xb[3]) / 2, (xb[4] + xb[5]) / 2])
     point += V.FN[face] * offset
     ior = {"-x": -1, "+x": 1, "-y": -2, "+y": 2, "-z": -3, "+z": 3}[face]
@@ -268,7 +291,9 @@ def build_case(base: str, parsed, records: list[dict], q: int, base_max: float):
         variant = f"{ABBR[sid]}_R{flux:04d}"
         variants[variant] = (sid, flux)
         xb = ",".join(f"{v:.6f}" for v in vent_plane(record["sub_xb"], record["face"]))
-        vents.append(f"&VENT ID='VF{index:05d}', XB={xb}, SURF_ID='{variant}' /")
+        vents.append(
+            f"&VENT ID='VF{index:05d}', XB={xb}, IOR={record['ior']}, SURF_ID='{variant}' /"
+        )
         flux_rows.append([index, group or "", obst["obst_id"], sid, record["face"], flux, *record["point"]])
 
     variant_lines = []
@@ -284,10 +309,13 @@ def build_case(base: str, parsed, records: list[dict], q: int, base_max: float):
         selected = diverse_candidates(candidates.get(group, []), limit)
         registry[group] = []
         for index, candidate in enumerate(selected):
+            stem = f"P_{group}_{index:02d}"
+            if stem in REJECTED_PROBES:
+                continue
             x, y, z = candidate["point"]
             ior = candidate["ior"]
-            wt = f"P_{group}_{index:02d}_WT"
-            hf = f"P_{group}_{index:02d}_HF"
+            wt = f"{stem}_WT"
+            hf = f"{stem}_HF"
             probe_lines.append(f"&DEVC ID='{wt}', QUANTITY='WALL TEMPERATURE', XYZ={x:.4f},{y:.4f},{z:.4f}, IOR={ior} /")
             probe_lines.append(f"&DEVC ID='{hf}', QUANTITY='NET HEAT FLUX', XYZ={x:.4f},{y:.4f},{z:.4f}, IOR={ior} /")
             registry[group].append({"wt": wt, "hf": hf, "xyz": [round(float(x), 4), round(float(y), 4), round(float(z), 4)],

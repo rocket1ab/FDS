@@ -15,11 +15,12 @@ for summary in manifest["cases"]:
     assert "N_REACTIONS" not in text and not re.search(r"&MATL[\s\S]*?\bA=", text)
     assert "ID='\u7535\u529b\u4f20\u8f93\u5b50\u7cfb\u7edf'" in text and "THICKNESS(1)=1.0E-3" in text
     assert "ID='\u64cd\u7eb5\u5b50\u7cfb\u7edf'" in text and "THICKNESS(1)=2.0E-3" in text
-    assert summary["temperature_probes"] == 162
+    assert summary["temperature_probes"] == 153
     assert all(summary["probe_counts"].get(f"H{i}", 0) > 0 for i in range(1, 8))
     voxel_vents = re.findall(r"&VENT\s+ID='VF\d+'[\s\S]*?/", text)
     assert len(voxel_vents) == summary["illuminated_vents"]
     for vent in voxel_vents:
         values = [float(value) for value in re.search(r"XB=([^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+)", vent).group(1).split(",")]
         assert sum(abs(values[i] - values[i + 1]) < 1e-9 for i in (0, 2, 4)) == 1
+        assert re.search(r"\bIOR=-?[123]\b", vent)
 print("validated", len(manifest["cases"]), "cases")
