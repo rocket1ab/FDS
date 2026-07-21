@@ -76,6 +76,18 @@ bound exists, it bisects fluence to a 5 J/cm2 bracket. If Q400 is not all-severe
 the controller first raises only fluence by a factor of 1.5 (capped at
 1200 J/cm2) until a valid upper bound is found. Existing baseline queues remain
 unchanged and threshold cases use separate directories and CHIDs.
+
+## BED-only HRRPUA sensitivity (2026-07-22)
+
+The corrected Q400 threshold input shows BED probe peaks up to about 691 C but
+less than the required continuous 500 C by 5 s. The baseline treats the entire
+120 mm mattress as solid nylon (density 1140 kg/m3), so changing density or
+thickness without measured mattress mass and layer construction would not be
+defensible. A separate single-factor bounding case therefore changes only BED
+HRRPUA from 180 to 790 kW/m2. Q, yield, angle, geometry, material thermal
+properties, ignition temperature, BURN_AWAY, probes and criteria are unchanged.
+The 790 kW/m2 value is a cone-calorimeter upper-bound sensitivity for neat
+Nylon-6 at 35 kW/m2 exposure and is not a replacement for specimen data.
 Successful startup is not yet proof of stability: the v4 baseline must pass the
 previous 176.87 to 179.09 s failure window before the overlay-VENT hypothesis
 is supported, and normal completion at 1500 s remains the final acceptance
