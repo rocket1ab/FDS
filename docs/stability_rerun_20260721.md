@@ -70,3 +70,21 @@ previous 176.87 to 179.09 s failure window before the overlay-VENT hypothesis
 is supported, and normal completion at 1500 s remains the final acceptance
 criterion. The required production horizon was extended from the completed
 reference's 900 s to 1500 s before the formal queues were restarted.
+
+## Legacy-flux retirement and Q-normalized restart
+
+The v4 queues were stopped on 2026-07-21 after identifying a physical input
+normalization error. The old rule scaled a Q400 reference peak of 1749 kW/m2
+linearly, so its Q100 maximum local fluence was only 28.86 J/cm2 for the
+0.660398 s pulse integral. Numerical stability of those runs does not correct
+that mismatch, and their outputs are excluded from threshold conclusions.
+
+The v5 Q-normalized campaign computes the incident-plane peak as
+`E0 = 10 Q / integral(F dt)`. Geometry, visibility factors, materials, damage
+criteria, combustion parameters, RF=0.40, `BURN_AWAY=FALSE` and the 1500 s
+horizon are unchanged. Corrected local maxima are 48.539, 97.145, 194.223,
+291.368 and 388.512 J/cm2 for nominal Q50, Q100, Q200, Q300 and Q400.
+
+Node04 passed preflight and started corrected Q300. Node05 passed preflight and
+started corrected Q50, followed by Q200 and Q400. The already-running corrected
+Q100 remains on node01. No legacy v4 FDS process remains on node04 or node05.

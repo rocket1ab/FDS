@@ -38,10 +38,20 @@ remain unchanged. The case runs to 1500 s using a validated 20-process mesh
 partition on node01. A 0.01 s FDS preflight completed successfully before the
 formal run was launched.
 
-## Interpretation rule
+## Campaign decision
 
-This is an exploratory correction case, not a replacement baseline. If it
-still cannot damage H1-H7 at Q100, the next physically defensible step is to
-model internal electronic components and use documented electronics thermal
-failure criteria. Arbitrarily reducing the 3 mm aluminium shell thickness or
-raising HRRPUA is not accepted as evidence of a Q100 threshold.
+The legacy scaling is retired because its case label did not represent the
+specified incident-plane fluence. The Q-normalized formulation is now the only
+valid baseline for Q50, Q100, Q200, Q300 and Q400 comparisons. Existing legacy
+outputs are retained only as provenance and must not be used to infer a fluence
+threshold.
+
+Node01 continues the corrected Q100 comparison. Node04 runs corrected Q300,
+and node05 runs corrected Q50, Q200 and Q400 sequentially. Each production
+case runs to 1500 s and is accepted only after normal FDS completion and damage
+assessment.
+
+If corrected Q100 still cannot damage H1-H7, the next physically defensible
+step is to model internal electronic components and use documented electronics
+thermal failure criteria. Arbitrarily reducing the 3 mm aluminium shell
+thickness or raising HRRPUA is not accepted as evidence of a Q100 threshold.

@@ -1,0 +1,2025 @@
+{
+  "RADM": [
+    {
+      "wt": "P_RADM_00_WT",
+      "hf": "P_RADM_00_HF",
+      "xyz": [
+        -0.035,
+        0.0,
+        0.0
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_01_WT",
+      "hf": "P_RADM_01_HF",
+      "xyz": [
+        1.365,
+        -0.25,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_02_WT",
+      "hf": "P_RADM_02_HF",
+      "xyz": [
+        1.365,
+        0.0,
+        -0.95
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_03_WT",
+      "hf": "P_RADM_03_HF",
+      "xyz": [
+        1.165,
+        0.85,
+        0.05
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_04_WT",
+      "hf": "P_RADM_04_HF",
+      "xyz": [
+        1.265,
+        -0.85,
+        -0.15
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_05_WT",
+      "hf": "P_RADM_05_HF",
+      "xyz": [
+        0.665,
+        -0.45,
+        0.45
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_06_WT",
+      "hf": "P_RADM_06_HF",
+      "xyz": [
+        0.665,
+        -0.25,
+        -0.55
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_07_WT",
+      "hf": "P_RADM_07_HF",
+      "xyz": [
+        0.865,
+        0.35,
+        0.65
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_08_WT",
+      "hf": "P_RADM_08_HF",
+      "xyz": [
+        0.565,
+        0.45,
+        -0.35
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_RADM_09_WT",
+      "hf": "P_RADM_09_HF",
+      "xyz": [
+        1.265,
+        -0.75,
+        0.55
+      ],
+      "ior": -1,
+      "surface": "E-玻璃纤维",
+      "obst_id": "A01.stl",
+      "base_flux": 1250.0
+    }
+  ],
+  "WINS": [
+    {
+      "wt": "P_WINS_00_WT",
+      "hf": "P_WINS_00_HF",
+      "xyz": [
+        1.765,
+        0.35,
+        1.15
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 1150.0
+    },
+    {
+      "wt": "P_WINS_01_WT",
+      "hf": "P_WINS_01_HF",
+      "xyz": [
+        4.165,
+        -1.15,
+        1.35
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 950.0
+    },
+    {
+      "wt": "P_WINS_02_WT",
+      "hf": "P_WINS_02_HF",
+      "xyz": [
+        3.865,
+        1.25,
+        1.15
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 1150.0
+    },
+    {
+      "wt": "P_WINS_03_WT",
+      "hf": "P_WINS_03_HF",
+      "xyz": [
+        2.665,
+        -0.95,
+        1.15
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 950.0
+    },
+    {
+      "wt": "P_WINS_04_WT",
+      "hf": "P_WINS_04_HF",
+      "xyz": [
+        2.765,
+        0.85,
+        1.35
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 1100.0
+    },
+    {
+      "wt": "P_WINS_05_WT",
+      "hf": "P_WINS_05_HF",
+      "xyz": [
+        2.465,
+        -0.0,
+        1.75
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 1150.0
+    },
+    {
+      "wt": "P_WINS_06_WT",
+      "hf": "P_WINS_06_HF",
+      "xyz": [
+        2.065,
+        -0.45,
+        1.25
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 1150.0
+    },
+    {
+      "wt": "P_WINS_07_WT",
+      "hf": "P_WINS_07_HF",
+      "xyz": [
+        3.365,
+        -0.95,
+        1.45
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 950.0
+    },
+    {
+      "wt": "P_WINS_08_WT",
+      "hf": "P_WINS_08_HF",
+      "xyz": [
+        3.565,
+        0.85,
+        1.65
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 1100.0
+    },
+    {
+      "wt": "P_WINS_09_WT",
+      "hf": "P_WINS_09_HF",
+      "xyz": [
+        2.265,
+        0.45,
+        1.45
+      ],
+      "ior": -1,
+      "surface": "丙烯酸塑料",
+      "obst_id": "A03.stl",
+      "base_flux": 1150.0
+    }
+  ],
+  "BED": [
+    {
+      "wt": "P_BED_01_WT",
+      "hf": "P_BED_01_HF",
+      "xyz": [
+        6.95,
+        -1.0,
+        0.635
+      ],
+      "ior": 3,
+      "surface": "尼龙织物_床垫",
+      "obst_id": "U05.stl",
+      "base_flux": 250.0
+    },
+    {
+      "wt": "P_BED_02_WT",
+      "hf": "P_BED_02_HF",
+      "xyz": [
+        5.05,
+        -1.1714,
+        0.635
+      ],
+      "ior": 3,
+      "surface": "尼龙织物_床垫",
+      "obst_id": "U05.stl",
+      "base_flux": 300.0
+    },
+    {
+      "wt": "P_BED_03_WT",
+      "hf": "P_BED_03_HF",
+      "xyz": [
+        5.45,
+        -0.8286,
+        0.635
+      ],
+      "ior": 3,
+      "surface": "尼龙织物_床垫",
+      "obst_id": "U05.stl",
+      "base_flux": 200.0
+    },
+    {
+      "wt": "P_BED_04_WT",
+      "hf": "P_BED_04_HF",
+      "xyz": [
+        6.45,
+        -1.0857,
+        0.635
+      ],
+      "ior": 3,
+      "surface": "尼龙织物_床垫",
+      "obst_id": "U05.stl",
+      "base_flux": 250.0
+    },
+    {
+      "wt": "P_BED_05_WT",
+      "hf": "P_BED_05_HF",
+      "xyz": [
+        5.55,
+        -1.2571,
+        0.635
+      ],
+      "ior": 3,
+      "surface": "尼龙织物_床垫",
+      "obst_id": "U05.stl",
+      "base_flux": 200.0
+    },
+    {
+      "wt": "P_BED_07_WT",
+      "hf": "P_BED_07_HF",
+      "xyz": [
+        6.65,
+        -0.7429,
+        0.635
+      ],
+      "ior": 3,
+      "surface": "尼龙织物_床垫",
+      "obst_id": "U05.stl",
+      "base_flux": 100.0
+    },
+    {
+      "wt": "P_BED_08_WT",
+      "hf": "P_BED_08_HF",
+      "xyz": [
+        6.75,
+        -1.1714,
+        0.635
+      ],
+      "ior": 3,
+      "surface": "尼龙织物_床垫",
+      "obst_id": "U05.stl",
+      "base_flux": 300.0
+    },
+    {
+      "wt": "P_BED_09_WT",
+      "hf": "P_BED_09_HF",
+      "xyz": [
+        6.25,
+        -0.7429,
+        0.635
+      ],
+      "ior": 3,
+      "surface": "尼龙织物_床垫",
+      "obst_id": "U05.stl",
+      "base_flux": 150.0
+    }
+  ],
+  "CURT": [
+    {
+      "wt": "P_CURT_00_WT",
+      "hf": "P_CURT_00_HF",
+      "xyz": [
+        2.665,
+        0.75,
+        1.05
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U01.stl",
+      "base_flux": 1050.0
+    },
+    {
+      "wt": "P_CURT_01_WT",
+      "hf": "P_CURT_01_HF",
+      "xyz": [
+        5.965,
+        -0.45,
+        0.3
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U02.stl",
+      "base_flux": 1050.0
+    },
+    {
+      "wt": "P_CURT_02_WT",
+      "hf": "P_CURT_02_HF",
+      "xyz": [
+        4.065,
+        -1.15,
+        1.05
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U01.stl",
+      "base_flux": 900.0
+    },
+    {
+      "wt": "P_CURT_03_WT",
+      "hf": "P_CURT_03_HF",
+      "xyz": [
+        2.665,
+        -0.75,
+        1.05
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U01.stl",
+      "base_flux": 950.0
+    },
+    {
+      "wt": "P_CURT_04_WT",
+      "hf": "P_CURT_04_HF",
+      "xyz": [
+        4.065,
+        1.15,
+        1.05
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U01.stl",
+      "base_flux": 600.0
+    },
+    {
+      "wt": "P_CURT_05_WT",
+      "hf": "P_CURT_05_HF",
+      "xyz": [
+        5.965,
+        0.55,
+        0.75
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U02.stl",
+      "base_flux": 1000.0
+    },
+    {
+      "wt": "P_CURT_06_WT",
+      "hf": "P_CURT_06_HF",
+      "xyz": [
+        2.065,
+        0.0,
+        1.15
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U01.stl",
+      "base_flux": 900.0
+    },
+    {
+      "wt": "P_CURT_07_WT",
+      "hf": "P_CURT_07_HF",
+      "xyz": [
+        3.265,
+        0.75,
+        1.55
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U01.stl",
+      "base_flux": 1050.0
+    },
+    {
+      "wt": "P_CURT_08_WT",
+      "hf": "P_CURT_08_HF",
+      "xyz": [
+        2.665,
+        -0.15,
+        1.65
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U01.stl",
+      "base_flux": 900.0
+    },
+    {
+      "wt": "P_CURT_09_WT",
+      "hf": "P_CURT_09_HF",
+      "xyz": [
+        3.465,
+        -0.85,
+        1.45
+      ],
+      "ior": -1,
+      "surface": "尼龙织物_窗帘3mm",
+      "obst_id": "U01.stl",
+      "base_flux": 750.0
+    }
+  ],
+  "U4": [
+    {
+      "wt": "P_U4_00_WT",
+      "hf": "P_U4_00_HF",
+      "xyz": [
+        8.3761,
+        1.175,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "环氧玻璃纤维",
+      "obst_id": "U4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_U4_01_WT",
+      "hf": "P_U4_01_HF",
+      "xyz": [
+        8.4817,
+        1.125,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "环氧玻璃纤维",
+      "obst_id": "U4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_U4_02_WT",
+      "hf": "P_U4_02_HF",
+      "xyz": [
+        8.5872,
+        1.075,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "环氧玻璃纤维",
+      "obst_id": "U4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_U4_03_WT",
+      "hf": "P_U4_03_HF",
+      "xyz": [
+        8.6928,
+        1.025,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "环氧玻璃纤维",
+      "obst_id": "U4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_U4_04_WT",
+      "hf": "P_U4_04_HF",
+      "xyz": [
+        8.7983,
+        0.975,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "环氧玻璃纤维",
+      "obst_id": "U4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_U4_05_WT",
+      "hf": "P_U4_05_HF",
+      "xyz": [
+        8.9039,
+        0.0,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "环氧玻璃纤维",
+      "obst_id": "U4.stl",
+      "base_flux": 0.0
+    }
+  ],
+  "SEAT": [
+    {
+      "wt": "P_SEAT_00_WT",
+      "hf": "P_SEAT_00_HF",
+      "xyz": [
+        3.765,
+        -0.45,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 1050.0
+    },
+    {
+      "wt": "P_SEAT_01_WT",
+      "hf": "P_SEAT_01_HF",
+      "xyz": [
+        8.065,
+        -0.85,
+        0.45
+      ],
+      "ior": -1,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 500.0
+    },
+    {
+      "wt": "P_SEAT_02_WT",
+      "hf": "P_SEAT_02_HF",
+      "xyz": [
+        5.95,
+        0.55,
+        -1.065
+      ],
+      "ior": 3,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_SEAT_03_WT",
+      "hf": "P_SEAT_03_HF",
+      "xyz": [
+        7.565,
+        0.75,
+        0.45
+      ],
+      "ior": -1,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 900.0
+    },
+    {
+      "wt": "P_SEAT_04_WT",
+      "hf": "P_SEAT_04_HF",
+      "xyz": [
+        3.965,
+        0.75,
+        1.45
+      ],
+      "ior": -1,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 1000.0
+    },
+    {
+      "wt": "P_SEAT_05_WT",
+      "hf": "P_SEAT_05_HF",
+      "xyz": [
+        6.2,
+        -0.65,
+        0.035
+      ],
+      "ior": 3,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_SEAT_06_WT",
+      "hf": "P_SEAT_06_HF",
+      "xyz": [
+        3.265,
+        0.55,
+        0.45
+      ],
+      "ior": -1,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_SEAT_07_WT",
+      "hf": "P_SEAT_07_HF",
+      "xyz": [
+        7.55,
+        -0.65,
+        1.535
+      ],
+      "ior": 3,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_SEAT_08_WT",
+      "hf": "P_SEAT_08_HF",
+      "xyz": [
+        5.665,
+        -0.65,
+        -1.05
+      ],
+      "ior": -1,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_SEAT_09_WT",
+      "hf": "P_SEAT_09_HF",
+      "xyz": [
+        6.2,
+        0.55,
+        0.035
+      ],
+      "ior": 3,
+      "surface": "聚氨酯泡沫",
+      "obst_id": "U06.stl",
+      "base_flux": 0.0
+    }
+  ],
+  "AL2024": [
+    {
+      "wt": "P_AL2024_00_WT",
+      "hf": "P_AL2024_00_HF",
+      "xyz": [
+        1.365,
+        -0.15,
+        -0.95
+      ],
+      "ior": -1,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_AL2024_01_WT",
+      "hf": "P_AL2024_01_HF",
+      "xyz": [
+        9.9505,
+        0.175,
+        2.185
+      ],
+      "ior": 3,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 350.0
+    },
+    {
+      "wt": "P_AL2024_02_WT",
+      "hf": "P_AL2024_02_HF",
+      "xyz": [
+        6.565,
+        -1.05,
+        -1.65
+      ],
+      "ior": -1,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL2024_03_WT",
+      "hf": "P_AL2024_03_HF",
+      "xyz": [
+        4.565,
+        0.45,
+        2.05
+      ],
+      "ior": -1,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 600.0
+    },
+    {
+      "wt": "P_AL2024_04_WT",
+      "hf": "P_AL2024_04_HF",
+      "xyz": [
+        9.9153,
+        0.775,
+        -1.815
+      ],
+      "ior": 3,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL2024_05_WT",
+      "hf": "P_AL2024_05_HF",
+      "xyz": [
+        4.265,
+        1.25,
+        -1.55
+      ],
+      "ior": -1,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL2024_06_WT",
+      "hf": "P_AL2024_06_HF",
+      "xyz": [
+        3.665,
+        -1.45,
+        -0.25
+      ],
+      "ior": -1,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_AL2024_07_WT",
+      "hf": "P_AL2024_07_HF",
+      "xyz": [
+        7.0,
+        -1.45,
+        1.135
+      ],
+      "ior": 3,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL2024_08_WT",
+      "hf": "P_AL2024_08_HF",
+      "xyz": [
+        7.0,
+        1.45,
+        1.135
+      ],
+      "ior": 3,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL2024_09_WT",
+      "hf": "P_AL2024_09_HF",
+      "xyz": [
+        1.965,
+        0.25,
+        1.35
+      ],
+      "ior": -1,
+      "surface": "铝合金2024",
+      "obst_id": "A02.stl",
+      "base_flux": 1150.0
+    }
+  ],
+  "AL5052": [
+    {
+      "wt": "P_AL5052_00_WT",
+      "hf": "P_AL5052_00_HF",
+      "xyz": [
+        9.0972,
+        -1.1,
+        0.035
+      ],
+      "ior": 3,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_01_WT",
+      "hf": "P_AL5052_01_HF",
+      "xyz": [
+        9.625,
+        -1.1,
+        0.035
+      ],
+      "ior": 3,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_02_WT",
+      "hf": "P_AL5052_02_HF",
+      "xyz": [
+        9.3347,
+        -1.125,
+        0.385
+      ],
+      "ior": 3,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_03_WT",
+      "hf": "P_AL5052_03_HF",
+      "xyz": [
+        9.3875,
+        -1.1,
+        -0.065
+      ],
+      "ior": 3,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_04_WT",
+      "hf": "P_AL5052_04_HF",
+      "xyz": [
+        9.3261,
+        -1.075,
+        0.15
+      ],
+      "ior": -1,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_05_WT",
+      "hf": "P_AL5052_05_HF",
+      "xyz": [
+        9.2028,
+        -1.075,
+        0.435
+      ],
+      "ior": 3,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_06_WT",
+      "hf": "P_AL5052_06_HF",
+      "xyz": [
+        9.2206,
+        -1.125,
+        0.15
+      ],
+      "ior": -1,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_07_WT",
+      "hf": "P_AL5052_07_HF",
+      "xyz": [
+        9.2028,
+        -1.125,
+        0.335
+      ],
+      "ior": 3,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_08_WT",
+      "hf": "P_AL5052_08_HF",
+      "xyz": [
+        9.2556,
+        -1.075,
+        0.335
+      ],
+      "ior": 3,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL5052_09_WT",
+      "hf": "P_AL5052_09_HF",
+      "xyz": [
+        9.2733,
+        -1.125,
+        0.375
+      ],
+      "ior": -1,
+      "surface": "铝合金5052",
+      "obst_id": "C02.stl",
+      "base_flux": 0.0
+    }
+  ],
+  "AL7075": [
+    {
+      "wt": "P_AL7075_00_WT",
+      "hf": "P_AL7075_00_HF",
+      "xyz": [
+        1.565,
+        -0.85,
+        0.2
+      ],
+      "ior": -1,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_AL7075_01_WT",
+      "hf": "P_AL7075_01_HF",
+      "xyz": [
+        9.115,
+        1.475,
+        0.55
+      ],
+      "ior": -1,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL7075_02_WT",
+      "hf": "P_AL7075_02_HF",
+      "xyz": [
+        6.05,
+        -0.95,
+        -1.365
+      ],
+      "ior": 3,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL7075_03_WT",
+      "hf": "P_AL7075_03_HF",
+      "xyz": [
+        3.765,
+        0.7625,
+        -0.7969
+      ],
+      "ior": -1,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_AL7075_04_WT",
+      "hf": "P_AL7075_04_HF",
+      "xyz": [
+        8.8511,
+        -1.475,
+        -0.5
+      ],
+      "ior": -1,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL7075_05_WT",
+      "hf": "P_AL7075_05_HF",
+      "xyz": [
+        7.25,
+        1.35,
+        -1.365
+      ],
+      "ior": 3,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL7075_06_WT",
+      "hf": "P_AL7075_06_HF",
+      "xyz": [
+        3.765,
+        -1.45,
+        -0.2
+      ],
+      "ior": -1,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL7075_07_WT",
+      "hf": "P_AL7075_07_HF",
+      "xyz": [
+        5.6,
+        1.35,
+        0.135
+      ],
+      "ior": 3,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL7075_08_WT",
+      "hf": "P_AL7075_08_HF",
+      "xyz": [
+        7.6,
+        0.0,
+        0.135
+      ],
+      "ior": 3,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_AL7075_09_WT",
+      "hf": "P_AL7075_09_HF",
+      "xyz": [
+        1.565,
+        0.75,
+        0.25
+      ],
+      "ior": -1,
+      "surface": "铝合金7075",
+      "obst_id": "C01.stl",
+      "base_flux": 1250.0
+    }
+  ],
+  "O2TANK": [
+    {
+      "wt": "P_O2TANK_00_WT",
+      "hf": "P_O2TANK_00_HF",
+      "xyz": [
+        7.715,
+        -0.95,
+        0.35
+      ],
+      "ior": -1,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 900.0
+    },
+    {
+      "wt": "P_O2TANK_01_WT",
+      "hf": "P_O2TANK_01_HF",
+      "xyz": [
+        3.515,
+        0.95,
+        0.3
+      ],
+      "ior": -1,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_O2TANK_02_WT",
+      "hf": "P_O2TANK_02_HF",
+      "xyz": [
+        6.0,
+        1.05,
+        -1.165
+      ],
+      "ior": 3,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_O2TANK_03_WT",
+      "hf": "P_O2TANK_03_HF",
+      "xyz": [
+        7.715,
+        0.95,
+        0.35
+      ],
+      "ior": -1,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 900.0
+    },
+    {
+      "wt": "P_O2TANK_04_WT",
+      "hf": "P_O2TANK_04_HF",
+      "xyz": [
+        5.965,
+        -1.05,
+        -1.2
+      ],
+      "ior": -1,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_O2TANK_05_WT",
+      "hf": "P_O2TANK_05_HF",
+      "xyz": [
+        3.55,
+        -0.95,
+        0.335
+      ],
+      "ior": 3,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_O2TANK_06_WT",
+      "hf": "P_O2TANK_06_HF",
+      "xyz": [
+        7.715,
+        0.95,
+        0.25
+      ],
+      "ior": -1,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 800.0
+    },
+    {
+      "wt": "P_O2TANK_07_WT",
+      "hf": "P_O2TANK_07_HF",
+      "xyz": [
+        7.715,
+        -0.95,
+        0.45
+      ],
+      "ior": -1,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 800.0
+    },
+    {
+      "wt": "P_O2TANK_08_WT",
+      "hf": "P_O2TANK_08_HF",
+      "xyz": [
+        7.715,
+        0.95,
+        0.45
+      ],
+      "ior": -1,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 800.0
+    },
+    {
+      "wt": "P_O2TANK_09_WT",
+      "hf": "P_O2TANK_09_HF",
+      "xyz": [
+        7.715,
+        -0.95,
+        0.25
+      ],
+      "ior": -1,
+      "surface": "铝合金7075_氧气瓶",
+      "obst_id": "U03.stl",
+      "base_flux": 750.0
+    }
+  ],
+  "H1": [
+    {
+      "wt": "P_H1_00_WT",
+      "hf": "P_H1_00_HF",
+      "xyz": [
+        0.615,
+        -0.05,
+        0.45
+      ],
+      "ior": -1,
+      "surface": "导航子系统",
+      "obst_id": "H1.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_H1_03_WT",
+      "hf": "P_H1_03_HF",
+      "xyz": [
+        0.765,
+        -0.05,
+        0.55
+      ],
+      "ior": -1,
+      "surface": "导航子系统",
+      "obst_id": "H1.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_H1_04_WT",
+      "hf": "P_H1_04_HF",
+      "xyz": [
+        0.95,
+        -0.05,
+        0.585
+      ],
+      "ior": 3,
+      "surface": "导航子系统",
+      "obst_id": "H1.stl",
+      "base_flux": 350.0
+    },
+    {
+      "wt": "P_H1_05_WT",
+      "hf": "P_H1_05_HF",
+      "xyz": [
+        0.65,
+        -0.05,
+        0.485
+      ],
+      "ior": 3,
+      "surface": "导航子系统",
+      "obst_id": "H1.stl",
+      "base_flux": 350.0
+    },
+    {
+      "wt": "P_H1_06_WT",
+      "hf": "P_H1_06_HF",
+      "xyz": [
+        0.8,
+        -0.05,
+        0.535
+      ],
+      "ior": 3,
+      "surface": "导航子系统",
+      "obst_id": "H1.stl",
+      "base_flux": 350.0
+    },
+    {
+      "wt": "P_H1_07_WT",
+      "hf": "P_H1_07_HF",
+      "xyz": [
+        0.765,
+        -0.05,
+        0.45
+      ],
+      "ior": -1,
+      "surface": "导航子系统",
+      "obst_id": "H1.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H1_09_WT",
+      "hf": "P_H1_09_HF",
+      "xyz": [
+        7.85,
+        0.0,
+        -1.115
+      ],
+      "ior": 3,
+      "surface": "导航子系统",
+      "obst_id": "H1.stl",
+      "base_flux": 0.0
+    }
+  ],
+  "H2": [
+    {
+      "wt": "P_H2_00_WT",
+      "hf": "P_H2_00_HF",
+      "xyz": [
+        2.465,
+        -0.85,
+        -0.45
+      ],
+      "ior": -1,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_H2_01_WT",
+      "hf": "P_H2_01_HF",
+      "xyz": [
+        0.415,
+        -0.0,
+        0.0
+      ],
+      "ior": -1,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_H2_02_WT",
+      "hf": "P_H2_02_HF",
+      "xyz": [
+        3.4,
+        1.35,
+        -0.465
+      ],
+      "ior": 3,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H2_03_WT",
+      "hf": "P_H2_03_HF",
+      "xyz": [
+        1.265,
+        0.65,
+        -0.15
+      ],
+      "ior": -1,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_H2_04_WT",
+      "hf": "P_H2_04_HF",
+      "xyz": [
+        1.165,
+        -0.05,
+        0.65
+      ],
+      "ior": -1,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_H2_05_WT",
+      "hf": "P_H2_05_HF",
+      "xyz": [
+        2.465,
+        0.85,
+        -0.45
+      ],
+      "ior": -1,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 600.0
+    },
+    {
+      "wt": "P_H2_06_WT",
+      "hf": "P_H2_06_HF",
+      "xyz": [
+        1.265,
+        -0.65,
+        -0.15
+      ],
+      "ior": -1,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 600.0
+    },
+    {
+      "wt": "P_H2_07_WT",
+      "hf": "P_H2_07_HF",
+      "xyz": [
+        3.4,
+        -1.35,
+        -0.465
+      ],
+      "ior": 3,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H2_08_WT",
+      "hf": "P_H2_08_HF",
+      "xyz": [
+        0.765,
+        -0.45,
+        0.0
+      ],
+      "ior": -1,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 1250.0
+    },
+    {
+      "wt": "P_H2_09_WT",
+      "hf": "P_H2_09_HF",
+      "xyz": [
+        1.165,
+        -0.45,
+        0.35
+      ],
+      "ior": -1,
+      "surface": "任务子系统",
+      "obst_id": "H2.stl",
+      "base_flux": 1250.0
+    }
+  ],
+  "H3": [
+    {
+      "wt": "P_H3_00_WT",
+      "hf": "P_H3_00_HF",
+      "xyz": [
+        1.95,
+        0.0,
+        0.135
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_01_WT",
+      "hf": "P_H3_01_HF",
+      "xyz": [
+        9.0444,
+        0.0,
+        1.535
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_02_WT",
+      "hf": "P_H3_02_HF",
+      "xyz": [
+        5.75,
+        -1.25,
+        -0.765
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_03_WT",
+      "hf": "P_H3_03_HF",
+      "xyz": [
+        5.75,
+        1.25,
+        0.135
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_04_WT",
+      "hf": "P_H3_04_HF",
+      "xyz": [
+        3.15,
+        -1.15,
+        0.835
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_05_WT",
+      "hf": "P_H3_05_HF",
+      "xyz": [
+        3.15,
+        1.15,
+        0.835
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_06_WT",
+      "hf": "P_H3_06_HF",
+      "xyz": [
+        8.4903,
+        1.175,
+        0.435
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_07_WT",
+      "hf": "P_H3_07_HF",
+      "xyz": [
+        4.765,
+        0.0,
+        -0.35
+      ],
+      "ior": -1,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_08_WT",
+      "hf": "P_H3_08_HF",
+      "xyz": [
+        8.7014,
+        1.075,
+        1.535
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_09_WT",
+      "hf": "P_H3_09_HF",
+      "xyz": [
+        5.15,
+        -0.95,
+        0.135
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_10_WT",
+      "hf": "P_H3_10_HF",
+      "xyz": [
+        5.15,
+        0.95,
+        -0.765
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_11_WT",
+      "hf": "P_H3_11_HF",
+      "xyz": [
+        9.0444,
+        0.0,
+        0.435
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_12_WT",
+      "hf": "P_H3_12_HF",
+      "xyz": [
+        2.15,
+        -0.75,
+        0.835
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H3_13_WT",
+      "hf": "P_H3_13_HF",
+      "xyz": [
+        2.15,
+        0.75,
+        0.835
+      ],
+      "ior": 3,
+      "surface": "显示子系统",
+      "obst_id": "H3.stl",
+      "base_flux": 0.0
+    }
+  ],
+  "H4": [
+    {
+      "wt": "P_H4_00_WT",
+      "hf": "P_H4_00_HF",
+      "xyz": [
+        1.915,
+        -0.35,
+        1.0625
+      ],
+      "ior": -1,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 200.0
+    },
+    {
+      "wt": "P_H4_01_WT",
+      "hf": "P_H4_01_HF",
+      "xyz": [
+        1.915,
+        0.35,
+        1.0625
+      ],
+      "ior": -1,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 200.0
+    },
+    {
+      "wt": "P_H4_02_WT",
+      "hf": "P_H4_02_HF",
+      "xyz": [
+        1.865,
+        0.0,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H4_03_WT",
+      "hf": "P_H4_03_HF",
+      "xyz": [
+        1.95,
+        -0.35,
+        0.985
+      ],
+      "ior": 3,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 100.0
+    },
+    {
+      "wt": "P_H4_04_WT",
+      "hf": "P_H4_04_HF",
+      "xyz": [
+        1.95,
+        0.35,
+        0.985
+      ],
+      "ior": 3,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 100.0
+    },
+    {
+      "wt": "P_H4_05_WT",
+      "hf": "P_H4_05_HF",
+      "xyz": [
+        2.05,
+        -0.45,
+        0.985
+      ],
+      "ior": 3,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H4_06_WT",
+      "hf": "P_H4_06_HF",
+      "xyz": [
+        2.05,
+        0.45,
+        0.985
+      ],
+      "ior": 3,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H4_07_WT",
+      "hf": "P_H4_07_HF",
+      "xyz": [
+        1.915,
+        -0.35,
+        0.9125
+      ],
+      "ior": -1,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H4_08_WT",
+      "hf": "P_H4_08_HF",
+      "xyz": [
+        1.915,
+        0.35,
+        0.9125
+      ],
+      "ior": -1,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H4_09_WT",
+      "hf": "P_H4_09_HF",
+      "xyz": [
+        2.015,
+        -0.45,
+        0.95
+      ],
+      "ior": -1,
+      "surface": "通信子系统",
+      "obst_id": "H4.stl",
+      "base_flux": 0.0
+    }
+  ],
+  "H5": [
+    {
+      "wt": "P_H5_02_WT",
+      "hf": "P_H5_02_HF",
+      "xyz": [
+        8.165,
+        -0.35,
+        -0.6
+      ],
+      "ior": -1,
+      "surface": "电池",
+      "obst_id": "H5.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H5_03_WT",
+      "hf": "P_H5_03_HF",
+      "xyz": [
+        8.165,
+        0.35,
+        -0.6
+      ],
+      "ior": -1,
+      "surface": "电池",
+      "obst_id": "H5.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H5_04_WT",
+      "hf": "P_H5_04_HF",
+      "xyz": [
+        8.165,
+        -0.15,
+        -0.3429
+      ],
+      "ior": -1,
+      "surface": "电池",
+      "obst_id": "H5.stl",
+      "base_flux": 450.0
+    },
+    {
+      "wt": "P_H5_05_WT",
+      "hf": "P_H5_05_HF",
+      "xyz": [
+        8.165,
+        0.15,
+        -0.3429
+      ],
+      "ior": -1,
+      "surface": "电池",
+      "obst_id": "H5.stl",
+      "base_flux": 450.0
+    },
+    {
+      "wt": "P_H5_06_WT",
+      "hf": "P_H5_06_HF",
+      "xyz": [
+        8.165,
+        0.0,
+        -0.75
+      ],
+      "ior": -1,
+      "surface": "电池",
+      "obst_id": "H5.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H5_07_WT",
+      "hf": "P_H5_07_HF",
+      "xyz": [
+        8.165,
+        0.0,
+        -0.35
+      ],
+      "ior": -1,
+      "surface": "电池",
+      "obst_id": "H5.stl",
+      "base_flux": 450.0
+    }
+  ],
+  "H6": [
+    {
+      "wt": "P_H6_00_WT",
+      "hf": "P_H6_00_HF",
+      "xyz": [
+        8.2706,
+        0.0,
+        -0.125
+      ],
+      "ior": -1,
+      "surface": "电力传输子系统",
+      "obst_id": "H6.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H6_01_WT",
+      "hf": "P_H6_01_HF",
+      "xyz": [
+        8.3056,
+        0.0,
+        -0.09
+      ],
+      "ior": 3,
+      "surface": "电力传输子系统",
+      "obst_id": "H6.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H6_02_WT",
+      "hf": "P_H6_02_HF",
+      "xyz": [
+        8.3497,
+        0.0,
+        -0.175
+      ],
+      "ior": -1,
+      "surface": "电力传输子系统",
+      "obst_id": "H6.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H6_03_WT",
+      "hf": "P_H6_03_HF",
+      "xyz": [
+        8.3847,
+        0.0,
+        -0.14
+      ],
+      "ior": 3,
+      "surface": "电力传输子系统",
+      "obst_id": "H6.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H6_04_WT",
+      "hf": "P_H6_04_HF",
+      "xyz": [
+        8.2264,
+        0.0,
+        -0.065
+      ],
+      "ior": 3,
+      "surface": "电力传输子系统",
+      "obst_id": "H6.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H6_05_WT",
+      "hf": "P_H6_05_HF",
+      "xyz": [
+        8.4375,
+        0.0,
+        -0.165
+      ],
+      "ior": 3,
+      "surface": "电力传输子系统",
+      "obst_id": "H6.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H6_06_WT",
+      "hf": "P_H6_06_HF",
+      "xyz": [
+        8.4903,
+        0.0,
+        -0.215
+      ],
+      "ior": 3,
+      "surface": "电力传输子系统",
+      "obst_id": "H6.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H6_07_WT",
+      "hf": "P_H6_07_HF",
+      "xyz": [
+        8.4289,
+        0.0,
+        -0.225
+      ],
+      "ior": -1,
+      "surface": "电力传输子系统",
+      "obst_id": "H6.stl",
+      "base_flux": 0.0
+    }
+  ],
+  "H7": [
+    {
+      "wt": "P_H7_00_WT",
+      "hf": "P_H7_00_HF",
+      "xyz": [
+        3.215,
+        -0.15,
+        0.65
+      ],
+      "ior": -1,
+      "surface": "操纵子系统",
+      "obst_id": "H7.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H7_01_WT",
+      "hf": "P_H7_01_HF",
+      "xyz": [
+        3.25,
+        -0.15,
+        0.685
+      ],
+      "ior": 3,
+      "surface": "操纵子系统",
+      "obst_id": "H7.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H7_02_WT",
+      "hf": "P_H7_02_HF",
+      "xyz": [
+        2.415,
+        0.0,
+        0.3
+      ],
+      "ior": -1,
+      "surface": "操纵子系统",
+      "obst_id": "H7.stl",
+      "base_flux": 0.0
+    },
+    {
+      "wt": "P_H7_03_WT",
+      "hf": "P_H7_03_HF",
+      "xyz": [
+        2.45,
+        0.0,
+        0.335
+      ],
+      "ior": 3,
+      "surface": "操纵子系统",
+      "obst_id": "H7.stl",
+      "base_flux": 0.0
+    }
+  ]
+}

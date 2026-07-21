@@ -37,8 +37,11 @@ def main() -> None:
             if status.get("state") in {"queue_complete", "queue_failed"}:
                 return
             case = status.get("case")
-            if case and case.endswith(("_v3_stable", "_v4_legacy_stable")):
-                case_dir = "cases_legacy_stable" if case.endswith("_v4_legacy_stable") else "cases_stable"
+            if case and case.endswith(("_v3_stable", "_v4_legacy_stable", "_v5_Qnorm")):
+                if case.endswith("_v5_Qnorm"):
+                    case_dir = "cases_qnorm"
+                else:
+                    case_dir = "cases_legacy_stable" if case.endswith("_v4_legacy_stable") else "cases_stable"
                 log_path = ROOT / case_dir / case / "run.log"
                 if log_path.exists():
                     tail = log_path.read_bytes()[-65536:].decode("utf-8", errors="replace")
@@ -48,6 +51,8 @@ def main() -> None:
                         status.update(
                             time_step=int(step),
                             simulation_time_s=float(sim_time),
+                            fds_processes=32,
+                            busy_reason="running_corrected_qnorm_case",
                             progress_source="run.log",
                             updated_at=stamp(),
                         )
