@@ -156,3 +156,22 @@ orientation and imposed flux, so specimen-specific values remain preferable.
 `BURN_AWAY` is not expected to increase heat release by itself. It tests the
 competing effects of opening radiative/flow paths and removing sustained fuel.
 Its result must not be interpreted as a material calibration.
+# 2026-07-22 surface-layer thickness audit
+
+The active corrected baselines and threshold campaign were preserved unchanged. A new,
+separately named Q100 sensitivity case was generated to correct values that had treated
+component depth as FDS one-dimensional `SURF` material-layer thickness:
+
+| Group | Previous | Audited value | Basis |
+|---|---:|---:|---|
+| RADM E-glass | 120 mm | 100 mm | restored latest PyroSim export; still pending specimen verification |
+| WINS acrylic | 75 mm | 25 mm | restored latest PyroSim export |
+| BED nylon cover | 120 mm | 0.89 mm | conservative representative nylon upholstery-fabric upper value; provisional |
+| CURT nylon fabric | 30 mm | 3 mm | restored latest PyroSim export and matches material name |
+| U4 epoxy GFRP | 30 mm | 6 mm | restored latest PyroSim export |
+
+The seat foam core (150 mm), metal skins and H1-H7 equipment thicknesses were retained.
+The `OBST` geometry, Q=100 J/cm2 incident-plane normalization, W=100 kt, azimuth 270,
+elevation 15, HRRPUA, ignition temperatures, probes and damage criteria are unchanged.
+All base and radiation-bin-derived `SURF` records are updated together by
+`src/build_q100_thickness_corrected_variant.py`.

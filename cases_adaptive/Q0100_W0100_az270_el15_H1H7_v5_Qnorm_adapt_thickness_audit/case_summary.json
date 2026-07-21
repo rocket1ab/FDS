@@ -1,0 +1,311 @@
+{
+  "case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_thickness_audit",
+  "purpose": "surface_layer_thickness_audit",
+  "Q_J_cm2": 100.0,
+  "yield_kt": 100,
+  "azimuth_deg": 270,
+  "elevation_deg": 15,
+  "t_end_s": 1500,
+  "mpi": 20,
+  "burn_away": false,
+  "nuclear_ramp_integral_s": 0.6603982070000001,
+  "plane_peak_irradiance_kw_m2": 1514.237908886388,
+  "max_local_external_flux_kw_m2": 1471,
+  "max_local_fluence_J_cm2": 97.14457624970002,
+  "removed_overlay_vents": 1912,
+  "removed_old_surface_variants": 99,
+  "domain_vents": 2,
+  "split_source_obstacles": 2643,
+  "generated_flux_obstacles": 3838,
+  "flux_surface_variants_used": 99,
+  "materials_changed": false,
+  "damage_thresholds_changed": false,
+  "adaptive_variant": true,
+  "source_case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm",
+  "changed_factor": "surface_layer_thickness_only",
+  "thickness_m": {
+    "RADM": 0.1,
+    "WINS": 0.025,
+    "BED": 0.00089,
+    "CURT": 0.003,
+    "U4": 0.006
+  },
+  "thickness_surface_blocks_changed": {
+    "RADM": 6,
+    "WINS": 15,
+    "BED": 10,
+    "CURT": 19,
+    "U4": 1
+  },
+  "thickness_change_records": {
+    "RADM": [
+      {
+        "surface_id": "E-玻璃纤维",
+        "old_m": 0.12,
+        "new_m": 0.1
+      },
+      {
+        "surface_id": "RADM_R0176",
+        "old_m": 0.12,
+        "new_m": 0.1
+      },
+      {
+        "surface_id": "RADM_R0412",
+        "old_m": 0.12,
+        "new_m": 0.1
+      },
+      {
+        "surface_id": "RADM_R0706",
+        "old_m": 0.12,
+        "new_m": 0.1
+      },
+      {
+        "surface_id": "RADM_R1118",
+        "old_m": 0.12,
+        "new_m": 0.1
+      },
+      {
+        "surface_id": "RADM_R1471",
+        "old_m": 0.12,
+        "new_m": 0.1
+      }
+    ],
+    "WINS": [
+      {
+        "surface_id": "丙烯酸塑料",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0176",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0235",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0294",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0353",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0412",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0588",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0647",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0706",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R0941",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R1000",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R1118",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R1177",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R1294",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R1353",
+        "old_m": 0.075,
+        "new_m": 0.025
+      }
+    ],
+    "BED": [
+      {
+        "surface_id": "尼龙织物_床垫",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0118",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0176",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0235",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0294",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0353",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0588",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0647",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0765",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R0882",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      }
+    ],
+    "CURT": [
+      {
+        "surface_id": "尼龙织物_窗帘3mm",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0118",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0176",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0235",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0294",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0353",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0471",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0529",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0588",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0647",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0706",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0824",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0882",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R0941",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R1000",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R1059",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R1118",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R1177",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R1235",
+        "old_m": 0.03,
+        "new_m": 0.003
+      }
+    ],
+    "U4": [
+      {
+        "surface_id": "环氧玻璃纤维",
+        "old_m": 0.03,
+        "new_m": 0.006
+      }
+    ]
+  },
+  "source_note": "WINS/CURT/U4/RADM values restore Separated_merge_20260720.fds; BED 0.89 mm is the upper nylon-containing upholstery-fabric thickness reported in NBSIR 85-3280 Table 20 and remains provisional pending measured data",
+  "geometry_changed": false,
+  "external_flux_changed": false,
+  "combustion_changed": false
+}
