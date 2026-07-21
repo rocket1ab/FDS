@@ -38,6 +38,7 @@
   "generated_flux_obstacles": 3838,
   "flux_surface_variants_used": 99,
   "legacy_reference": "Q50_W100_el15_BA0_RF40_B1",
+  "radiative_fraction": 0.4,
   "peak_hrrpua_changed": false,
   "external_flux_changed": false
 }

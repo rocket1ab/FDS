@@ -133,11 +133,16 @@ def build_one(q: int, obsts: list[dict], records: list[dict], base_max: float) -
         r"(&HEAD\b[^/]*CHID\s*=\s*')[^']+(')", rf"\g<1>{case_name}\g<2>", text, count=1, flags=re.I
     )
     text = re.sub(r"(T_END\s*=\s*)[-+\d.E]+", r"\g<1>900.0", text, count=1, flags=re.I)
+    text, reaction_count = re.subn(
+        r"(RADIATIVE_FRACTION\s*=\s*)[-+\d.E]+", r"\g<1>0.40", text, count=1, flags=re.I
+    )
+    if reaction_count != 1:
+        raise RuntimeError(f"Could not set completed-reference radiative fraction in {case_name}")
     text = add_clip(text)
     note = (
         "! v4_legacy_stable: updated H1-H7 geometry with completed legacy OBST/SURF_ID6 flux injection.\n"
         "! The generated VF overlay vents are removed; peak flux and material parameters are unchanged.\n"
-        "! Numerical baseline matches completed Q50_W100_el15_BA0_RF40_B1: CLIP + original Q_RAMP.\n"
+        "! Baseline matches completed Q50_W100_el15_BA0_RF40_B1: RF=0.40, CLIP, original Q_RAMP.\n"
     )
     fds_path = case_dir / f"{case_name}.fds"
     fds_path.write_text(note + text, encoding="utf-8")
@@ -157,6 +162,7 @@ def build_one(q: int, obsts: list[dict], records: list[dict], base_max: float) -
         "generated_flux_obstacles": generated_obsts,
         "flux_surface_variants_used": len(all_variants),
         "legacy_reference": "Q50_W100_el15_BA0_RF40_B1",
+        "radiative_fraction": 0.40,
         "peak_hrrpua_changed": False,
         "external_flux_changed": False,
     })

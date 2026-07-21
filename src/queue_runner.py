@@ -171,7 +171,7 @@ def run_case(node: str, case_name: str):
                                 capture_output=True, text=True)
     (case_dir / "assessment.log").write_text(assessment.stdout + assessment.stderr, encoding="utf-8")
     write_status(node, state="case_complete" if assessment.returncode == 0 else "case_failed",
-                 case=case_name, fds_exit_code=result.returncode, assessment_exit_code=assessment.returncode,
+                 case=case_name, fds_exit_code=result_code, assessment_exit_code=assessment.returncode,
                  completed_at=stamp())
     return assessment.returncode == 0
 
