@@ -88,3 +88,19 @@ horizon are unchanged. Corrected local maxima are 48.539, 97.145, 194.223,
 Node04 passed preflight and started corrected Q300. Node05 passed preflight and
 started corrected Q50, followed by Q200 and Q400. The already-running corrected
 Q100 remains on node01. No legacy v4 FDS process remains on node04 or node05.
+
+## Probe geometry QA and v6 correction
+
+Geometry QA compared every WT/HF pair with the current FDS DEVC records and
+the oriented material face after 0.1 m grid snapping. The v5 registry contained
+153 paired WT/HF locations; 147 passed and six were more than one cell from the
+intended face: O2TANK 02/05, H1 09, H2 08/09 and H7 02.
+
+Live v5 assessment now excludes those six IDs while retaining the remaining
+valid redundant probes. The separate `cases_probe_corrected` v6 campaign moves
+only those six WT/HF pairs to a 0.035 m offset from the intended material face.
+All five Q50-Q400 v6 inputs pass 153/153 geometry QA. External flux, geometry,
+materials, pulse, combustion and damage criteria are unchanged. Existing v5
+runs were not modified or restarted. `BNDF WALL TEMPERATURE` and
+`BNDF NET HEAT FLUX` remain enabled, providing a full-surface field cross-check
+after each run completes.

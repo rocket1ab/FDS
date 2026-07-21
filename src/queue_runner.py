@@ -17,6 +17,8 @@ SSH_OPTIONS = ["-o", "ConnectTimeout=15", "-o", "ServerAliveInterval=30", "-o", 
 
 
 def case_root(case_name: str) -> Path:
+    if case_name.endswith("_v6_probe_fixed"):
+        return ROOT / "cases_probe_corrected"
     if case_name.endswith("_v5_Qnorm"):
         return ROOT / "cases_qnorm"
     if case_name.endswith("_v4_legacy_stable"):

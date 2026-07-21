@@ -1,0 +1,110 @@
+[
+  {
+    "group": "O2TANK",
+    "wt": "P_O2TANK_02_WT",
+    "hf": "P_O2TANK_02_HF",
+    "old_xyz": [
+      6.0,
+      1.05,
+      -1.165
+    ],
+    "new_xyz": [
+      6.0,
+      1.05,
+      -0.965
+    ],
+    "ior": 3,
+    "old_face_distance_m": 0.16500000000000004,
+    "new_face_distance_m": 0.035
+  },
+  {
+    "group": "O2TANK",
+    "wt": "P_O2TANK_05_WT",
+    "hf": "P_O2TANK_05_HF",
+    "old_xyz": [
+      3.55,
+      -0.95,
+      0.335
+    ],
+    "new_xyz": [
+      3.55,
+      -0.95,
+      0.535
+    ],
+    "ior": 3,
+    "old_face_distance_m": 0.16499999999999998,
+    "new_face_distance_m": 0.035
+  },
+  {
+    "group": "H1",
+    "wt": "P_H1_09_WT",
+    "hf": "P_H1_09_HF",
+    "old_xyz": [
+      7.85,
+      0.0,
+      -1.115
+    ],
+    "new_xyz": [
+      7.85,
+      0.0,
+      -0.965
+    ],
+    "ior": 3,
+    "old_face_distance_m": 0.11499999999999999,
+    "new_face_distance_m": 0.035
+  },
+  {
+    "group": "H2",
+    "wt": "P_H2_08_WT",
+    "hf": "P_H2_08_HF",
+    "old_xyz": [
+      0.765,
+      -0.45,
+      0.0
+    ],
+    "new_xyz": [
+      0.865,
+      -0.45,
+      0.0
+    ],
+    "ior": -1,
+    "old_face_distance_m": 0.135,
+    "new_face_distance_m": 0.035
+  },
+  {
+    "group": "H2",
+    "wt": "P_H2_09_WT",
+    "hf": "P_H2_09_HF",
+    "old_xyz": [
+      1.165,
+      -0.45,
+      0.35
+    ],
+    "new_xyz": [
+      0.965,
+      -0.45,
+      0.35
+    ],
+    "ior": -1,
+    "old_face_distance_m": 0.16500000000000004,
+    "new_face_distance_m": 0.035
+  },
+  {
+    "group": "H7",
+    "wt": "P_H7_02_WT",
+    "hf": "P_H7_02_HF",
+    "old_xyz": [
+      2.415,
+      0.0,
+      0.3
+    ],
+    "new_xyz": [
+      2.265,
+      0.0,
+      0.3
+    ],
+    "ior": -1,
+    "old_face_distance_m": 0.11500000000000021,
+    "new_face_distance_m": 0.035
+  }
+]

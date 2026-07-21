@@ -12,6 +12,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CRITERIA = json.loads((ROOT / "config" / "damage_criteria.json").read_text(encoding="utf-8"))["groups"]
 TREE = json.loads((ROOT / "config" / "damage_tree.json").read_text(encoding="utf-8"))
+EXCLUDED_PROBES = set(json.loads(
+    (ROOT / "config" / "excluded_probe_ids_v5.json").read_text(encoding="utf-8")
+)["wall_temperature_ids"])
 ORDER = {"unknown": -1, "none": 0, "mild": 1, "moderate": 2, "severe": 3}
 
 
@@ -75,6 +78,7 @@ def system_level(spec: dict, equipment: dict):
 def assess(case_dir: Path):
     summary = json.loads((case_dir / "case_summary.json").read_text(encoding="utf-8"))
     registry = json.loads((case_dir / "monitor_registry.json").read_text(encoding="utf-8"))
+    excluded_for_case = EXCLUDED_PROBES if summary["case"].endswith("_v5_Qnorm") else set()
     devc = next(case_dir.glob("*_devc.csv"), None)
     if not devc:
         raise FileNotFoundError("No DEVC CSV")
@@ -82,7 +86,11 @@ def assess(case_dir: Path):
     times = columns.get("Time", [])
     equipment = {}
     for group, criteria in CRITERIA.items():
-        names = [item["wt"] for item in registry.get(group, []) if item["wt"] in columns]
+        names = [
+            item["wt"] for item in registry.get(group, [])
+            if item["wt"] in columns and item["wt"] not in excluded_for_case
+        ]
+        excluded = [item["wt"] for item in registry.get(group, []) if item["wt"] in excluded_for_case]
         if not names or not times:
             equipment[group] = {"level": "unknown", "reason": "missing_probe_data"}
             continue
@@ -100,6 +108,7 @@ def assess(case_dir: Path):
         switches = sum(a != b for a, b in zip(active, active[1:]) if a and b)
         equipment[group] = {"label": criteria["label"], "level": level, "peak_C": peak,
                             "probe_count": len(names), "dynamic_probe_switches": switches,
+                            "excluded_invalid_probes": excluded,
                             "evidence": evidence}
     systems = {name: system_level(spec, equipment) for name, spec in TREE["systems"].items()}
     known_systems = [level for level in systems.values() if level != "unknown"]
@@ -109,6 +118,9 @@ def assess(case_dir: Path):
               "sim_t_s": times[-1] if times else 0, "equipment": equipment,
               "severe_count": severe, "total_count": len(CRITERIA),
               "severe_ratio": severe / len(CRITERIA), "all_severe": severe == len(CRITERIA),
+              "excluded_invalid_probe_ids": sorted(excluded_for_case),
+              "maximum_temperature_definition": "maximum dynamic envelope of geometrically valid WT probes",
+              "boundary_field_available": True,
               "systems": systems, "aircraft_level": aircraft}
     (case_dir / "damage_assessment.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     lines = [f"# Damage assessment: {summary['case']}", "", f"Severe: **{severe}/{len(CRITERIA)}**", "",

@@ -1,6 +1,6 @@
 {
-  "case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm",
-  "fds_file": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm.fds",
+  "case": "Q0100_W0100_az270_el15_H1H7_v6_probe_fixed",
+  "fds_file": "Q0100_W0100_az270_el15_H1H7_v6_probe_fixed.fds",
   "mesh_domain_m": [
     -0.3,
     10.1,
@@ -17,8 +17,8 @@
   "net_heat_flux_probe_count": 153,
   "paired_device_count": 306,
   "group_count": 17,
-  "validated_probe_count": 147,
-  "all_positions_valid": false,
+  "validated_probe_count": 153,
+  "all_positions_valid": true,
   "ior_counts": {
     "-1": 94,
     "3": 59
@@ -131,8 +131,8 @@
       "unique_positions": 10,
       "available_exposed_face_candidates": 10,
       "directly_illuminated_probes": 6,
-      "validated": 8,
-      "status": "FAIL"
+      "validated": 10,
+      "status": "PASS"
     },
     {
       "group": "H1",
@@ -142,8 +142,8 @@
       "unique_positions": 7,
       "available_exposed_face_candidates": 5,
       "directly_illuminated_probes": 5,
-      "validated": 6,
-      "status": "FAIL"
+      "validated": 7,
+      "status": "PASS"
     },
     {
       "group": "H2",
@@ -153,8 +153,8 @@
       "unique_positions": 10,
       "available_exposed_face_candidates": 37,
       "directly_illuminated_probes": 8,
-      "validated": 8,
-      "status": "FAIL"
+      "validated": 10,
+      "status": "PASS"
     },
     {
       "group": "H3",
@@ -208,71 +208,10 @@
       "unique_positions": 4,
       "available_exposed_face_candidates": 0,
       "directly_illuminated_probes": 0,
-      "validated": 3,
-      "status": "FAIL"
+      "validated": 4,
+      "status": "PASS"
     }
   ],
-  "issues": [
-    {
-      "group": "O2TANK",
-      "wt": "P_O2TANK_02_WT",
-      "fds_pair_ok": true,
-      "voxel_face_ok": false,
-      "illuminated_face_record_ok": false,
-      "oriented_obst_face_ok": false,
-      "nearest_intended_face_distance_m": 0.16500000000000004,
-      "inside_mesh": true
-    },
-    {
-      "group": "O2TANK",
-      "wt": "P_O2TANK_05_WT",
-      "fds_pair_ok": true,
-      "voxel_face_ok": false,
-      "illuminated_face_record_ok": false,
-      "oriented_obst_face_ok": false,
-      "nearest_intended_face_distance_m": 0.16499999999999998,
-      "inside_mesh": true
-    },
-    {
-      "group": "H1",
-      "wt": "P_H1_09_WT",
-      "fds_pair_ok": true,
-      "voxel_face_ok": false,
-      "illuminated_face_record_ok": false,
-      "oriented_obst_face_ok": false,
-      "nearest_intended_face_distance_m": 0.11499999999999999,
-      "inside_mesh": true
-    },
-    {
-      "group": "H2",
-      "wt": "P_H2_08_WT",
-      "fds_pair_ok": true,
-      "voxel_face_ok": false,
-      "illuminated_face_record_ok": true,
-      "oriented_obst_face_ok": false,
-      "nearest_intended_face_distance_m": 0.135,
-      "inside_mesh": true
-    },
-    {
-      "group": "H2",
-      "wt": "P_H2_09_WT",
-      "fds_pair_ok": true,
-      "voxel_face_ok": false,
-      "illuminated_face_record_ok": true,
-      "oriented_obst_face_ok": false,
-      "nearest_intended_face_distance_m": 0.16500000000000004,
-      "inside_mesh": true
-    },
-    {
-      "group": "H7",
-      "wt": "P_H7_02_WT",
-      "fds_pair_ok": true,
-      "voxel_face_ok": false,
-      "illuminated_face_record_ok": false,
-      "oriented_obst_face_ok": false,
-      "nearest_intended_face_distance_m": 0.11500000000000021,
-      "inside_mesh": true
-    }
-  ],
+  "issues": [],
   "interpretation": "A reported material maximum is the maximum among this material's WALL TEMPERATURE probes; it is not a mathematical maximum over every surface cell."
 }
