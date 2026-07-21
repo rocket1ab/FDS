@@ -46,7 +46,7 @@ non-overlapping Cartesian sub-blocks before face properties are assigned.
 
 The first v4 comparison deliberately uses the completed reference controls:
 `RADIATIVE_FRACTION=0.40`, `CLIP`, the original `Q_RAMP`,
-`BURN_AWAY=FALSE` and `T_END=900 s`. This isolates the updated geometry and
+`BURN_AWAY=FALSE` and `T_END=1500 s`. This isolates the updated geometry and
 flux-boundary representation from unrelated numerical changes.
 
 ## Queue allocation
@@ -67,5 +67,6 @@ Both node preflights passed on 2026-07-21. The formal RF=0.40 queues then
 started with Q100 on node04 and Q50 on node05, each using 32 FDS processes.
 Successful startup is not yet proof of stability: the v4 baseline must pass the
 previous 176.87 to 179.09 s failure window before the overlay-VENT hypothesis
-is supported, and normal completion at 900 s remains the final acceptance
-criterion.
+is supported, and normal completion at 1500 s remains the final acceptance
+criterion. The required production horizon was extended from the completed
+reference's 900 s to 1500 s before the formal queues were restarted.

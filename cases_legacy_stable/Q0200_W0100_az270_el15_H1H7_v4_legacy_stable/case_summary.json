@@ -4,7 +4,7 @@
   "yield_kt": 100,
   "azimuth_deg": 270,
   "elevation_deg": 15,
-  "t_end_s": 900,
+  "t_end_s": 1500,
   "mpi": 32,
   "burn_away": false,
   "surface_variants": 99,

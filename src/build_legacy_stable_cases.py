@@ -132,7 +132,7 @@ def build_one(q: int, obsts: list[dict], records: list[dict], base_max: float) -
     text = re.sub(
         r"(&HEAD\b[^/]*CHID\s*=\s*')[^']+(')", rf"\g<1>{case_name}\g<2>", text, count=1, flags=re.I
     )
-    text = re.sub(r"(T_END\s*=\s*)[-+\d.E]+", r"\g<1>900.0", text, count=1, flags=re.I)
+    text = re.sub(r"(T_END\s*=\s*)[-+\d.E]+", r"\g<1>1500.0", text, count=1, flags=re.I)
     text, reaction_count = re.subn(
         r"(RADIATIVE_FRACTION\s*=\s*)[-+\d.E]+", r"\g<1>0.40", text, count=1, flags=re.I
     )
@@ -152,7 +152,7 @@ def build_one(q: int, obsts: list[dict], records: list[dict], base_max: float) -
     summary = json.loads((source_dir / "case_summary.json").read_text(encoding="utf-8"))
     summary.update({
         "case": case_name,
-        "t_end_s": 900,
+        "t_end_s": 1500,
         "stability_version": "v4_legacy_stable",
         "flux_injection": "split_obst_surf_id6",
         "removed_overlay_vents": removed_vents,
