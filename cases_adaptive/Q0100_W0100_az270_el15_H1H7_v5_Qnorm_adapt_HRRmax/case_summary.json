@@ -1,0 +1,47 @@
+{
+  "case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRmax",
+  "purpose": "same_Q_measured_peak_HRRPUA_sensitivity",
+  "Q_J_cm2": 100.0,
+  "yield_kt": 100,
+  "azimuth_deg": 270,
+  "elevation_deg": 15,
+  "t_end_s": 1500,
+  "mpi": 20,
+  "burn_away": false,
+  "nuclear_ramp_integral_s": 0.6603982070000001,
+  "plane_peak_irradiance_kw_m2": 1514.237908886388,
+  "max_local_external_flux_kw_m2": 1471,
+  "max_local_fluence_J_cm2": 97.14457624970002,
+  "removed_overlay_vents": 1912,
+  "removed_old_surface_variants": 99,
+  "domain_vents": 2,
+  "split_source_obstacles": 2643,
+  "generated_flux_obstacles": 3838,
+  "flux_surface_variants_used": 99,
+  "materials_changed": true,
+  "damage_thresholds_changed": false,
+  "adaptive_variant": true,
+  "source_case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm",
+  "changed_factor": "HRRPUA_only",
+  "hrrpua_kw_m2": {
+    "NLZW_BED": 790.0,
+    "NLZW_CURT": 324.0,
+    "JAZPM": 860.0,
+    "PVCSL": 259.0,
+    "CRXJ": 458.0
+  },
+  "modified_surface_blocks": {
+    "NLZW_BED": 10,
+    "NLZW_CURT": 19,
+    "JAZPM": 17,
+    "PVCSL": 1,
+    "CRXJ": 1
+  },
+  "hrrpua_sources": {
+    "NLZW_BED": "Polymer 47 (2006), neat Nylon-6 cone test at 35 kW/m2, peak 790 kW/m2",
+    "NLZW_CURT": "NIST transportation-material cone table, privacy curtain, maximum peak 324 kW/m2",
+    "JAZPM": "Aircraft-cabin raw PU cone study, peak 859.9 kW/m2, rounded to 860",
+    "PVCSL": "IAFSS PVC cone tests at 50 kW/m2, maximum peak 259 kW/m2",
+    "CRXJ": "NIST transportation-material cone table, chloroprene diaphragm, maximum peak 458 kW/m2"
+  }
+}

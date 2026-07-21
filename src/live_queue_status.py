@@ -37,8 +37,10 @@ def main() -> None:
             if status.get("state") in {"queue_complete", "queue_failed"}:
                 return
             case = status.get("case")
-            if case and case.endswith(("_v3_stable", "_v4_legacy_stable", "_v5_Qnorm", "_v6_probe_fixed")):
-                if case.endswith("_v6_probe_fixed"):
+            if case and (case.endswith(("_v3_stable", "_v4_legacy_stable", "_v5_Qnorm", "_v6_probe_fixed")) or "_adapt_" in case):
+                if "_adapt_" in case:
+                    case_dir = "cases_adaptive"
+                elif case.endswith("_v6_probe_fixed"):
                     case_dir = "cases_probe_corrected"
                 elif case.endswith("_v5_Qnorm"):
                     case_dir = "cases_qnorm"

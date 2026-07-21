@@ -17,6 +17,8 @@ SSH_OPTIONS = ["-o", "ConnectTimeout=15", "-o", "ServerAliveInterval=30", "-o", 
 
 
 def case_root(case_name: str) -> Path:
+    if "_adapt_" in case_name:
+        return ROOT / "cases_adaptive"
     if case_name.endswith("_v6_probe_fixed"):
         return ROOT / "cases_probe_corrected"
     if case_name.endswith("_v5_Qnorm"):
@@ -26,6 +28,13 @@ def case_root(case_name: str) -> Path:
     if case_name.endswith("_v3_stable"):
         return ROOT / "cases_stable"
     return ROOT / "cases"
+
+
+def case_mpi(case_name: str) -> int:
+    summary = case_root(case_name) / case_name / "case_summary.json"
+    if summary.exists():
+        return int(json.loads(summary.read_text(encoding="utf-8")).get("mpi", 32))
+    return 32
 
 
 def stamp():
@@ -91,8 +100,9 @@ def run_preflight(node: str, case_name: str):
     fds = work / f"{chid}.fds"
     fds.write_text(text, encoding="utf-8")
 
+    mpi = case_mpi(case_name)
     command = (
-        f"cd '{work}' && timeout 900 mpiexec -n 32 "
+        f"cd '{work}' && timeout 900 mpiexec -n {mpi} "
         f"/home/zsh/FDS/FDS6/bin/fds '{fds.name}' > preflight.log 2>&1"
     )
     write_status(node, state="preflight", case=case_name, preflight_chid=chid)
@@ -109,8 +119,9 @@ def run_case(node: str, case_name: str):
     case_dir = case_root(case_name) / case_name
     fds = case_dir / f"{case_name}.fds"
     marker = ".fds_exit_code"
+    mpi = case_mpi(case_name)
     inner = (
-        f"mpiexec -n 32 /home/zsh/FDS/FDS6/bin/fds {shlex.quote(fds.name)} > run.log 2>&1; "
+        f"mpiexec -n {mpi} /home/zsh/FDS/FDS6/bin/fds {shlex.quote(fds.name)} > run.log 2>&1; "
         f"printf '%s' $? > {marker}"
     )
     command = (

@@ -78,7 +78,7 @@ def system_level(spec: dict, equipment: dict):
 def assess(case_dir: Path):
     summary = json.loads((case_dir / "case_summary.json").read_text(encoding="utf-8"))
     registry = json.loads((case_dir / "monitor_registry.json").read_text(encoding="utf-8"))
-    excluded_for_case = EXCLUDED_PROBES if summary["case"].endswith("_v5_Qnorm") else set()
+    excluded_for_case = EXCLUDED_PROBES if "_v5_Qnorm" in summary["case"] else set()
     devc = next(case_dir.glob("*_devc.csv"), None)
     if not devc:
         raise FileNotFoundError("No DEVC CSV")

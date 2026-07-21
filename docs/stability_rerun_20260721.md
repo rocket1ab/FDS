@@ -104,3 +104,32 @@ materials, pulse, combustion and damage criteria are unchanged. Existing v5
 runs were not modified or restarted. `BNDF WALL TEMPERATURE` and
 `BNDF NET HEAT FLUX` remain enabled, providing a full-surface field cross-check
 after each run completes.
+## Q100 adaptive campaign: measured upper HRRPUA and geometry sensitivities
+
+The corrected Q100 v5 case remains an unchanged control. Three independent
+same-fluence variants were generated in `cases_adaptive`; each changes one
+factor only and retains Q=100 J/cm2, W=100 kt and the original damage criteria.
+
+Run order on the first suitable idle node is:
+
+1. `Q0100_W0100_az090_el75_H1H7_v5_Qnorm_adapt_angle`: DDA-selected
+   angle sensitivity, az=90 deg and el=75 deg. The scan exposes 13 monitored
+   groups and 9 currently underperforming target groups. It improves direct
+   exposure of H4, H7 and AL5052 but does not directly expose BED, H5 or H6,
+   so it is not assumed to be a universal optimum.
+2. `Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRmax`: measured peak
+   HRRPUA upper-bound sensitivity at the baseline angle. BED Nylon=790,
+   curtain=324, seat PU=860, H6 PVC=259 and H7 chloroprene=458 kW/m2.
+3. `Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_BA`: BURN_AWAY sensitivity
+   on NLZW, JAZPM, PVCSL and CRXJ only. Aluminium surfaces remain non-burning.
+
+The HRRPUA values are deliberately marked as upper-bound sensitivities rather
+than calibrated material replacements. Sources are the NIST/transportation
+cone-calorimeter tables for privacy-curtain and chloroprene components, the
+NIST polyurethane data and aircraft-cabin PU cone study, and published cone
+tests for neat Nylon-6 and PVC. Cone peak HRR depends on formulation, specimen
+orientation and imposed flux, so specimen-specific values remain preferable.
+
+`BURN_AWAY` is not expected to increase heat release by itself. It tests the
+competing effects of opening radiative/flow paths and removing sustained fuel.
+Its result must not be interpreted as a material calibration.
