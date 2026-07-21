@@ -1,0 +1,232 @@
+{
+  "method": "DDA at E0=1287 kW/m2, then Q=50 incident-plane normalization",
+  "Q_J_cm2": 50,
+  "yield_kt": 100,
+  "azimuth_deg": 270,
+  "ramp_integral_s": 0.660398207,
+  "plane_peak_kw_m2": 757.1189544431941,
+  "angles": {
+    "15": {
+      "face_count": 1912,
+      "peak": 735,
+      "groups": {
+        "RADM": {
+          "faces": 386,
+          "peak": 735
+        },
+        "WINS": {
+          "faces": 213,
+          "peak": 677
+        },
+        "BED": {
+          "faces": 99,
+          "peak": 441
+        },
+        "CURT": {
+          "faces": 267,
+          "peak": 618
+        },
+        "U4": {
+          "faces": 0,
+          "peak": 0
+        },
+        "SEAT": {
+          "faces": 92,
+          "peak": 618
+        },
+        "AL2024": {
+          "faces": 674,
+          "peak": 735
+        },
+        "AL5052": {
+          "faces": 0,
+          "peak": 0
+        },
+        "AL7075": {
+          "faces": 121,
+          "peak": 735
+        },
+        "O2TANK": {
+          "faces": 10,
+          "peak": 529
+        },
+        "H1": {
+          "faces": 5,
+          "peak": 735
+        },
+        "H2": {
+          "faces": 37,
+          "peak": 735
+        },
+        "H3": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H4": {
+          "faces": 4,
+          "peak": 118
+        },
+        "H5": {
+          "faces": 4,
+          "peak": 618
+        },
+        "H6": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H7": {
+          "faces": 0,
+          "peak": 0
+        }
+      }
+    },
+    "30": {
+      "face_count": 1434,
+      "peak": 647,
+      "groups": {
+        "RADM": {
+          "faces": 389,
+          "peak": 647
+        },
+        "WINS": {
+          "faces": 234,
+          "peak": 647
+        },
+        "BED": {
+          "faces": 33,
+          "peak": 559
+        },
+        "CURT": {
+          "faces": 229,
+          "peak": 559
+        },
+        "U4": {
+          "faces": 0,
+          "peak": 0
+        },
+        "SEAT": {
+          "faces": 125,
+          "peak": 559
+        },
+        "AL2024": {
+          "faces": 344,
+          "peak": 647
+        },
+        "AL5052": {
+          "faces": 0,
+          "peak": 0
+        },
+        "AL7075": {
+          "faces": 42,
+          "peak": 647
+        },
+        "O2TANK": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H1": {
+          "faces": 4,
+          "peak": 647
+        },
+        "H2": {
+          "faces": 24,
+          "peak": 647
+        },
+        "H3": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H4": {
+          "faces": 8,
+          "peak": 265
+        },
+        "H5": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H6": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H7": {
+          "faces": 2,
+          "peak": 559
+        }
+      }
+    },
+    "45": {
+      "face_count": 1344,
+      "peak": 529,
+      "groups": {
+        "RADM": {
+          "faces": 345,
+          "peak": 529
+        },
+        "WINS": {
+          "faces": 246,
+          "peak": 529
+        },
+        "BED": {
+          "faces": 6,
+          "peak": 412
+        },
+        "CURT": {
+          "faces": 233,
+          "peak": 441
+        },
+        "U4": {
+          "faces": 0,
+          "peak": 0
+        },
+        "SEAT": {
+          "faces": 109,
+          "peak": 441
+        },
+        "AL2024": {
+          "faces": 300,
+          "peak": 529
+        },
+        "AL5052": {
+          "faces": 0,
+          "peak": 0
+        },
+        "AL7075": {
+          "faces": 51,
+          "peak": 529
+        },
+        "O2TANK": {
+          "faces": 2,
+          "peak": 176
+        },
+        "H1": {
+          "faces": 7,
+          "peak": 529
+        },
+        "H2": {
+          "faces": 33,
+          "peak": 529
+        },
+        "H3": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H4": {
+          "faces": 10,
+          "peak": 441
+        },
+        "H5": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H6": {
+          "faces": 0,
+          "peak": 0
+        },
+        "H7": {
+          "faces": 2,
+          "peak": 235
+        }
+      }
+    }
+  }
+}
