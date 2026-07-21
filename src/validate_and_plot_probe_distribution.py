@@ -162,7 +162,24 @@ def close_xyz(a, b, tol=5.1e-4) -> bool:
     return max(abs(float(x) - float(y)) for x, y in zip(a, b)) <= tol
 
 
-def validate(case_dir: Path) -> tuple[dict, list[dict]]:
+def geometry_cloud(obstacles: list[dict], limit: int = 8000) -> list[list[float]]:
+    """Create a deterministic OBST-derived point cloud for spatial context."""
+    cloud = set()
+    for obstacle in obstacles:
+        x0, x1, y0, y1, z0, z1 = obstacle["xb"]
+        cloud.add((round((x0 + x1) / 2, 4), round((y0 + y1) / 2, 4), round((z0 + z1) / 2, 4)))
+        for x in (x0, x1):
+            for y in (y0, y1):
+                for z in (z0, z1):
+                    cloud.add((round(x, 4), round(y, 4), round(z, 4)))
+    points = sorted(cloud)
+    if len(points) > limit:
+        indices = np.linspace(0, len(points) - 1, limit, dtype=int)
+        points = [points[index] for index in indices]
+    return [list(point) for point in points]
+
+
+def validate(case_dir: Path) -> tuple[dict, list[dict], list[list[float]]]:
     registry_path = case_dir / "monitor_registry.json"
     flux_path = case_dir / "flux_faces.csv"
     fds_files = sorted(case_dir.glob("*.fds"))
@@ -270,7 +287,7 @@ def validate(case_dir: Path) -> tuple[dict, list[dict]]:
             "it is not a mathematical maximum over every surface cell."
         ),
     }
-    return validation, points
+    return validation, points, geometry_cloud(obstacles)
 
 
 def setup_plot_style():
@@ -283,10 +300,13 @@ def setup_plot_style():
     })
 
 
-def plot_3d(points: list[dict], out: Path):
+def plot_3d(points: list[dict], aircraft: list[list[float]], out: Path):
     setup_plot_style()
     fig = plt.figure(figsize=(15, 8.5), constrained_layout=True)
     ax = fig.add_subplot(111, projection="3d")
+    body = np.asarray(aircraft)
+    ax.scatter(body[:, 0], body[:, 1], body[:, 2], s=2.0, alpha=0.075,
+               color="#657484", depthshade=False, label="Aircraft OBST geometry")
     groups = list(dict.fromkeys(p["group"] for p in points))
     for idx, group in enumerate(groups):
         pts = np.array([p["xyz"] for p in points if p["group"] == group])
@@ -312,9 +332,13 @@ def plot_3d(points: list[dict], out: Path):
     plt.close(fig)
 
 
-def plot_2d(points: list[dict], out: Path):
+def plot_2d(points: list[dict], aircraft: list[list[float]], out: Path):
     setup_plot_style()
     fig, axes = plt.subplots(2, 1, figsize=(15, 9.5), constrained_layout=True)
+    body = np.asarray(aircraft)
+    axes[0].scatter(body[:, 0], body[:, 2], s=3.5, color="#657484", alpha=0.065,
+                    linewidth=0, label="Aircraft OBST geometry")
+    axes[1].scatter(body[:, 0], body[:, 1], s=3.5, color="#657484", alpha=0.065, linewidth=0)
     groups = list(dict.fromkeys(p["group"] for p in points))
     for idx, group in enumerate(groups):
         pts = np.array([p["xyz"] for p in points if p["group"] == group])
@@ -402,10 +426,10 @@ def write_markdown(validation: dict, path: Path):
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def write_inline_html(points: list[dict], validation: dict, path: Path):
+def write_inline_html(points: list[dict], aircraft: list[list[float]], validation: dict, path: Path):
     path.parent.mkdir(parents=True, exist_ok=True)
     groups = list(dict.fromkeys(p["group"] for p in points))
-    payload = {"points": points, "groups": groups, "meta": GROUP_META, "colors": COLORS}
+    payload = {"points": points, "aircraft": aircraft, "groups": groups, "meta": GROUP_META, "colors": COLORS}
     data = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
     status = "PASS" if validation["all_positions_valid"] else "FAIL"
     html = f"""<div id="probe-vis" style="height:860px;width:100%;display:grid;grid-template-rows:auto 1fr;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#111827);font-family:var(--font-sans,Arial,sans-serif)">
@@ -420,7 +444,10 @@ def write_inline_html(points: list[dict], validation: dict, path: Path):
 <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
 <script>
 const payload={data};
-const traces3=[], sideTraces=[], topTraces=[];
+const bodyX=payload.aircraft.map(d=>d[0]), bodyY=payload.aircraft.map(d=>d[1]), bodyZ=payload.aircraft.map(d=>d[2]);
+const traces3=[{{type:'scatter3d',mode:'markers',name:'Aircraft OBST geometry',x:bodyX,y:bodyY,z:bodyZ,hoverinfo:'skip',marker:{{size:2.2,color:'#657484',opacity:.16}}}}];
+const sideTraces=[{{type:'scattergl',mode:'markers',name:'Aircraft geometry',showlegend:false,x:bodyX,y:bodyZ,hoverinfo:'skip',marker:{{size:3,color:'#657484',opacity:.13}}}}];
+const topTraces=[{{type:'scattergl',mode:'markers',name:'Aircraft geometry',showlegend:false,x:bodyX,y:bodyY,hoverinfo:'skip',marker:{{size:3,color:'#657484',opacity:.13}}}}];
 payload.groups.forEach((g,i)=>{{
   const p=payload.points.filter(d=>d.group===g), c=payload.colors[i%payload.colors.length];
   const hover=p.map(d=>`<b>${{d.group}} · ${{d.component}}</b><br>${{d.material}}<br>XYZ: ${{d.xyz.map(v=>v.toFixed(4)).join(', ')}} m<br>IOR: ${{d.ior}}<br>Base flux: ${{d.base_flux_kw_m2.toFixed(1)}} kW/m²<extra></extra>`);
@@ -447,16 +474,16 @@ Plotly.newPlot('probe-top',topTraces,layout2('Top view (X-Y)','Y (m)'),{{respons
 def main():
     args = parse_args()
     args.reports_dir.mkdir(parents=True, exist_ok=True)
-    validation, points = validate(args.case_dir)
+    validation, points, aircraft = validate(args.case_dir)
     json_path = args.reports_dir / "probe_position_validation.json"
     md_path = args.reports_dir / "probe_position_validation.md"
     png3d = args.reports_dir / "probe_distribution_3d.png"
     png2d = args.reports_dir / "probe_distribution_2d.png"
     json_path.write_text(json.dumps(validation, ensure_ascii=False, indent=2), encoding="utf-8")
     write_markdown(validation, md_path)
-    plot_3d(points, png3d)
-    plot_2d(points, png2d)
-    write_inline_html(points, validation, args.inline_html)
+    plot_3d(points, aircraft, png3d)
+    plot_2d(points, aircraft, png2d)
+    write_inline_html(points, aircraft, validation, args.inline_html)
     print(json.dumps({
         "status": "PASS" if validation["all_positions_valid"] else "FAIL",
         "validated": f"{validation['validated_probe_count']}/{validation['temperature_probe_count']}",
