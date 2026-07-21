@@ -175,3 +175,9 @@ The `OBST` geometry, Q=100 J/cm2 incident-plane normalization, W=100 kt, azimuth
 elevation 15, HRRPUA, ignition temperatures, probes and damage criteria are unchanged.
 All base and radiation-bin-derived `SURF` records are updated together by
 `src/build_q100_thickness_corrected_variant.py`.
+
+The node03 queue was replaced while it was idle and waiting (no FDS process was
+terminated). It now contains only the Q100 thickness-audit case. The older BED-HRR,
+angle, HRRmax and BURN_AWAY variants remain preserved on disk but are not allowed to
+start with the superseded thicknesses. Any still-needed follow-up will be regenerated
+from the thickness-audit baseline and will change one additional factor at a time.
