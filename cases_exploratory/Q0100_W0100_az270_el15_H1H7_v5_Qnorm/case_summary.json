@@ -1,0 +1,23 @@
+{
+  "case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm",
+  "purpose": "corrected_incident_plane_fluence_normalization",
+  "Q_J_cm2": 100.0,
+  "yield_kt": 100,
+  "azimuth_deg": 270,
+  "elevation_deg": 15,
+  "t_end_s": 1500,
+  "mpi": 20,
+  "burn_away": false,
+  "nuclear_ramp_integral_s": 0.6603982070000001,
+  "plane_peak_irradiance_kw_m2": 1514.237908886388,
+  "max_local_external_flux_kw_m2": 1471,
+  "max_local_fluence_J_cm2": 97.14457624970002,
+  "removed_overlay_vents": 1912,
+  "removed_old_surface_variants": 99,
+  "domain_vents": 2,
+  "split_source_obstacles": 2643,
+  "generated_flux_obstacles": 3838,
+  "flux_surface_variants_used": 99,
+  "materials_changed": false,
+  "damage_thresholds_changed": false
+}

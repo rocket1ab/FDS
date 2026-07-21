@@ -23,3 +23,20 @@ cases/*/*_mass.csv
 
 reports/live_temperature_curves/*/*_devc.csv
 reports/live_temperature_curves/*/monitor_registry.json
+
+cases_exploratory/*/run.log
+cases_exploratory/*/launcher.log
+cases_exploratory/*/.fds_exit_code
+cases_exploratory/*/assessment.log
+cases_exploratory/*/*.out
+cases_exploratory/*/*.smv
+cases_exploratory/*/*.end
+cases_exploratory/*/*.restart*
+cases_exploratory/*/*.sf
+cases_exploratory/*/*.bf
+cases_exploratory/*/*.s3d
+cases_exploratory/*/*.xyz
+cases_exploratory/*/*.ge1
+cases_exploratory/*/*_devc.csv
+cases_exploratory/*/*_hrr.csv
+cases_exploratory/*/*_mass.csv
