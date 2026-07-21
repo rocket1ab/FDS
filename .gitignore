@@ -20,3 +20,6 @@ cases/*/*.ge1
 cases/*/*_devc.csv
 cases/*/*_hrr.csv
 cases/*/*_mass.csv
+
+reports/live_temperature_curves/*/*_devc.csv
+reports/live_temperature_curves/*/monitor_registry.json
