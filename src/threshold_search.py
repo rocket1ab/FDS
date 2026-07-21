@@ -92,7 +92,7 @@ def search(args: argparse.Namespace) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--node", default="node04")
-    parser.add_argument("--low", type=int, default=100)
+    parser.add_argument("--low", type=int, default=300)
     parser.add_argument("--high", type=int, default=400)
     parser.add_argument("--tolerance", type=int, default=5)
     parser.add_argument("--max-q", type=int, default=1200)

@@ -68,7 +68,8 @@ started with Q100 on node04 and Q50 on node05, each using 32 FDS processes.
 
 ## Automatic threshold search (2026-07-22)
 
-An independent threshold campaign keeps the validated geometry, 100 kt yield,
+An independent threshold campaign uses the completed non-all-severe Q300 case
+as its initial failed lower bound and keeps the validated geometry, 100 kt yield,
 azimuth 270 deg, elevation 15 deg, materials, probes, combustion inputs and
 damage criteria fixed. It starts with Q400 on node04. Once an all-severe upper
 bound exists, it bisects fluence to a 5 J/cm2 bracket. If Q400 is not all-severe,
