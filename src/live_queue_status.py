@@ -37,8 +37,9 @@ def main() -> None:
             if status.get("state") in {"queue_complete", "queue_failed"}:
                 return
             case = status.get("case")
-            if case and case.endswith("_v3_stable"):
-                log_path = ROOT / "cases_stable" / case / "run.log"
+            if case and case.endswith(("_v3_stable", "_v4_legacy_stable")):
+                case_dir = "cases_legacy_stable" if case.endswith("_v4_legacy_stable") else "cases_stable"
+                log_path = ROOT / case_dir / case / "run.log"
                 if log_path.exists():
                     tail = log_path.read_bytes()[-65536:].decode("utf-8", errors="replace")
                     steps = STEP_RE.findall(tail)

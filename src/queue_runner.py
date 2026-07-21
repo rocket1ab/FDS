@@ -16,6 +16,14 @@ ROOT = Path(__file__).resolve().parents[1]
 SSH_OPTIONS = ["-o", "ConnectTimeout=15", "-o", "ServerAliveInterval=30", "-o", "ServerAliveCountMax=3"]
 
 
+def case_root(case_name: str) -> Path:
+    if case_name.endswith("_v4_legacy_stable"):
+        return ROOT / "cases_legacy_stable"
+    if case_name.endswith("_v3_stable"):
+        return ROOT / "cases_stable"
+    return ROOT / "cases"
+
+
 def stamp():
     return datetime.now().astimezone().isoformat(timespec="seconds")
 
@@ -63,8 +71,7 @@ def wait_for_idle(node: str):
 
 def run_preflight(node: str, case_name: str):
     """Run the first case to 0.01 s so formal work starts only after FDS accepts it."""
-    case_root = ROOT / ("cases_stable" if case_name.endswith("_v3_stable") else "cases")
-    source = case_root / case_name / f"{case_name}.fds"
+    source = case_root(case_name) / case_name / f"{case_name}.fds"
     work = ROOT / "queue" / f"preflight_{node}"
     work.mkdir(parents=True, exist_ok=True)
     for path in work.iterdir():
@@ -95,8 +102,7 @@ def run_preflight(node: str, case_name: str):
 
 
 def run_case(node: str, case_name: str):
-    case_root = ROOT / ("cases_stable" if case_name.endswith("_v3_stable") else "cases")
-    case_dir = case_root / case_name
+    case_dir = case_root(case_name) / case_name
     fds = case_dir / f"{case_name}.fds"
     marker = ".fds_exit_code"
     inner = (
