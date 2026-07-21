@@ -65,6 +65,16 @@ the log contains `STOP: FDS completed successfully` and does not contain
 
 Both node preflights passed on 2026-07-21. The formal RF=0.40 queues then
 started with Q100 on node04 and Q50 on node05, each using 32 FDS processes.
+
+## Automatic threshold search (2026-07-22)
+
+An independent threshold campaign keeps the validated geometry, 100 kt yield,
+azimuth 270 deg, elevation 15 deg, materials, probes, combustion inputs and
+damage criteria fixed. It starts with Q400 on node04. Once an all-severe upper
+bound exists, it bisects fluence to a 5 J/cm2 bracket. If Q400 is not all-severe,
+the controller first raises only fluence by a factor of 1.5 (capped at
+1200 J/cm2) until a valid upper bound is found. Existing baseline queues remain
+unchanged and threshold cases use separate directories and CHIDs.
 Successful startup is not yet proof of stability: the v4 baseline must pass the
 previous 176.87 to 179.09 s failure window before the overlay-VENT hypothesis
 is supported, and normal completion at 1500 s remains the final acceptance

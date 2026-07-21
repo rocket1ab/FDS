@@ -17,6 +17,8 @@ SSH_OPTIONS = ["-o", "ConnectTimeout=15", "-o", "ServerAliveInterval=30", "-o", 
 
 
 def case_root(case_name: str) -> Path:
+    if "_threshold" in case_name:
+        return ROOT / "cases_threshold"
     if "_adapt_" in case_name:
         return ROOT / "cases_adaptive"
     if case_name.endswith("_v6_probe_fixed"):
