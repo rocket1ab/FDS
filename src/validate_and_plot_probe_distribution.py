@@ -420,26 +420,26 @@ def write_inline_html(points: list[dict], validation: dict, path: Path):
 <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
 <script>
 const payload={data};
-const traces3=[], side=[], top=[];
+const traces3=[], sideTraces=[], topTraces=[];
 payload.groups.forEach((g,i)=>{{
   const p=payload.points.filter(d=>d.group===g), c=payload.colors[i%payload.colors.length];
   const hover=p.map(d=>`<b>${{d.group}} · ${{d.component}}</b><br>${{d.material}}<br>XYZ: ${{d.xyz.map(v=>v.toFixed(4)).join(', ')}} m<br>IOR: ${{d.ior}}<br>Base flux: ${{d.base_flux_kw_m2.toFixed(1)}} kW/m²<extra></extra>`);
   const common={{name:`${{g}} (${{p.length}})`,mode:'markers',marker:{{size:6,color:c,line:{{width:.6,color:'#fff'}}}},text:hover,hovertemplate:'%{{text}}'}};
   traces3.push({{...common,type:'scatter3d',x:p.map(d=>d.xyz[0]),y:p.map(d=>d.xyz[1]),z:p.map(d=>d.xyz[2])}});
-  side.push({{...common,type:'scattergl',x:p.map(d=>d.xyz[0]),y:p.map(d=>d.xyz[2]),showlegend:false}});
-  top.push({{...common,type:'scattergl',x:p.map(d=>d.xyz[0]),y:p.map(d=>d.xyz[1]),showlegend:false}});
+  sideTraces.push({{...common,type:'scattergl',x:p.map(d=>d.xyz[0]),y:p.map(d=>d.xyz[2]),showlegend:false}});
+  topTraces.push({{...common,type:'scattergl',x:p.map(d=>d.xyz[0]),y:p.map(d=>d.xyz[1]),showlegend:false}});
 }});
 const bad=payload.points.filter(d=>!d.valid), badHover=bad.map(d=>`<b>QA suspect: ${{d.id}}</b><br>${{d.group}} · ${{d.component}}<br>${{d.material}}<br>XYZ: ${{d.xyz.map(v=>v.toFixed(4)).join(', ')}} m<extra></extra>`);
 if(bad.length){{
   traces3.push({{type:'scatter3d',mode:'markers',name:`QA suspect (${{bad.length}})`,x:bad.map(d=>d.xyz[0]),y:bad.map(d=>d.xyz[1]),z:bad.map(d=>d.xyz[2]),text:badHover,hovertemplate:'%{{text}}',marker:{{size:9,color:'#d62728',symbol:'x'}}}});
-  side.push({{type:'scattergl',mode:'markers',showlegend:false,x:bad.map(d=>d.xyz[0]),y:bad.map(d=>d.xyz[2]),text:badHover,hovertemplate:'%{{text}}',marker:{{size:12,color:'#d62728',symbol:'x'}}}});
-  top.push({{type:'scattergl',mode:'markers',showlegend:false,x:bad.map(d=>d.xyz[0]),y:bad.map(d=>d.xyz[1]),text:badHover,hovertemplate:'%{{text}}',marker:{{size:12,color:'#d62728',symbol:'x'}}}});
+  sideTraces.push({{type:'scattergl',mode:'markers',showlegend:false,x:bad.map(d=>d.xyz[0]),y:bad.map(d=>d.xyz[2]),text:badHover,hovertemplate:'%{{text}}',marker:{{size:12,color:'#d62728',symbol:'x'}}}});
+  topTraces.push({{type:'scattergl',mode:'markers',showlegend:false,x:bad.map(d=>d.xyz[0]),y:bad.map(d=>d.xyz[1]),text:badHover,hovertemplate:'%{{text}}',marker:{{size:12,color:'#d62728',symbol:'x'}}}});
 }}
 const paper='rgba(0,0,0,0)', font={{family:'Arial, sans-serif',color:'var(--color-text-primary,#111827)'}};
 Plotly.newPlot('probe-3d',traces3,{{paper_bgcolor:paper,plot_bgcolor:paper,font,title:{{text:'3D probe distribution',x:.03}},margin:{{l:0,r:0,t:45,b:0}},legend:{{x:.01,y:.98,bgcolor:'rgba(255,255,255,.72)',font:{{size:10}}}},scene:{{aspectmode:'data',xaxis:{{title:'X (m)'}},yaxis:{{title:'Y (m)'}},zaxis:{{title:'Z (m)'}},camera:{{eye:{{x:1.55,y:-1.75,z:.85}}}}}}}},{{responsive:true,displaylogo:false}});
 const layout2=(title,ytitle)=>({{paper_bgcolor:paper,plot_bgcolor:paper,font,title:{{text:title,x:.04,font:{{size:14}}}},margin:{{l:58,r:18,t:42,b:45}},xaxis:{{title:'X (m)',gridcolor:'#d9e1e8'}},yaxis:{{title:ytitle,gridcolor:'#d9e1e8'}},hovermode:'closest'}});
-Plotly.newPlot('probe-side',side,layout2('Side view (X-Z)','Z (m)'),{{responsive:true,displaylogo:false}});
-Plotly.newPlot('probe-top',top,layout2('Top view (X-Y)','Y (m)'),{{responsive:true,displaylogo:false}});
+Plotly.newPlot('probe-side',sideTraces,layout2('Side view (X-Z)','Z (m)'),{{responsive:true,displaylogo:false}});
+Plotly.newPlot('probe-top',topTraces,layout2('Top view (X-Y)','Y (m)'),{{responsive:true,displaylogo:false}});
 </script>"""
     path.write_text(html, encoding="utf-8")
 
