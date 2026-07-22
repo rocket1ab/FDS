@@ -28,3 +28,6 @@ Preflight corrections made before launch:
 * Q50 maps the 32 MESH records contiguously and monotonically onto MPI ranks 0-19.
 * The preflight parser now edits `T_END` only inside the `&TIME` record, avoiding
   matches in descriptive comments. All five inputs retain `T_END=1500 s`.
+
+Campaign-wide conclusions and reusable modeling guidance are maintained in
+[`modeling_lessons_20260722.md`](modeling_lessons_20260722.md).
