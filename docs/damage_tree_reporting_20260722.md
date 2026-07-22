@@ -7,6 +7,11 @@ Every successful FDS case is now followed by a complete assessment based on
 keeps the PDF aircraft-tree result separate from the stricter research objective that
 requires every monitored group to be severe.
 
+Cases that have reached at least 1000 s are also retained as long-duration snapshots,
+even when they lack a normal FDS stop. They are explicitly labeled provisional and are
+never presented as completed 1500 s results. Snapshots below 1000 s and cases with an
+earlier numerical instability are excluded from the aggregate report.
+
 ## Automatic outputs per completed case
 
 The queue calls `src/assess_results.py` only after the FDS log contains
@@ -21,8 +26,20 @@ then receives:
 
 After each assessment, `reports/completed_case_damage_tree_assessments.md` is rebuilt.
 It contains a campaign summary followed by the complete assessment and tree image for
-every available completed case. Rebuilding rather than blind text appending prevents
-duplicate sections when a case is reassessed.
+every normal completion and every explicitly labeled snapshot at or beyond 1000 s.
+Rebuilding rather than blind text appending prevents duplicate sections when a case is
+reassessed.
+
+Each case section records the FDS configuration available from `case_summary.json` and
+the input file: Q, yield, angles, target duration, MPI count, BURN_AWAY, radiative
+fraction, numerical controls, pulse integral, plane peak, local peak flux and fluence,
+HRRPUA values, audited thicknesses and changed-factor flags. It also states known model
+problems and gives a severe-damage conclusion for every group: reached, peak-temperature
+shortfall, duration shortfall or missing evidence. The physical interpretation also
+uses the count of monitored faces with positive assigned external flux to distinguish
+geometric shielding/insufficient secondary heating from an exposed surface whose peak
+is limited by pulse energy, thermal inertia and heat losses. A threshold crossing with
+insufficient duration is identified as transient heating without sustained feedback.
 
 ## PDF propagation rules
 

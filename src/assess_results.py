@@ -183,18 +183,167 @@ def evidence_cell(item: dict, tier: str):
             f'{evidence.get("continuous_s", 0):.1f}/{evidence.get("required_s", 0):g} s')
 
 
+def severe_conclusion(item: dict):
+    evidence = item.get("evidence", {}).get("severe")
+    if not evidence:
+        return "Unknown: severe-threshold evidence is missing"
+    threshold = evidence.get("temperature_C", float("nan"))
+    required = evidence.get("required_s", float("nan"))
+    continuous = evidence.get("continuous_s", 0.0)
+    peak = item.get("peak_C", float("nan"))
+    if item.get("level") == "severe":
+        return f"Reached: peak {peak:.1f} C; >= {threshold:g} C for {continuous:.1f}/{required:g} s"
+    if not math.isfinite(peak):
+        return "Unknown: no finite valid-probe temperature"
+    if peak < threshold:
+        return f"Not reached: peak {peak:.1f} C < {threshold:g} C"
+    return f"Not reached: duration above {threshold:g} C is {continuous:.1f}/{required:g} s"
+
+
+def physical_interpretation(item: dict):
+    evidence = item.get("evidence", {}).get("severe", {})
+    peak = item.get("peak_C", float("nan"))
+    threshold = evidence.get("temperature_C", float("inf"))
+    continuous = evidence.get("continuous_s", 0.0)
+    required = evidence.get("required_s", float("inf"))
+    direct = item.get("positive_external_flux_probe_count", 0)
+    if item.get("level") == "unknown":
+        return "Probe evidence is missing; no physical conclusion is valid."
+    if item.get("level") == "severe":
+        source = "direct-flux and/or fire heating" if direct else "secondary cabin-fire heating"
+        return f"The {source} supplied both sufficient temperature and duration."
+    if peak < threshold:
+        if direct:
+            return "Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold."
+        return "No monitored face has positive assigned external flux; geometric shielding leaves secondary cabin-fire heating below severe threshold."
+    if continuous < required:
+        return "A transient flash/fire peak crosses the severe temperature, but combustion or heat feedback is not sustained for the required duration."
+    return "The severe criterion is not met for an unresolved evidence combination."
+
+
+def case_configuration(case_dir: Path, summary: dict):
+    fds = next(case_dir.glob("*.fds"), None)
+    text = fds.read_text(encoding="utf-8", errors="replace") if fds else ""
+
+    def number(pattern, default=None):
+        match = re.search(pattern, text, flags=re.I | re.S)
+        return float(match.group(1)) if match else default
+
+    hrrpua = sorted({float(value) for value in re.findall(r"\bHRRPUA\s*=\s*([-+0-9.Ee]+)", text, flags=re.I)})
+    thicknesses = sorted({float(value) for value in re.findall(r"\bTHICKNESS\(1\)\s*=\s*([-+0-9.Ee]+)", text, flags=re.I)})
+    return {
+        "purpose": summary.get("purpose", "unspecified"),
+        "source_case": summary.get("source_case"),
+        "changed_factor": summary.get("changed_factor", "none recorded"),
+        "Q_J_cm2": summary.get("Q_J_cm2"),
+        "yield_kt": summary.get("yield_kt"),
+        "azimuth_deg": summary.get("azimuth_deg"),
+        "elevation_deg": summary.get("elevation_deg"),
+        "target_t_end_s": summary.get("t_end_s", number(r"&TIME\b[^/]*\bT_END\s*=\s*([-+0-9.Ee]+)")),
+        "mpi_processes": summary.get("mpi"),
+        "burn_away": summary.get("burn_away", bool(re.search(r"\bBURN_AWAY\s*=\s*\.TRUE\.", text, flags=re.I))),
+        "radiative_fraction": number(r"\bRADIATIVE_FRACTION\s*=\s*([-+0-9.Ee]+)"),
+        "cfl_max": number(r"\bCFL_MAX\s*=\s*([-+0-9.Ee]+)"),
+        "time_step_dt_s": number(r"&TIME\b[^/]*\bDT\s*=\s*([-+0-9.Ee]+)"),
+        "nuclear_ramp_integral_s": summary.get("nuclear_ramp_integral_s"),
+        "plane_peak_irradiance_kw_m2": summary.get("plane_peak_irradiance_kw_m2"),
+        "max_local_external_flux_kw_m2": summary.get("max_local_external_flux_kw_m2"),
+        "max_local_fluence_J_cm2": summary.get("max_local_fluence_J_cm2"),
+        "hrrpua_group_values_kw_m2": summary.get("hrrpua_kW_m2"),
+        "all_hrrpua_values_in_fds_kw_m2": hrrpua,
+        "audited_group_thickness_m": summary.get("thickness_m"),
+        "all_layer_thicknesses_in_fds_m": thicknesses,
+        "geometry_changed": summary.get("geometry_changed", False),
+        "materials_changed": summary.get("materials_changed", False),
+        "combustion_changed": summary.get("combustion_changed", False),
+        "external_flux_changed": summary.get("external_flux_changed", False),
+        "ignition_temperature_changed": summary.get("ignition_temperature_changed", False),
+        "damage_thresholds_changed": summary.get("damage_thresholds_changed", False),
+        "fds_input": fds.name if fds else None,
+    }
+
+
+def result_issues(result: dict):
+    issues = []
+    status = result.get("evaluation_status", "unknown")
+    if status != "normal_completion":
+        issues.append(
+            f'Long-duration snapshot at {result.get("sim_t_s", 0):.1f} s without a normal FDS completion marker; '
+            "temperatures and levels can still change before T_END."
+        )
+    classification = result.get("campaign_classification", "")
+    if "retired" in classification or "provenance" in classification:
+        issues.append("This is a retired/provenance configuration and is excluded from the current threshold bracket.")
+    config = result.get("configuration", {})
+    q = config.get("Q_J_cm2")
+    local_q = config.get("max_local_fluence_J_cm2")
+    if q and local_q is not None and local_q < 0.8 * q:
+        issues.append(f"Maximum local integrated fluence is only {local_q:.3g} J/cm2 for nominal Q={q:g}; normalization/exposure must be considered.")
+    if config.get("damage_thresholds_changed"):
+        issues.append("Damage thresholds differ from the fixed standard, so this case is not threshold-comparable.")
+    issues.append("H1-H4 use aluminium-enclosure wall temperature as a proxy for internal electronics temperature.")
+    return issues
+
+
+def format_config_value(value):
+    if value is None:
+        return "not recorded"
+    if isinstance(value, bool):
+        return str(value).lower()
+    if isinstance(value, float):
+        return f"{value:.6g}"
+    if isinstance(value, (dict, list)):
+        return json.dumps(value, ensure_ascii=False, sort_keys=True)
+    return str(value)
+
+
+def evaluation_status(case_dir: Path, sim_t_s: float):
+    logs = [case_dir / "run.log", *case_dir.glob("*.out")]
+    combined = ""
+    for log in logs:
+        if log.exists():
+            combined += log.read_text(encoding="utf-8", errors="replace")
+    if "STOP: FDS completed successfully" in combined and "Numerical Instability" not in combined:
+        return "normal_completion"
+    if "Numerical Instability" in combined:
+        return "long_snapshot_with_numerical_instability" if sim_t_s >= 1000 else "invalid_numerical_instability"
+    if sim_t_s >= 1000:
+        return "long_duration_snapshot_without_normal_stop"
+    return "insufficient_duration_snapshot"
+
+
 def case_markdown(result: dict, image_ref: str):
     lines = [
         f'# Complete damage-tree assessment: {result["case"]}', "",
         f'- Simulation time: **{result["sim_t_s"]:.2f} s**',
         f'- Source directory: `{result.get("case_directory", "unknown")}`',
         f'- Campaign classification: **{result.get("campaign_classification", "unclassified")}**',
+        f'- Evaluation status: **{result.get("evaluation_status", "unknown")}**',
         f'- PDF aircraft-tree level: **{result["aircraft_level"].upper()}**',
         f'- Strict all-equipment severe result: **{result["severe_count"]}/{result["total_count"]}** '
         f'(`all_severe={str(result["all_severe"]).lower()}`)',
         '- Maximum temperature: dynamic envelope of geometrically valid redundant wall-temperature probes.',
         '- Important: the strict 17/17 metric is not the PDF aircraft-level rule.', "",
-        '## Damage tree', "", f'![Damage tree]({image_ref})', "",
+        '## Case configuration', "",
+        '| Parameter | Value |', '|---|---|',
+    ]
+    config_order = (
+        "purpose", "source_case", "changed_factor", "Q_J_cm2", "yield_kt", "azimuth_deg",
+        "elevation_deg", "target_t_end_s", "mpi_processes", "burn_away", "radiative_fraction",
+        "cfl_max", "time_step_dt_s", "nuclear_ramp_integral_s", "plane_peak_irradiance_kw_m2",
+        "max_local_external_flux_kw_m2", "max_local_fluence_J_cm2", "hrrpua_group_values_kw_m2",
+        "all_hrrpua_values_in_fds_kw_m2", "audited_group_thickness_m",
+        "all_layer_thicknesses_in_fds_m", "geometry_changed", "materials_changed",
+        "combustion_changed", "external_flux_changed", "ignition_temperature_changed",
+        "damage_thresholds_changed", "fds_input",
+    )
+    for key in config_order:
+        value = format_config_value(result.get("configuration", {}).get(key)).replace("|", "\\|")
+        lines.append(f'| `{key}` | {value} |')
+    lines += ["", "## Known issues and validity", ""]
+    for issue in result_issues(result):
+        lines.append(f'- {issue}')
+    lines += ["", '## Damage tree', "", f'![Damage tree]({image_ref})', "",
         '## System propagation', "",
         '| System | Level | Trigger nodes | Applied rule |',
         '|---|---:|---|---|',
@@ -204,8 +353,8 @@ def case_markdown(result: dict, image_ref: str):
         triggers = ", ".join(detail["triggers"]) or "none"
         lines.append(f'| {label} (`{name}`) | {detail["level"]} | {triggers} | {detail["rule"]} |')
     lines += ["", "## Complete equipment assessment", "",
-              '| Group | Equipment | Role | Level | Peak C | Mild evidence | Moderate evidence | Severe evidence | Valid probes |',
-              '|---|---|---|---:|---:|---|---|---|---:|']
+              '| Group | Equipment | Role | Level | Peak C | Mild evidence | Moderate evidence | Severe evidence | Severe conclusion | Physical interpretation | Positive-flux probes | Valid probes |',
+              '|---|---|---|---:|---:|---|---|---|---|---|---:|---:|']
     roles = {}
     for system, spec in TREE["systems"].items():
         for group in spec["major"]:
@@ -217,11 +366,23 @@ def case_markdown(result: dict, image_ref: str):
             f'| {group} | {item.get("label", group)} | {roles.get(group, "unmapped")} | '
             f'{item.get("level", "unknown")} | {item.get("peak_C", float("nan")):.1f} | '
             f'{evidence_cell(item, "mild")} | {evidence_cell(item, "moderate")} | '
-            f'{evidence_cell(item, "severe")} | {item.get("probe_count", 0)} |'
+            f'{evidence_cell(item, "severe")} | {severe_conclusion(item)} | '
+            f'{physical_interpretation(item)} | {item.get("positive_external_flux_probe_count", 0)} | '
+            f'{item.get("probe_count", 0)} |'
         )
     not_severe = [group for group, item in result["equipment"].items() if item.get("level") != "severe"]
+    peak_shortfall = sum(
+        item.get("peak_C", float("-inf")) < item.get("evidence", {}).get("severe", {}).get("temperature_C", float("inf"))
+        for item in result["equipment"].values() if item.get("level") != "severe"
+    )
+    duration_shortfall = sum(
+        item.get("peak_C", float("-inf")) >= item.get("evidence", {}).get("severe", {}).get("temperature_C", float("inf"))
+        and item.get("evidence", {}).get("severe", {}).get("continuous_s", 0) < item.get("evidence", {}).get("severe", {}).get("required_s", float("inf"))
+        for item in result["equipment"].values() if item.get("level") != "severe"
+    )
     lines += ["", "## Assessment interpretation", "",
               f'- Non-severe or unknown groups: **{", ".join(not_severe) if not_severe else "none"}**.',
+              f'- Severe-damage shortfalls: **{peak_shortfall} peak-temperature limited**, **{duration_shortfall} duration limited**.',
               f'- Aircraft level is propagated from the highest system level: **{result["aircraft_level"]}**.',
               '- H2 (mission) and H3 (display) are model-specific mappings; their generic electronics thresholds are not same-name PDF rows.',
               '- H1-H4 probes currently measure aluminium enclosure surface temperature as a proxy for internal electronics temperature.', ""]
@@ -231,20 +392,12 @@ def case_markdown(result: dict, image_ref: str):
 def update_campaign_damage_report():
     results = []
     for path in ROOT.glob("cases*/*/damage_assessment.json"):
-        logs = [path.parent / "run.log", *path.parent.glob("*.out")]
-        normal_completion = False
-        for log in logs:
-            if not log.exists():
-                continue
-            text = log.read_text(encoding="utf-8", errors="replace")
-            if "STOP: FDS completed successfully" in text and "Numerical Instability" not in text:
-                normal_completion = True
-                break
-        if not normal_completion:
-            continue
         try:
             item = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
+            continue
+        status = evaluation_status(path.parent, item.get("sim_t_s", 0))
+        if status in {"insufficient_duration_snapshot", "invalid_numerical_instability"}:
             continue
         if "system_evidence" not in item and "equipment" in item:
             details = {
@@ -269,19 +422,25 @@ def update_campaign_damage_report():
         }
         item["case_directory"] = case_rel
         item["campaign_classification"] = classifications.get(family, family)
+        item["evaluation_status"] = status
+        summary_path = path.parent / "case_summary.json"
+        summary = json.loads(summary_path.read_text(encoding="utf-8")) if summary_path.exists() else {}
+        item["configuration"] = case_configuration(path.parent, summary)
         render_tree_svg(item, path.parent / "damage_tree.svg")
         (path.parent / "damage_assessment.md").write_text(
             case_markdown(item, "damage_tree.svg") + "\n", encoding="utf-8"
         )
+        path.write_text(json.dumps(item, ensure_ascii=False, indent=2), encoding="utf-8")
         item["_assessment_path"] = path
         results.append(item)
     results.sort(key=lambda item: (item.get("Q_J_cm2", float("inf")), item.get("case", "")))
-    lines = ["# Completed-case damage-tree assessments", "",
-             "Automatically rebuilt after every successful FDS run and assessment.", "",
-             "| Case | Campaign | Q (J/cm2) | Sim time (s) | PDF aircraft level | Strict severe |",
-             "|---|---|---:|---:|---:|---:|"]
+    lines = ["# Long-duration and completed damage-tree assessments", "",
+             "Automatically rebuilt after assessment. It includes normal FDS completions and explicitly labeled snapshots at or beyond 1000 s.", "",
+             "| Case | Status | Campaign | Q (J/cm2) | Sim time (s) | PDF aircraft level | Strict severe |",
+             "|---|---|---|---:|---:|---:|---:|"]
     for item in results:
-        lines.append(f'| {item["case"]} | {item.get("campaign_classification", "unclassified")} | '
+        lines.append(f'| {item["case"]} | {item.get("evaluation_status", "unknown")} | '
+                     f'{item.get("campaign_classification", "unclassified")} | '
                      f'{item.get("Q_J_cm2", float("nan")):g} | '
                      f'{item.get("sim_t_s", 0):.1f} | {item.get("aircraft_level", "unknown")} | '
                      f'{item.get("severe_count", 0)}/{item.get("total_count", 0)} |')
@@ -326,8 +485,14 @@ def assess(case_dir: Path):
             if peak >= temperature and continuous >= duration:
                 level = tier
         switches = sum(a != b for a, b in zip(active, active[1:]) if a and b)
+        registered = registry.get(group, [])
+        positive_flux = [item for item in registered if float(item.get("base_flux", 0) or 0) > 0]
         equipment[group] = {"label": criteria["label"], "level": level, "peak_C": peak,
                             "probe_count": len(names), "dynamic_probe_switches": switches,
+                            "positive_external_flux_probe_count": len(positive_flux),
+                            "max_registered_external_flux_kw_m2": max(
+                                (float(item.get("base_flux", 0) or 0) for item in positive_flux), default=0.0
+                            ),
                             "excluded_invalid_probes": excluded,
                             "evidence": evidence}
     details = {name: system_evidence(spec, equipment) for name, spec in TREE["systems"].items()}
@@ -335,14 +500,17 @@ def assess(case_dir: Path):
     known_systems = [level for level in systems.values() if level != "unknown"]
     aircraft = max(known_systems, key=ORDER.get) if known_systems else "unknown"
     severe = sum(item["level"] == "severe" for item in equipment.values())
+    sim_t_s = times[-1] if times else 0
     result = {"case": summary["case"], "Q_J_cm2": summary["Q_J_cm2"],
-              "sim_t_s": times[-1] if times else 0, "equipment": equipment,
+              "sim_t_s": sim_t_s, "equipment": equipment,
               "severe_count": severe, "total_count": len(CRITERIA),
               "severe_ratio": severe / len(CRITERIA), "all_severe": severe == len(CRITERIA),
               "excluded_invalid_probe_ids": sorted(excluded_for_case),
               "maximum_temperature_definition": "maximum dynamic envelope of geometrically valid WT probes",
               "boundary_field_available": True,
               "systems": systems, "system_evidence": details, "aircraft_level": aircraft,
+              "evaluation_status": evaluation_status(case_dir, sim_t_s),
+              "configuration": case_configuration(case_dir, summary),
               "assessment_standard": TREE["interpretation"]["source"],
               "assessed_at": datetime.now().astimezone().isoformat(timespec="seconds")}
     (case_dir / "damage_assessment.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
