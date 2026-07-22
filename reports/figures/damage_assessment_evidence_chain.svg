@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430">
+  <style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;letter-spacing:0;fill:#173042}.title{font-size:25px;font-weight:700}.node{font-size:18px;font-weight:600}.small{font-size:14px;fill:#587080}.arrow{stroke:#486b7d;stroke-width:3;fill:none;marker-end:url(#a)}</style>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#486b7d"/></marker></defs>
+  <rect width="1200" height="430" fill="#f7fafb"/><text x="42" y="48" class="title">从物理输入到毁伤树结论的证据链</text>
+  <g>
+    <rect x="42" y="108" width="196" height="108" rx="6" fill="#dcebf3" stroke="#2d6585" stroke-width="2"/><text x="140" y="144" text-anchor="middle" class="node">外部光辐射</text><text x="140" y="174" text-anchor="middle" class="small">Q、当量、方位角</text><text x="140" y="198" text-anchor="middle" class="small">俯仰角、DDA 可见性</text>
+    <rect x="282" y="108" width="196" height="108" rx="6" fill="#f5e6bf" stroke="#9b6b12" stroke-width="2"/><text x="380" y="144" text-anchor="middle" class="node">FDS 热响应</text><text x="380" y="174" text-anchor="middle" class="small">传热、热解、点燃</text><text x="380" y="198" text-anchor="middle" class="small">燃烧与二次火灾</text>
+    <rect x="522" y="108" width="196" height="108" rx="6" fill="#dceee5" stroke="#287258" stroke-width="2"/><text x="620" y="144" text-anchor="middle" class="node">多探针动态包络</text><text x="620" y="174" text-anchor="middle" class="small">每时刻选择有效探针</text><text x="620" y="198" text-anchor="middle" class="small">中的最高壁面温度</text>
+    <rect x="762" y="108" width="196" height="108" rx="6" fill="#e3e0f2" stroke="#615793" stroke-width="2"/><text x="860" y="144" text-anchor="middle" class="node">设备毁伤等级</text><text x="860" y="174" text-anchor="middle" class="small">温度阈值</text><text x="860" y="198" text-anchor="middle" class="small">＋最长连续持续时间</text>
+    <rect x="1002" y="108" width="156" height="108" rx="6" fill="#f8d6d1" stroke="#bd3d2f" stroke-width="2"/><text x="1080" y="144" text-anchor="middle" class="node">毁伤树传播</text><text x="1080" y="174" text-anchor="middle" class="small">设备→系统</text><text x="1080" y="198" text-anchor="middle" class="small">系统→整机</text>
+    <path d="M238 162H276M478 162H516M718 162H756M958 162H996" class="arrow"/>
+  </g>
+  <rect x="42" y="275" width="1116" height="104" rx="6" fill="#fff" stroke="#c6d2d9" stroke-width="1.5"/>
+  <text x="66" y="310" class="node">同时输出两套结论</text>
+  <text x="66" y="342" class="small">PDF 整机等级：反映关键系统失效导致的任务能力损失；严格全毁伤：要求 17 个设备组全部达到重度毁伤。</text>
+  <text x="66" y="366" class="small">阈值搜索以严格 17/17 为成功条件，但工程解释必须同时保留 PDF 整机等级。</text>
+</svg>

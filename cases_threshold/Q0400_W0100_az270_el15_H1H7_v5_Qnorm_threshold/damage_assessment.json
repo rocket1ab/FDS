@@ -605,7 +605,7 @@
     "fds_input": "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_threshold.fds"
   },
   "assessment_standard": "aircraft_damage_standard_20260711.pdf, Tables 10-15 and Section 6.3",
-  "assessed_at": "2026-07-22T11:24:50+08:00",
+  "assessed_at": "2026-07-22T11:37:53+08:00",
   "case_directory": "cases_threshold/Q0400_W0100_az270_el15_H1H7_v5_Qnorm_threshold",
   "campaign_classification": "threshold-search case"
 }

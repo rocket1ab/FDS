@@ -605,7 +605,7 @@
     "fds_input": "Q0050_W0100_az270_el15_H1H7_v5_Qnorm.fds"
   },
   "assessment_standard": "aircraft_damage_standard_20260711.pdf, Tables 10-15 and Section 6.3",
-  "assessed_at": "2026-07-22T11:24:24+08:00",
+  "assessed_at": "2026-07-22T11:37:26+08:00",
   "case_directory": "cases_qnorm/Q0050_W0100_az270_el15_H1H7_v5_Qnorm",
   "campaign_classification": "corrected Q-normalized baseline"
 }

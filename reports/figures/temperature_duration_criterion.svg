@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;letter-spacing:0;fill:#173042}.title{font-size:25px;font-weight:700}.axis{stroke:#435d6b;stroke-width:2}.curve{fill:none;stroke:#cf4d3f;stroke-width:4}.dash{stroke:#8b6a19;stroke-width:2;stroke-dasharray:8 7}.label{font-size:17px;font-weight:600}.small{font-size:14px;fill:#587080}</style>
+  <rect width="1200" height="560" fill="#f7fafb"/><text x="42" y="48" class="title">温度与最长连续持续时间联合判据示意</text>
+  <g transform="translate(72 90)">
+    <rect x="0" y="0" width="680" height="390" fill="#fff" stroke="#c6d2d9" stroke-width="1.5"/>
+    <line x1="64" y1="330" x2="640" y2="330" class="axis"/><line x1="64" y1="330" x2="64" y2="38" class="axis"/>
+    <text x="624" y="365" class="small">时间</text><text x="18" y="52" class="small">温度</text>
+    <line x1="64" y1="160" x2="640" y2="160" class="dash"/><text x="76" y="146" class="small">重度温度阈值 T*</text>
+    <path d="M64 300 C120 294,145 270,180 208 C215 145,245 94,290 132 C322 160,330 226,368 237 C405 246,430 185,470 126 C514 63,565 124,602 210 C619 249,630 279,640 294" class="curve"/>
+    <line x1="201" y1="160" x2="312" y2="160" stroke="#287258" stroke-width="6"/><line x1="447" y1="160" x2="586" y2="160" stroke="#287258" stroke-width="6"/>
+    <text x="256" y="190" text-anchor="middle" class="small">连续片段 A</text><text x="516" y="190" text-anchor="middle" class="small">连续片段 B</text>
+    <path d="M447 218V246M586 218V246M447 234H586" stroke="#287258" stroke-width="2" fill="none"/>
+    <text x="516" y="270" text-anchor="middle" class="label">取最长连续片段</text>
+  </g>
+  <g transform="translate(790 108)">
+    <rect x="0" y="0" width="354" height="100" rx="6" fill="#dceee5" stroke="#287258" stroke-width="2"/>
+    <text x="177" y="36" text-anchor="middle" class="label">温度达到且持续时间满足</text><text x="177" y="70" text-anchor="middle" class="label" fill="#287258">该等级毁伤成立</text>
+    <rect x="0" y="128" width="354" height="100" rx="6" fill="#f5e6bf" stroke="#9b6b12" stroke-width="2"/>
+    <text x="177" y="164" text-anchor="middle" class="label">峰值低于温度阈值</text><text x="177" y="198" text-anchor="middle" class="label" fill="#9b6b12">峰值温度受限</text>
+    <rect x="0" y="256" width="354" height="100" rx="6" fill="#f8d6d1" stroke="#bd3d2f" stroke-width="2"/>
+    <text x="177" y="292" text-anchor="middle" class="label">超过阈值但维持不足</text><text x="177" y="326" text-anchor="middle" class="label" fill="#bd3d2f">持续时间受限</text>
+  </g>
+</svg>

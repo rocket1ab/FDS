@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <style>
+    text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;letter-spacing:0;fill:#172b3a}
+    .title{font-size:26px;font-weight:700}.sub{font-size:15px;fill:#557080}.node{font-size:18px;font-weight:600}
+    .leaf{font-size:16px}.line{stroke:#6a7f8e;stroke-width:2.5;fill:none}.gate{fill:#fff;stroke:#bd3d2f;stroke-width:2.5}
+  </style>
+  <rect width="1200" height="760" fill="#f7fafb"/>
+  <text x="44" y="48" class="title">PDF 表13：重度毁伤树清晰重绘</text>
+  <text x="44" y="78" class="sub">来源：毁伤标准 PDF 第6.3节；本图保持原树的目标、系统和底事件层级</text>
+  <rect x="440" y="108" width="320" height="58" rx="6" fill="#f8d6d1" stroke="#bd3d2f" stroke-width="2.5"/>
+  <text x="600" y="144" text-anchor="middle" class="node">飞机目标重度毁伤</text>
+  <path d="M600 166V196" class="line"/>
+  <circle cx="600" cy="215" r="18" class="gate"/>
+  <text x="600" y="221" text-anchor="middle" class="node" fill="#bd3d2f">≥1</text>
+  <path d="M600 233V258M156 258H1044" class="line"/>
+  <path d="M156 258V292M452 258V292M748 258V292M1044 258V292" class="line"/>
+  <g>
+    <rect x="34" y="292" width="244" height="62" rx="6" fill="#dcebf3" stroke="#2d6585" stroke-width="2"/>
+    <text x="156" y="329" text-anchor="middle" class="node">机体结构重度毁伤</text>
+    <path d="M156 354V404" class="line"/>
+    <rect x="59" y="404" width="194" height="56" rx="5" fill="#fff" stroke="#78909c" stroke-width="2"/>
+    <text x="156" y="438" text-anchor="middle" class="leaf">机头结构重度毁伤</text>
+  </g>
+  <g>
+    <rect x="330" y="292" width="244" height="62" rx="6" fill="#e3e0f2" stroke="#615793" stroke-width="2"/>
+    <text x="452" y="329" text-anchor="middle" class="node">航电系统重度毁伤</text>
+    <path d="M452 354V385M385 385H519M385 385V404M519 385V404" class="line"/>
+    <rect x="335" y="404" width="100" height="90" rx="5" fill="#fff" stroke="#78909c" stroke-width="2"/>
+    <rect x="469" y="404" width="100" height="90" rx="5" fill="#fff" stroke="#78909c" stroke-width="2"/>
+    <text x="385" y="439" text-anchor="middle" class="leaf"><tspan x="385">雷达</tspan><tspan x="385" dy="23">子系统</tspan></text>
+    <text x="519" y="439" text-anchor="middle" class="leaf"><tspan x="519">导航</tspan><tspan x="519" dy="23">子系统</tspan></text>
+  </g>
+  <g>
+    <rect x="626" y="292" width="244" height="62" rx="6" fill="#f5e6bf" stroke="#9b6b12" stroke-width="2"/>
+    <text x="748" y="329" text-anchor="middle" class="node">电力系统重度毁伤</text>
+    <path d="M748 354V385M681 385H815M681 385V404M815 385V404" class="line"/>
+    <rect x="631" y="404" width="100" height="90" rx="5" fill="#fff" stroke="#78909c" stroke-width="2"/>
+    <rect x="765" y="404" width="100" height="90" rx="5" fill="#fff" stroke="#78909c" stroke-width="2"/>
+    <text x="681" y="453" text-anchor="middle" class="leaf">电池</text>
+    <text x="815" y="439" text-anchor="middle" class="leaf"><tspan x="815">电力传输</tspan><tspan x="815" dy="23">子系统</tspan></text>
+  </g>
+  <g>
+    <rect x="922" y="292" width="244" height="62" rx="6" fill="#dceee5" stroke="#287258" stroke-width="2"/>
+    <text x="1044" y="329" text-anchor="middle" class="node">座舱系统重度毁伤</text>
+    <path d="M1044 354V385M945 385H1143M945 385V404M1011 385V404M1077 385V404M1143 385V404" class="line"/>
+    <g fill="#fff" stroke="#78909c" stroke-width="2">
+      <rect x="918" y="404" width="54" height="118" rx="5"/><rect x="984" y="404" width="54" height="118" rx="5"/>
+      <rect x="1050" y="404" width="54" height="118" rx="5"/><rect x="1116" y="404" width="54" height="118" rx="5"/>
+    </g>
+    <text x="945" y="435" text-anchor="middle" class="leaf"><tspan x="945">环控</tspan><tspan x="945" dy="22">子系统</tspan></text>
+    <text x="1011" y="425" text-anchor="middle" class="leaf"><tspan x="1011">窗户</tspan><tspan x="1011" dy="22">及</tspan><tspan x="1011" dy="22">玻璃</tspan></text>
+    <text x="1077" y="425" text-anchor="middle" class="leaf"><tspan x="1077">座舱</tspan><tspan x="1077" dy="22">内部</tspan><tspan x="1077" dy="22">设施</tspan></text>
+    <text x="1143" y="435" text-anchor="middle" class="leaf"><tspan x="1143">操纵</tspan><tspan x="1143" dy="22">子系统</tspan></text>
+  </g>
+  <rect x="44" y="586" width="1112" height="118" rx="6" fill="#fff" stroke="#c6d2d9" stroke-width="1.5"/>
+  <text x="68" y="620" class="node">传播含义</text>
+  <text x="68" y="653" class="leaf">PDF 表11：四个系统中只要至少一个系统达到重度毁伤，飞机目标即可判为重度毁伤。</text>
+  <text x="68" y="682" class="leaf">PDF 表10：系统的主要要害部位中只要至少一个达到重度毁伤，系统即可判为重度毁伤。</text>
+</svg>
