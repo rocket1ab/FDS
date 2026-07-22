@@ -388,6 +388,95 @@ def propagation_rule_zh(level):
     }.get(level, "按毁伤树规则传播")
 
 
+def methodology_markdown(heading_level=2):
+    h = "#" * heading_level
+    return [
+        "", f"{h} 毁伤树评估原则", "",
+        f"{h}# 1. 评估对象与证据链", "",
+        "本项目采用“FDS 热响应输出、设备级温度与持续时间判据、系统级毁伤树传播、整机级结果”四级证据链。FDS 首先计算外部光辐射、材料受热、热解、点燃、火焰传播和舱内二次加热；随后从各材料或设备表面的壁面温度探针中提取温度历程。每个设备布置多个冗余探针，评估时在每个时刻选取所有几何有效探针的最高温度，形成动态包络。该处理用于捕捉设备不同受照面或燃烧过程中热点位置的变化，避免只用单个固定探针漏掉局部最高温度。", "",
+        "探针只有在几何位置有效且能够输出有限温度值时才参与评估。若某个表面烧蚀、被遮挡或个别探针失效，动态包络可以自动由其余有效探针继续提供证据。需要强调的是，动态包络表示被监测表面范围内的最高温度，并不等于整个实体内部每一点的真实最高温度；尤其 H1-H4 当前使用铝合金外壳壁面温度代理内部电子元件温度，因此其结论仍包含等效建模假设。", "",
+        f"{h}# 2. 设备级温度与持续时间判据", "",
+        "每个设备均设置轻度、中度和重度三档温度与持续时间组合判据。只有温度达到规定阈值，并且连续保持时间不短于规定时长，才认为该档毁伤成立。程序计算的是最长连续超阈时间，而不是把多个彼此分离的短时高温片段简单累加。这样可以避免瞬态光辐射峰值或短时火焰扫过被误判为持续性热毁伤。", "",
+        "设备最终等级取其满足的最高等级。例如，一个设备可以满足轻度和中度判据，但若重度温度只短暂超过而持续时间不足，则最终仍为中度。若峰值温度从未达到重度阈值，报告将其归为“峰值温度受限”；若峰值达到阈值但保持时间不足，则归为“持续时间受限”。证据缺失时保留“未知”，不能按未毁伤处理。", "",
+        f"{h}# 3. 外部热流与火灾加热的解释原则", "",
+        "正外部热流探针数量用于判断设备是否存在直接受照表面。存在正外部热流并不保证设备达到毁伤，因为入射角、遮挡、材料吸收率、厚度、导热、热容、热解和散热共同决定最终温升。没有正外部热流探针的设备主要依赖舱内火灾、烟气辐射和邻近可燃物燃烧产生的二次加热，其温升通常更慢，并高度依赖火灾是否能够持续。", "",
+        "对于峰值很高但超阈时间很短的设备，物理上通常意味着核辐射脉冲或局部火焰产生了瞬态加热，但材料热解、燃烧反馈或邻近火源不足以维持温度。对于峰值始终偏低的设备，则需要区分直接受照强度不足、几何遮挡、材料热惯性过大、表层厚度设置、燃烧参数以及探针位置等原因，不能仅通过降低毁伤阈值来获得目标结果。", "",
+        f"{h}# 4. 设备到系统的毁伤树传播", "",
+        "设备节点按照主要节点和次要节点归入机体结构、航空电子、电源和座舱四个系统。系统级传播遵循以下原则：至少一个主要节点达到重度时，系统判为重度；主要节点达到中度，或次要节点达到重度且没有主要节点达到重度时，系统判为中度；至少一个已知节点达到轻度且没有更高等级时，系统判为轻度；全部已知节点均未达到毁伤条件时，系统判为未毁伤。", "",
+        "整机等级取四个系统已知等级中的最高等级。因此，只要一个关键系统传播为重度，PDF 毁伤树意义下的整机目标就可以判为重度。这一原则体现关键系统失效可能导致整机任务能力丧失，并不要求所有设备同时达到重度。", "",
+        f"{h}# 5. PDF 整机等级与严格全毁伤目标", "",
+        "本研究同时报告两种不能混用的结果。第一种是依据 PDF 毁伤树传播得到的整机等级；第二种是严格全设备重度毁伤指标，即 17 个设备组全部达到重度。一个案例可能因座舱或机体结构中的关键主要节点重度毁伤而得到“整机重度”，但严格结果仍只有 4/17 或 7/17。光冲量阈值搜索的目标是后者，因此必须以 17/17 作为成功条件，同时保留 PDF 整机等级用于工程任务能力解释。", "",
+        f"{h}# 6. 正常完成与长时快照", "",
+        "包含 `STOP: FDS completed successfully`、达到目标时长且不存在数值不稳定的案例属于正常完成结果。模拟时间达到 1000 s 但缺少正常结束标记的案例可以作为长时快照用于阶段分析，因为核辐射脉冲和主要火灾发展通常已经历较长时间；但其结果仍是临时证据，后续温度和持续时间可能变化。低于 1000 s 的快照不进入正式汇总，发生数值不稳定的结果必须单独标记，不能直接用于阈值结论。", "",
+        f"{h}# 7. 阈值搜索与可比性", "",
+        "比较不同光冲量案例时，必须保持核爆当量、入射角、几何、材料、厚度、燃烧参数、BURN_AWAY、探针和毁伤标准一致，只改变入射面归一化光冲量 Q。只有同一参数族中的案例才能建立失败与成功区间并进行二分搜索。修改厚度、HRRPUA、角度或材料参数的敏感性案例必须单独分类，不能与基线案例混合得出单一阈值。", "",
+    ]
+
+
+def detailed_result_explanation(result: dict):
+    equipment = result["equipment"]
+    severe = [group for group, item in equipment.items() if item.get("level") == "severe"]
+    peak_limited, duration_limited, shielded = [], [], []
+    for group, item in equipment.items():
+        if item.get("level") == "severe":
+            continue
+        ev = item.get("evidence", {}).get("severe", {})
+        peak = item.get("peak_C", float("nan"))
+        threshold = ev.get("temperature_C", float("inf"))
+        if item.get("positive_external_flux_probe_count", 0) == 0:
+            shielded.append(group)
+        if math.isfinite(peak) and peak < threshold:
+            peak_limited.append(group)
+        elif ev.get("continuous_s", 0) < ev.get("required_s", float("inf")):
+            duration_limited.append(group)
+
+    lines = ["", "## 按毁伤树原则对本案例的详细解释", ""]
+    status = result.get("evaluation_status", "unknown")
+    if status == "normal_completion":
+        lines.append("该案例已正常运行到目标时长，且日志中存在 FDS 正常完成标记，因此可作为正式结果参与同参数族的阈值比较。")
+    else:
+        lines.append(f"该案例当前属于{status_zh(status)}，有效模拟时间为 {result.get('sim_t_s', 0):.1f} s。它可以反映已经形成的温度峰值和累计持续时间，但不能替代正常完成结果；所有临界设备仍需在完整结果中复核。")
+
+    config = result.get("configuration", {})
+    q = config.get("Q_J_cm2")
+    local_q = config.get("max_local_fluence_J_cm2")
+    if q and local_q is not None:
+        lines.append(f"该案例标称入射面光冲量为 {q:g} J/cm2，模型表面的最大局部积分光冲量为 {local_q:.3f} J/cm2，约为标称值的 {100 * local_q / q:.1f}%。因此设备实际受照还受到入射角、表面朝向与几何遮挡影响，不能把标称 Q 直接等同于每个设备表面接收的光冲量。")
+
+    if severe:
+        lines.append(f"按照设备级温度与持续时间判据，当前达到重度毁伤的设备组共有 {len(severe)} 个：{', '.join(severe)}。这些设备不仅达到重度温度阈值，而且最长连续超阈时间也满足规定时长，因此其重度结论具有完整的温度和时间证据。")
+    else:
+        lines.append("当前没有设备同时满足重度温度阈值与持续时间要求，因此严格重度毁伤数为 0。")
+
+    if peak_limited:
+        details = []
+        for group in peak_limited:
+            item = equipment[group]
+            ev = item["evidence"]["severe"]
+            details.append(f"{group}（峰值 {item['peak_C']:.1f} C，阈值 {ev['temperature_C']:g} C）")
+        lines.append("峰值温度受限设备包括：" + "、".join(details) + "。这些对象尚未进入重度判据温度区间，继续延长模拟时间并不会自动补足峰值条件；需要结合直接受照、遮挡和二次火灾强度判断其原因。")
+
+    if duration_limited:
+        details = []
+        for group in duration_limited:
+            item = equipment[group]
+            ev = item["evidence"]["severe"]
+            details.append(f"{group}（{ev['continuous_s']:.1f}/{ev['required_s']:g} s，高于 {ev['temperature_C']:g} C）")
+        lines.append("持续时间受限设备包括：" + "、".join(details) + "。这些对象已经出现足够高的瞬态峰值，但热解、燃烧或邻近火灾反馈没有把温度维持到标准要求，因此不能仅凭最高温度判为重度毁伤。")
+
+    if shielded:
+        lines.append(f"{', '.join(shielded)} 的有效监测面没有记录到正外部热流，它们主要依靠舱内二次火灾加热。若这些设备未达到重度，优先应检查 DDA 可见性、设备实际朝向、邻近可燃物燃烧持续性及探针是否覆盖热点，而不是直接降低材料强度或毁伤标准。")
+
+    system_parts = []
+    for name, detail in result["system_evidence"].items():
+        triggers = "、".join(detail.get("triggers", [])) or "无明确触发节点"
+        system_parts.append(f"{SYSTEM_LABEL_ZH.get(name, name)}为{level_zh(detail['level'])}，触发节点为{triggers}")
+    lines.append("系统级传播结果为：" + "；".join(system_parts) + "。系统等级由主要节点和次要节点按既定规则传播，不是按系统内所有设备温度求平均。")
+    lines.append(f"最终 PDF 毁伤树整机等级为{level_zh(result['aircraft_level'])}，而严格全设备结果为 {result['severe_count']}/{result['total_count']}。前者说明至少一个关键系统已达到相应任务毁伤等级；后者说明距离“所有材料和设备均重度毁伤”的研究目标仍有 {result['total_count'] - result['severe_count']} 个设备组未满足。两者必须同时保留，不能用整机重度替代 17/17。")
+    lines.append("因此，本案例是否能够作为全毁伤阈值的成功点，只取决于严格结果是否达到 17/17，并且案例是否正常完成。未达到 17/17 时，应根据上面的峰值受限、持续时间受限和遮挡分类确定下一步物理参数研究方向。")
+    return lines
+
+
 def case_markdown(result: dict, image_ref: str):
     lines = [
         f'# 完整毁伤树评估：{result["case"]}', "",
@@ -462,6 +551,7 @@ def case_markdown(result: dict, image_ref: str):
               f'- 整机等级取各系统已知等级中的最高等级：**{level_zh(result["aircraft_level"])}**。',
               '- H2（任务子系统）和 H3（显示子系统）属于当前模型的专用映射，其通用电子设备阈值并非 PDF 中的同名条目。',
               '- H1-H4 探针当前测量铝合金外壳表面温度，并将其作为内部电子器件温度的代理。', ""]
+    lines += detailed_result_explanation(result)
     return "\n".join(lines)
 
 
@@ -514,6 +604,7 @@ def update_campaign_damage_report():
              "本报告在每次评估后自动重建，包含 FDS 正常完成案例，以及明确标注的模拟时间不小于 1000 s 的长时快照。", "",
              "| 案例 | 状态 | 方案分类 | Q（J/cm2） | 模拟时间（s） | PDF 整机等级 | 严格重度毁伤数 |",
              "|---|---|---|---:|---:|---:|---:|"]
+    lines = lines[:4] + methodology_markdown(2) + ["", "## 案例结果汇总", ""] + lines[4:]
     for item in results:
         lines.append(f'| {item["case"]} | {status_zh(item.get("evaluation_status", "unknown"))} | '
                      f'{campaign_zh(item.get("campaign_classification", "未分类"))} | '
