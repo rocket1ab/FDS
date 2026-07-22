@@ -1,14 +1,14 @@
 {
   "case": "Q0050_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
   "Q_J_cm2": 50,
-  "sim_t_s": 186.00201,
+  "sim_t_s": 190.50072,
   "equipment": {
     "RADM": {
       "label": "Nose/radome",
       "level": "moderate",
       "peak_C": 793.57725,
       "probe_count": 10,
-      "dynamic_probe_switches": 14,
+      "dynamic_probe_switches": 15,
       "positive_external_flux_probe_count": 10,
       "max_registered_external_flux_kw_m2": 1250.0,
       "excluded_invalid_probes": [],
@@ -16,17 +16,17 @@
         "mild": {
           "temperature_C": 150,
           "required_s": 300,
-          "continuous_s": 184.48995870000002
+          "continuous_s": 188.9886687
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 184.48995870000002
+          "continuous_s": 188.9886687
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 180,
-          "continuous_s": 166.50173900000001
+          "continuous_s": 171.000449
         }
       }
     },
@@ -35,7 +35,7 @@
       "level": "severe",
       "peak_C": 950.27882,
       "probe_count": 10,
-      "dynamic_probe_switches": 25,
+      "dynamic_probe_switches": 28,
       "positive_external_flux_probe_count": 10,
       "max_registered_external_flux_kw_m2": 1150.0,
       "excluded_invalid_probes": [],
@@ -43,17 +43,17 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 60,
-          "continuous_s": 184.48995870000002
+          "continuous_s": 188.9886687
         },
         "moderate": {
           "temperature_C": 200,
           "required_s": 45,
-          "continuous_s": 184.48995870000002
+          "continuous_s": 188.9886687
         },
         "severe": {
           "temperature_C": 250,
           "required_s": 8,
-          "continuous_s": 184.48995870000002
+          "continuous_s": 188.9886687
         }
       }
     },
@@ -87,7 +87,7 @@
     "CURT": {
       "label": "Nylon curtain",
       "level": "moderate",
-      "peak_C": 347.15591,
+      "peak_C": 350.11055,
       "probe_count": 10,
       "dynamic_probe_switches": 4,
       "positive_external_flux_probe_count": 10,
@@ -97,12 +97,12 @@
         "mild": {
           "temperature_C": 200,
           "required_s": 60,
-          "continuous_s": 175.501124
+          "continuous_s": 179.999834
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 90,
-          "continuous_s": 111.00121500000002
+          "continuous_s": 115.499925
         },
         "severe": {
           "temperature_C": 500,
@@ -124,7 +124,7 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 25.50132000000002
+          "continuous_s": 30.00003000000001
         },
         "moderate": {
           "temperature_C": 250,
@@ -151,17 +151,17 @@
         "mild": {
           "temperature_C": 200,
           "required_s": 60,
-          "continuous_s": 184.48995870000002
+          "continuous_s": 188.9886687
         },
         "moderate": {
           "temperature_C": 300,
           "required_s": 90,
-          "continuous_s": 184.48995870000002
+          "continuous_s": 188.9886687
         },
         "severe": {
           "temperature_C": 500,
           "required_s": 5,
-          "continuous_s": 184.48995870000002
+          "continuous_s": 188.9886687
         }
       }
     },
@@ -178,24 +178,24 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 600,
-          "continuous_s": 181.5014615
+          "continuous_s": 186.0001715
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 300,
-          "continuous_s": 171.001822
+          "continuous_s": 175.500532
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 60,
-          "continuous_s": 163.495763
+          "continuous_s": 167.994473
         }
       }
     },
     "AL5052": {
       "label": "Aluminium 5052 duct",
       "level": "none",
-      "peak_C": 456.92555,
+      "peak_C": 467.42787,
       "probe_count": 10,
       "dynamic_probe_switches": 6,
       "positive_external_flux_probe_count": 0,
@@ -205,17 +205,17 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 600,
-          "continuous_s": 119.99953700000002
+          "continuous_s": 124.498247
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 300,
-          "continuous_s": 80.99922000000001
+          "continuous_s": 85.49793
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 60,
-          "continuous_s": 27.001060000000024
+          "continuous_s": 31.499770000000012
         }
       }
     },
@@ -232,12 +232,12 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 600,
-          "continuous_s": 141.00188000000003
+          "continuous_s": 145.50059
         },
         "moderate": {
           "temperature_C": 200,
           "required_s": 240,
-          "continuous_s": 52.50117
+          "continuous_s": 56.99987999999999
         },
         "severe": {
           "temperature_C": 400,
@@ -249,7 +249,7 @@
     "O2TANK": {
       "label": "Oxygen tank",
       "level": "none",
-      "peak_C": 144.23362,
+      "peak_C": 146.91319,
       "probe_count": 8,
       "dynamic_probe_switches": 1,
       "positive_external_flux_probe_count": 6,
@@ -262,7 +262,7 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 600,
-          "continuous_s": 49.50174000000001
+          "continuous_s": 54.00045
         },
         "moderate": {
           "temperature_C": 200,
@@ -338,7 +338,7 @@
     "H3": {
       "label": "Display subsystem",
       "level": "none",
-      "peak_C": 369.5397,
+      "peak_C": 379.65186,
       "probe_count": 14,
       "dynamic_probe_switches": 5,
       "positive_external_flux_probe_count": 0,
@@ -348,12 +348,12 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 87.00161000000001
+          "continuous_s": 91.50032
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 43.50183000000001
+          "continuous_s": 48.00054
         },
         "severe": {
           "temperature_C": 400,
@@ -365,7 +365,7 @@
     "H4": {
       "label": "Communication subsystem",
       "level": "none",
-      "peak_C": 270.28288,
+      "peak_C": 278.46207,
       "probe_count": 10,
       "dynamic_probe_switches": 3,
       "positive_external_flux_probe_count": 4,
@@ -375,12 +375,12 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 82.50055000000002
+          "continuous_s": 86.99926
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 10.50197
+          "continuous_s": 15.000679999999988
         },
         "severe": {
           "temperature_C": 400,
@@ -392,7 +392,7 @@
     "H5": {
       "label": "Battery",
       "level": "none",
-      "peak_C": 68.435388,
+      "peak_C": 69.04,
       "probe_count": 6,
       "dynamic_probe_switches": 7,
       "positive_external_flux_probe_count": 3,
@@ -429,7 +429,7 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 1200,
-          "continuous_s": 150.00188200000002
+          "continuous_s": 154.500592
         },
         "moderate": {
           "temperature_C": 200,
@@ -458,7 +458,7 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 178.5011522
+          "continuous_s": 182.9998622
         },
         "moderate": {
           "temperature_C": 250,
@@ -618,5 +618,5 @@
     "fds_input": "Q0050_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit.fds"
   },
   "assessment_standard": "aircraft_damage_standard_20260711.pdf, Tables 10-15 and Section 6.3",
-  "assessed_at": "2026-07-22T21:31:30+08:00"
+  "assessed_at": "2026-07-22T21:46:50+08:00"
 }
