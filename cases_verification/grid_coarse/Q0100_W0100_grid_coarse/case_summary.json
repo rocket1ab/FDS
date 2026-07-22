@@ -1,0 +1,829 @@
+{
+  "case": "Q0100_W0100_grid_coarse",
+  "purpose": "grid_resolution_coarse_verification",
+  "Q_J_cm2": 100,
+  "yield_kt": 100,
+  "azimuth_deg": 270,
+  "elevation_deg": 15,
+  "t_end_s": 1500,
+  "mpi": 20,
+  "burn_away": false,
+  "nuclear_ramp_integral_s": 0.6603982070000001,
+  "plane_peak_irradiance_kw_m2": 1514.237908886388,
+  "max_local_external_flux_kw_m2": 1471,
+  "max_local_fluence_J_cm2": 97.14457624970002,
+  "removed_overlay_vents": 1912,
+  "removed_old_surface_variants": 99,
+  "domain_vents": 2,
+  "split_source_obstacles": 2643,
+  "generated_flux_obstacles": 3838,
+  "flux_surface_variants_used": 99,
+  "materials_changed": false,
+  "damage_thresholds_changed": false,
+  "adaptive_variant": true,
+  "source_case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
+  "changed_factor": "MESH_IJK_only",
+  "thickness_m": {
+    "RADM": 0.1,
+    "WINS": 0.025,
+    "BED": 0.00089,
+    "CURT": 0.003,
+    "U4": 0.006
+  },
+  "hrrpua_kW_m2": {
+    "RADM": 840.0,
+    "WINS": 806.0,
+    "BED": 790.0,
+    "CURT": 324.0,
+    "U4": 840.0,
+    "SEAT": 860.0,
+    "H6": 259.0,
+    "H7": 458.0
+  },
+  "hrrpua_sources": {
+    "RADM": "Uncoated glass-fibre reinforced epoxy cone peak 840 kW/m2 at 50 kW/m2 exposure; Materials 2015, 8, 5216",
+    "WINS": "FSRI PMMA cone database maximum 25 kW/m2 replicate peak 805.8 kW/m2, rounded to 806",
+    "BED": "Neat Nylon-6 upper-bound cone peak 790 kW/m2; bounding sensitivity pending mattress-cover qualification",
+    "CURT": "NIST transportation-material privacy-curtain maximum peak 324 kW/m2",
+    "U4": "Uncoated glass-fibre reinforced epoxy cone peak 840 kW/m2 at 50 kW/m2 exposure; Materials 2015, 8, 5216",
+    "SEAT": "Raw aircraft-cabin polyurethane foam peak 859.9 kW/m2 at 35 kW/m2 exposure; Fire 2024, 7, 351",
+    "H6": "PVC cone maximum peak 259 kW/m2 at 50 kW/m2 exposure; Asia-Oceania Symposium on Fire Science and Technology",
+    "H7": "NIST transportation-material chloroprene diaphragm maximum peak 458 kW/m2"
+  },
+  "hrrpua_source_urls": {
+    "RADM": "https://www.mdpi.com/1996-1944/8/8/5216",
+    "WINS": "https://materials.fsri.org/materialdetail/polymethyl-methacrylate-pmma",
+    "BED": "https://doi.org/10.1002/fam.2265",
+    "CURT": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=912697",
+    "U4": "https://www.mdpi.com/1996-1944/8/8/5216",
+    "SEAT": "https://www.mdpi.com/2571-6255/7/10/351",
+    "H6": "https://publications.iafss.org/publications/aofst/3/189/view/aofst_3-189.pdf",
+    "H7": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=912697"
+  },
+  "thickness_surface_blocks_changed": {
+    "RADM": 6,
+    "WINS": 15,
+    "BED": 10,
+    "CURT": 19,
+    "U4": 1
+  },
+  "hrrpua_surface_blocks_changed": {
+    "RADM": 6,
+    "WINS": 15,
+    "BED": 10,
+    "CURT": 19,
+    "U4": 1,
+    "SEAT": 17,
+    "H6": 1,
+    "H7": 1
+  },
+  "mesh_process_mapping": "source",
+  "geometry_changed": false,
+  "external_flux_changed": false,
+  "ignition_temperature_changed": false,
+  "burn_away_changed": false,
+  "upper_bound_sensitivity_not_qualified_material_data": true,
+  "grid_level": "coarse_approximately_2x_spacing",
+  "old_total_cells": 395712,
+  "new_total_cells": 52604,
+  "cell_count_ratio": 0.13293506388484555,
+  "mesh_records": [
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.10000000000000002
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.20000000000000004
+      ],
+      "mpi_process": 0
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.1
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.2
+      ],
+      "mpi_process": 0
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.1
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.2
+      ],
+      "mpi_process": 1
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        9
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.09999999999999999
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.18
+      ],
+      "mpi_process": 1
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        9
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.10000000000000002
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.18000000000000002
+      ],
+      "mpi_process": 2
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.10000000000000002
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.20000000000000004
+      ],
+      "mpi_process": 3
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.2
+      ],
+      "mpi_process": 3
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.2
+      ],
+      "mpi_process": 4
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        9
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.09999999999999999
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.18
+      ],
+      "mpi_process": 5
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        9
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.10000000000000002
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.18000000000000002
+      ],
+      "mpi_process": 5
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.10000000000000002
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.20000000000000004
+      ],
+      "mpi_process": 6
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.2
+      ],
+      "mpi_process": 6
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.2
+      ],
+      "mpi_process": 7
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        9
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.09999999999999999
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.18
+      ],
+      "mpi_process": 8
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        9
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.1,
+        0.10000000000000002
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.18000000000000002
+      ],
+      "mpi_process": 8
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.10000000000000002
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.20000000000000004
+      ],
+      "mpi_process": 9
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.1
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.2
+      ],
+      "mpi_process": 10
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        10
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.1
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.2
+      ],
+      "mpi_process": 10
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        9
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.09999999999999999
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.18
+      ],
+      "mpi_process": 11
+    },
+    {
+      "old_ijk": [
+        85,
+        9,
+        9
+      ],
+      "new_ijk": [
+        43,
+        5,
+        5
+      ],
+      "old_cell_m": [
+        0.1,
+        0.09999999999999999,
+        0.10000000000000002
+      ],
+      "new_cell_m": [
+        0.19767441860465115,
+        0.18,
+        0.18000000000000002
+      ],
+      "mpi_process": 11
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.049999999999999996,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.09999999999999999,
+        0.1
+      ],
+      "mpi_process": 12
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.05,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.1,
+        0.1
+      ],
+      "mpi_process": 13
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.05,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.1,
+        0.1
+      ],
+      "mpi_process": 13
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.049999999999999996,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.09999999999999999,
+        0.1
+      ],
+      "mpi_process": 14
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.049999999999999996,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.09999999999999999,
+        0.1
+      ],
+      "mpi_process": 15
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.05,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.1,
+        0.1
+      ],
+      "mpi_process": 15
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.05,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.1,
+        0.1
+      ],
+      "mpi_process": 16
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.049999999999999996,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.09999999999999999,
+        0.1
+      ],
+      "mpi_process": 16
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.049999999999999996,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.09999999999999999,
+        0.1
+      ],
+      "mpi_process": 17
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.05,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.1,
+        0.1
+      ],
+      "mpi_process": 18
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.05,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.1,
+        0.1
+      ],
+      "mpi_process": 18
+    },
+    {
+      "old_ijk": [
+        36,
+        18,
+        32
+      ],
+      "new_ijk": [
+        18,
+        9,
+        16
+      ],
+      "old_cell_m": [
+        0.052777777777777785,
+        0.049999999999999996,
+        0.05
+      ],
+      "new_cell_m": [
+        0.10555555555555557,
+        0.09999999999999999,
+        0.1
+      ],
+      "mpi_process": 19
+    }
+  ],
+  "probes_changed": false
+}

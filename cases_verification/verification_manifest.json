@@ -1,0 +1,15 @@
+{
+  "grid_cases_in_order": [
+    "Q0050_W0100_grid_coarse",
+    "Q0200_W0100_grid_coarse",
+    "Q0100_W0100_grid_coarse",
+    "Q0400_W0100_grid_coarse"
+  ],
+  "yield_cases_in_order": [
+    "Q0050_W0010_yield_independence",
+    "Q0050_W0050_yield_independence",
+    "Q0050_W0200_yield_independence",
+    "Q0050_W0500_yield_independence",
+    "Q0050_W1000_yield_independence"
+  ]
+}

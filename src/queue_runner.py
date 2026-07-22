@@ -17,6 +17,10 @@ SSH_OPTIONS = ["-o", "ConnectTimeout=15", "-o", "ServerAliveInterval=30", "-o", 
 
 
 def case_root(case_name: str) -> Path:
+    if "_grid_coarse" in case_name:
+        return ROOT / "cases_verification" / "grid_coarse"
+    if "_yield_independence" in case_name:
+        return ROOT / "cases_verification" / "yield_Q50"
     if "_threshold" in case_name:
         return ROOT / "cases_threshold"
     if "_adapt_" in case_name:
@@ -195,6 +199,9 @@ def run_case(node: str, case_name: str):
     assessment = subprocess.run(["python3", str(ROOT / "src" / "assess_results.py"), str(case_dir)],
                                 capture_output=True, text=True)
     (case_dir / "assessment.log").write_text(assessment.stdout + assessment.stderr, encoding="utf-8")
+    if "_grid_coarse" in case_name or "_yield_independence" in case_name:
+        subprocess.run(["python3", str(ROOT / "src" / "update_independence_report.py")],
+                       capture_output=True, text=True)
     write_status(node, state="case_complete" if assessment.returncode == 0 else "case_failed",
                  case=case_name, fds_exit_code=result_code, assessment_exit_code=assessment.returncode,
                  completed_at=stamp())

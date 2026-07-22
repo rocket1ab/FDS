@@ -12,7 +12,7 @@ import paramiko
 
 CONFIG = Path(r"D:\Pyrosim\radiation_ignition_damage_workflow_20260716\gui_windows\user_config.json")
 BASE = "/home/zsh/FDS/FDS6/radiation_ignition_damage_workflow_20260720_H1_H7"
-NODES = ("node01", "node03", "node04", "node05")
+NODES = ("node01", "node02", "node03", "node04", "node05")
 ACTIVE_CASES = (
     "cases_adaptive/Q0050_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
     "cases_adaptive/Q0200_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
