@@ -101,7 +101,10 @@ def run_preflight(node: str, case_name: str):
     chid = f"preflight_{node}_H1H7_v2"
     text = source.read_text(encoding="utf-8", errors="replace")
     text, head_count = re.subn(r"&HEAD\s+CHID='[^']*'\s*/", f"&HEAD CHID='{chid}'/", text, count=1)
-    text, time_count = re.subn(r"(T_END\s*=\s*)[-+\d.E]+", r"\g<1>0.01", text, count=1, flags=re.I)
+    text, time_count = re.subn(
+        r"(&TIME\b[^/]*\bT_END\s*=\s*)[-+\d.E]+",
+        r"\g<1>0.01", text, count=1, flags=re.I,
+    )
     if head_count != 1 or time_count != 1:
         raise ValueError("Could not create preflight input from HEAD/TIME records")
     fds = work / f"{chid}.fds"

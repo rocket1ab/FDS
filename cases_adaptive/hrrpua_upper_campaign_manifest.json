@@ -1,0 +1,41 @@
+{
+  "campaign": "HRRupper_thickness_audit_20260722",
+  "fluences_J_cm2": [
+    50,
+    100,
+    200,
+    300,
+    400
+  ],
+  "yield_kt": 100,
+  "azimuth_deg": 270,
+  "elevation_deg": 15,
+  "t_end_s": 1500,
+  "hrrpua_kW_m2": {
+    "RADM": 840.0,
+    "WINS": 806.0,
+    "BED": 790.0,
+    "CURT": 324.0,
+    "U4": 840.0,
+    "SEAT": 860.0,
+    "H6": 259.0,
+    "H7": 458.0
+  },
+  "source_urls": {
+    "RADM": "https://www.mdpi.com/1996-1944/8/8/5216",
+    "WINS": "https://materials.fsri.org/materialdetail/polymethyl-methacrylate-pmma",
+    "BED": "https://doi.org/10.1002/fam.2265",
+    "CURT": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=912697",
+    "U4": "https://www.mdpi.com/1996-1944/8/8/5216",
+    "SEAT": "https://www.mdpi.com/2571-6255/7/10/351",
+    "H6": "https://publications.iafss.org/publications/aofst/3/189/view/aofst_3-189.pdf",
+    "H7": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=912697"
+  },
+  "cases": [
+    "Q0050_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
+    "Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
+    "Q0200_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
+    "Q0300_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
+    "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit"
+  ]
+}
