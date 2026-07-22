@@ -115,6 +115,7 @@ LEVEL_ZH = {"unknown": "未知", "none": "未毁伤", "mild": "轻度", "moderat
 STATUS_ZH = {
     "normal_completion": "正常完成",
     "long_duration_snapshot_without_normal_stop": "长时快照（无正常结束标记）",
+    "running_snapshot": "实时快照（案例仍在运行）",
     "long_snapshot_with_numerical_instability": "长时快照（存在数值不稳定）",
     "invalid_numerical_instability": "无效（数值不稳定）",
     "insufficient_duration_snapshot": "时长不足的快照",
@@ -374,6 +375,11 @@ def evaluation_status(case_dir: Path, sim_t_s: float):
         return "normal_completion"
     if "Numerical Instability" in combined:
         return "long_snapshot_with_numerical_instability" if sim_t_s >= 1000 else "invalid_numerical_instability"
+    # queue_runner writes this marker only after the FDS process exits.  Its
+    # absence must not be described as an abnormal long snapshot merely
+    # because the live DEVC stream has passed 1000 s.
+    if not (case_dir / ".fds_exit_code").exists():
+        return "running_snapshot"
     if sim_t_s >= 1000:
         return "long_duration_snapshot_without_normal_stop"
     return "insufficient_duration_snapshot"
