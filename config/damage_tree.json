@@ -1,16 +1,19 @@
 {
   "schema_version": "1.1-H1-H7",
   "root": "aircraft",
+  "root_label": "Aircraft target",
   "systems": {
-    "airframe": {"major": ["RADM", "AL2024", "AL7075"], "secondary": []},
-    "avionics": {"major": ["H1", "H2"], "secondary": ["H4"]},
-    "power": {"major": ["H5", "H6"], "secondary": []},
-    "cockpit": {"major": ["WINS", "BED", "CURT", "SEAT", "U4", "H3", "H7"], "secondary": ["AL5052", "O2TANK"]}
+    "airframe": {"label": "Airframe structure", "major": ["RADM", "AL2024", "AL7075"], "secondary": []},
+    "avionics": {"label": "Avionics system", "major": ["H1", "H2"], "secondary": ["H4"]},
+    "power": {"label": "Power system", "major": ["H5", "H6"], "secondary": []},
+    "cockpit": {"label": "Cockpit system", "major": ["WINS", "BED", "CURT", "SEAT", "U4", "H3", "H7"], "secondary": ["AL5052", "O2TANK"]}
   },
   "interpretation": {
+    "source": "aircraft_damage_standard_20260711.pdf, Tables 10-15 and Section 6.3",
     "H2": "Mission subsystem is retained as a model-specific major avionics node.",
     "H3": "Display subsystem is retained as a model-specific major cockpit node.",
-    "target_rule": "Aircraft level is the highest known system level.",
+    "target_rule": "Aircraft level is the highest known system level, as specified by PDF Tables 10-11.",
+    "strict_rule": "All-severe is a separate research metric requiring every monitored group to be severe; it is not the PDF aircraft-level rule.",
     "unknown_rule": "Missing evidence remains unknown and is never treated as none."
   }
 }
