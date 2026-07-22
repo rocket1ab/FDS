@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -17,6 +18,32 @@ NODES = {
     "node01": [50],
     "node04": [400, 300],
     "node05": [200, 100],
+}
+AMBIENT_C = 20.0
+THERMAL = {
+    "RADM": ("E玻璃纤维复合材料", 2540.0, 1000.0, 0.100),
+    "WINS": ("PMMA", 1190.0, 1460.0, 0.025),
+    "BED": ("尼龙床垫表层", 1140.0, 1700.0, 0.00089),
+    "CURT": ("尼龙窗帘", 1140.0, 1700.0, 0.003),
+    "U4": ("环氧玻璃纤维", 2540.0, 1000.0, 0.006),
+    "SEAT": ("聚氨酯泡沫", 35.0, 1400.0, 0.150),
+    "AL2024": ("铝合金2024", 2780.0, 875.0, 0.002),
+    "AL5052": ("铝合金5052", 2680.0, 880.0, 0.0015),
+    "AL7075": ("铝合金7075", 2810.0, 960.0, 0.003),
+    "O2TANK": ("铝合金7075氧气瓶壁", 2810.0, 960.0, 0.005),
+    "H1": ("铝合金6061外壳", 2700.0, 896.0, 0.003),
+    "H2": ("铝合金6061外壳", 2700.0, 896.0, 0.003),
+    "H3": ("铝合金6061外壳", 2700.0, 896.0, 0.003),
+    "H4": ("铝合金6061外壳", 2700.0, 896.0, 0.003),
+    "H5": ("铝合金6061外壳", 2700.0, 896.0, 0.003),
+    "H6": ("PVC塑料", 1449.0, 840.0, 0.001),
+    "H7": ("CR橡胶", 1500.0, 1120.0, 0.002),
+}
+COMBUSTION = {
+    "RADM": (400.0, 840.0), "WINS": (250.0, 806.0),
+    "BED": (250.0, 790.0), "CURT": (250.0, 324.0),
+    "U4": (350.0, 840.0), "SEAT": (250.0, 860.0),
+    "H6": (468.6, 259.0), "H7": (410.0, 458.0),
 }
 
 
@@ -47,6 +74,100 @@ def fmt(value, digits: int = 1) -> str:
         return f"{float(value):.{digits}f}"
     except (TypeError, ValueError):
         return "--"
+
+
+def group_external_flux(case_dir: Path, group: str) -> float:
+    fds = next(case_dir.glob("*.fds"), None)
+    if not fds:
+        return 0.0
+    text = fds.read_text(encoding="utf-8", errors="replace")
+    values = []
+    for block in re.findall(r"&SURF\b.*?/", text, flags=re.I | re.S):
+        if not re.search(rf"\bID\s*=\s*'{re.escape(group)}_R\d+'", block, flags=re.I):
+            continue
+        match = re.search(r"\bEXTERNAL_FLUX\s*=\s*([-+0-9.Ee]+)", block, flags=re.I)
+        if match:
+            values.append(float(match.group(1)))
+    return max(values, default=0.0)
+
+
+def valid_flux_coverage(case_dir: Path, group: str, item: dict) -> tuple[int, int, float]:
+    registry = load_json(case_dir / "monitor_registry.json").get(group, [])
+    excluded = set(item.get("excluded_invalid_probes", []))
+    valid = [probe for probe in registry if probe.get("wt") not in excluded]
+    positive = [probe for probe in valid if float(probe.get("base_flux", 0) or 0) > 0]
+    maximum = group_external_flux(case_dir, group)
+    return len(positive), len(valid), maximum
+
+
+def failure_analysis(q: int, case_dir: Path, group: str, item: dict) -> list[str]:
+    severe = item.get("evidence", {}).get("severe", {})
+    threshold = float(severe.get("temperature_C", 0) or 0)
+    required = float(severe.get("required_s", 0) or 0)
+    continuous = float(severe.get("continuous_s", 0) or 0)
+    peak = float(item.get("peak_C", 0) or 0)
+    material, density, cp, thickness = THERMAL[group]
+    areal_capacity = density * cp * thickness
+    ideal_energy_j_cm2 = areal_capacity * max(threshold - AMBIENT_C, 0) / 1.0e4
+    positive, valid, max_flux = valid_flux_coverage(case_dir, group, item)
+    lines = [
+        f"##### {group}：{material}", "",
+        f"当前峰值为 **{peak:.1f} C**，重度判据为 **{threshold:g} C 持续 {required:g} s**，"
+        f"实际最长连续时间为 **{continuous:.1f} s**。",
+        "",
+        f"单位面积热容量为 `rho*cp*d = {density:g}*{cp:g}*{thickness:g} = "
+        f"{areal_capacity:.0f} J/(m2*K)`；从 {AMBIENT_C:g} C 升至重度阈值所需的理想显热约为 "
+        f"`{ideal_energy_j_cm2:.1f} J/cm2`。该值忽略反射、角度投影、向实体内部导热、对流、"
+        "辐射散热和热解，只用于解释热惯性，不能直接当作光冲量阈值。",
+        "",
+        f"有效温度探针中有 **{positive}/{valid}** 个对应正外部热流面，登记峰值为 "
+        f"**{max_flux:g} kW/m2**。标称 Q={q} J/cm2 是入射平面光冲量，不等于该对象实际吸收的光冲量。",
+        "",
+    ]
+    if peak < threshold:
+        gap = threshold - peak
+        if positive == 0:
+            mechanism = (
+                f"峰值仍低于重度阈值 **{gap:.1f} C**，且有效探针没有直接受照面。"
+                "其升温主要来自邻近火焰、热烟气和舱内辐射，因此结果受二次火灾位置与持续性控制。"
+            )
+        elif positive < valid:
+            mechanism = (
+                f"峰值仍低于重度阈值 **{gap:.1f} C**。对象只有部分监测面直接受照，"
+                "未受照部分及内部导热共同削弱局部脉冲升温，脉冲后散热又使温度回落。"
+            )
+        else:
+            mechanism = (
+                f"峰值仍低于重度阈值 **{gap:.1f} C**。虽然监测面直接受照，但实际吸收能量"
+                "受投影、表面换热和材料热惯性限制，且后续二次火灾没有提供足够持续加热。"
+            )
+    else:
+        mechanism = (
+            f"峰值已经超过重度温度阈值，但还缺少 **{max(required-continuous, 0):.1f} s** 连续保持时间。"
+            "这属于持续时间不足，而不是峰值温度不足；后续若温度重新升高并连续越过阈值，等级仍可能改变。"
+        )
+    lines += [mechanism, ""]
+    if group in COMBUSTION:
+        ignition, hrrpua = COMBUSTION[group]
+        if peak < ignition:
+            lines += [
+                f"该表面设置 `IGNITION_TEMPERATURE={ignition:g} C`、`HRRPUA={hrrpua:g} kW/m2`。"
+                f"当前峰值低于点燃温度 **{ignition-peak:.1f} C**，因此尚不能依靠自身燃烧维持升温；"
+                "提高HRRPUA本身在未点燃前不会生效。", "",
+            ]
+        else:
+            lines += [
+                f"该表面设置 `IGNITION_TEMPERATURE={ignition:g} C`、`HRRPUA={hrrpua:g} kW/m2`，"
+                "峰值已越过点燃温度。若仍未满足重度判据，重点应检查点燃后的有效燃烧面积、"
+                "持续热释放、邻近表面的热反馈以及探针是否覆盖持续热点。", "",
+            ]
+    elif group in {"H1", "H2", "H3", "H4", "H5"}:
+        lines += [
+            "该对象当前只建模为不可燃的3 mm铝合金6061外壳，没有内部电路板、线缆或聚合物部件，"
+            "也没有自身HRRPUA。因此外部脉冲结束后只能依靠邻近火灾继续加热。当前判定反映的是"
+            "铝壳表面热毁伤代理，不等同于真实内部电子器件一定未发生功能失效。", "",
+        ]
+    return lines
 
 
 def main() -> None:
@@ -120,6 +241,14 @@ def main() -> None:
             ) + "。", "",
             f"![Q={q}毁伤树](../cases_adaptive/{case_name(q)}/damage_tree.svg)", "",
         ]
+        not_severe = [(group, item) for group, item in equipment.items()
+                      if item.get("level") != "severe"]
+        if not_severe:
+            lines += ["#### 未达到重度毁伤对象的逐项机理分析", "",
+                      "下列计算均为当前实时快照。对于峰值不足和持续时间不足分别给出原因，不把二者混用。", ""]
+            case_dir = ROOT / "cases_adaptive" / case_name(q)
+            for group, item in not_severe:
+                lines += failure_analysis(q, case_dir, group, item)
 
     lines += [
         "## 当前判断", "",
