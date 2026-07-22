@@ -82,9 +82,9 @@
 <text x="1280.8" y="621.0" text-anchor="middle" class="label" fill="#212529">H3  显示子系统</text>
 <text x="1280.8" y="643.0" text-anchor="middle" class="small" fill="#a51111">重度 | 主要节点</text>
 <path class="line" d="M 1280.8 586.0 V 598.0"/>
-<rect x="1119.5" y="666.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect x="1119.5" y="666.0" width="322.5" height="56.0" rx="4" fill="#fff3bf" stroke="#7a5b00" stroke-width="2"/>
 <text x="1280.8" y="689.0" text-anchor="middle" class="label" fill="#212529">H7  操纵子系统</text>
-<text x="1280.8" y="711.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<text x="1280.8" y="711.0" text-anchor="middle" class="small" fill="#7a5b00">轻度 | 主要节点</text>
 <path class="line" d="M 1280.8 654.0 V 666.0"/>
 <rect x="1119.5" y="734.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
 <text x="1280.8" y="757.0" text-anchor="middle" class="label" fill="#212529">AL5052  5052 铝合金风管</text>
