@@ -45,9 +45,9 @@
 <text x="920.2" y="157.0" text-anchor="middle" class="label" fill="#212529">电源系统</text>
 <text x="920.2" y="185.0" text-anchor="middle" class="small" fill="#a51111">重度 | power</text>
 <path class="line" d="M 920.2 196.0 V 242.0"/>
-<rect x="759.0" y="258.0" width="322.5" height="56.0" rx="4" fill="#fff3bf" stroke="#7a5b00" stroke-width="2"/>
+<rect x="759.0" y="258.0" width="322.5" height="56.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
 <text x="920.2" y="281.0" text-anchor="middle" class="label" fill="#212529">H5  电池</text>
-<text x="920.2" y="303.0" text-anchor="middle" class="small" fill="#7a5b00">轻度 | 主要节点</text>
+<text x="920.2" y="303.0" text-anchor="middle" class="small" fill="#a51111">重度 | 主要节点</text>
 <path class="line" d="M 920.2 242.0 V 258.0"/>
 <rect x="759.0" y="326.0" width="322.5" height="56.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
 <text x="920.2" y="349.0" text-anchor="middle" class="label" fill="#212529">H6  电力传输子系统</text>
@@ -104,5 +104,5 @@
 <text x="442" y="934" class="small">中度</text>
 <rect x="540" y="920" width="22" height="18" fill="#ffc9c9" stroke="#a51111"/>
 <text x="570" y="934" class="small">重度</text>
-<text x="1452" y="934" text-anchor="end" class="small">严格全重度毁伤：15/17</text>
+<text x="1452" y="934" text-anchor="end" class="small">严格全重度毁伤：16/17</text>
 </svg>
