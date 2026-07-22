@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <style>
+    text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;letter-spacing:0;fill:#173042}
+    .title{font-size:26px;font-weight:700}.head{font-size:20px;font-weight:700}.node{font-size:16px;font-weight:600}.small{font-size:14px;fill:#526b79}
+    .line{stroke:#6c8190;stroke-width:2.2;fill:none}.panel{fill:#fff;stroke:#c8d5dc;stroke-width:1.5}
+  </style>
+  <rect width="1200" height="900" fill="#f7fafb"/>
+  <text x="42" y="48" class="title">PDF 轻度、中度、重度毁伤树传播逻辑重绘</text>
+  <text x="42" y="78" class="small">依据毁伤标准 PDF 表10、表11及第6.2、6.3节重新绘制，不嵌入PDF页面截图</text>
+
+  <g transform="translate(42 108)">
+    <rect width="1116" height="200" rx="7" class="panel"/>
+    <rect x="24" y="24" width="180" height="50" rx="5" fill="#f8d6d1" stroke="#bd3d2f" stroke-width="2"/>
+    <text x="114" y="56" text-anchor="middle" class="head">重度毁伤</text>
+    <rect x="392" y="18" width="330" height="54" rx="5" fill="#f8d6d1" stroke="#bd3d2f" stroke-width="2"/>
+    <text x="557" y="52" text-anchor="middle" class="head">飞机目标重度毁伤</text>
+    <path d="M557 72V96M247 96H867M247 96V122M454 96V122M660 96V122M867 96V122" class="line"/>
+    <g fill="#fff" stroke="#bd3d2f" stroke-width="1.8">
+      <rect x="162" y="122" width="170" height="48" rx="4"/><rect x="369" y="122" width="170" height="48" rx="4"/>
+      <rect x="575" y="122" width="170" height="48" rx="4"/><rect x="782" y="122" width="170" height="48" rx="4"/>
+    </g>
+    <text x="247" y="152" text-anchor="middle" class="node">机体结构重度</text><text x="454" y="152" text-anchor="middle" class="node">航电系统重度</text>
+    <text x="660" y="152" text-anchor="middle" class="node">电力系统重度</text><text x="867" y="152" text-anchor="middle" class="node">座舱系统重度</text>
+    <text x="982" y="52" class="node">触发条件</text><text x="982" y="80" class="small">至少一个系统重度</text><text x="982" y="104" class="small">不要求其余系统重度</text>
+  </g>
+
+  <g transform="translate(42 330)">
+    <rect width="1116" height="200" rx="7" class="panel"/>
+    <rect x="24" y="24" width="180" height="50" rx="5" fill="#f5e6bf" stroke="#9b6b12" stroke-width="2"/>
+    <text x="114" y="56" text-anchor="middle" class="head">中度毁伤</text>
+    <rect x="392" y="18" width="330" height="54" rx="5" fill="#f5e6bf" stroke="#9b6b12" stroke-width="2"/>
+    <text x="557" y="52" text-anchor="middle" class="head">飞机目标中度毁伤</text>
+    <path d="M557 72V96M247 96H867M247 96V122M454 96V122M660 96V122M867 96V122" class="line"/>
+    <g fill="#fff" stroke="#9b6b12" stroke-width="1.8">
+      <rect x="162" y="122" width="170" height="48" rx="4"/><rect x="369" y="122" width="170" height="48" rx="4"/>
+      <rect x="575" y="122" width="170" height="48" rx="4"/><rect x="782" y="122" width="170" height="48" rx="4"/>
+    </g>
+    <text x="247" y="152" text-anchor="middle" class="node">机体结构中度</text><text x="454" y="152" text-anchor="middle" class="node">航电系统中度</text>
+    <text x="660" y="152" text-anchor="middle" class="node">电力系统中度</text><text x="867" y="152" text-anchor="middle" class="node">座舱系统中度</text>
+    <text x="982" y="45" class="node">触发条件</text><text x="982" y="73" class="small">至少一个系统中度</text><text x="982" y="97" class="small">且重度系统数量为0</text>
+  </g>
+
+  <g transform="translate(42 552)">
+    <rect width="1116" height="200" rx="7" class="panel"/>
+    <rect x="24" y="24" width="180" height="50" rx="5" fill="#dceee5" stroke="#287258" stroke-width="2"/>
+    <text x="114" y="56" text-anchor="middle" class="head">轻度毁伤</text>
+    <rect x="392" y="18" width="330" height="54" rx="5" fill="#dceee5" stroke="#287258" stroke-width="2"/>
+    <text x="557" y="52" text-anchor="middle" class="head">飞机目标轻度毁伤</text>
+    <path d="M557 72V96M247 96H867M247 96V122M454 96V122M660 96V122M867 96V122" class="line"/>
+    <g fill="#fff" stroke="#287258" stroke-width="1.8">
+      <rect x="162" y="122" width="170" height="48" rx="4"/><rect x="369" y="122" width="170" height="48" rx="4"/>
+      <rect x="575" y="122" width="170" height="48" rx="4"/><rect x="782" y="122" width="170" height="48" rx="4"/>
+    </g>
+    <text x="247" y="152" text-anchor="middle" class="node">机体结构轻度</text><text x="454" y="152" text-anchor="middle" class="node">航电系统轻度</text>
+    <text x="660" y="152" text-anchor="middle" class="node">电力系统轻度</text><text x="867" y="152" text-anchor="middle" class="node">座舱系统轻度</text>
+    <text x="982" y="45" class="node">触发条件</text><text x="982" y="73" class="small">至少一个系统轻度</text><text x="982" y="97" class="small">且中度、重度系统均为0</text>
+  </g>
+
+  <rect x="42" y="782" width="1116" height="78" rx="6" fill="#fff" stroke="#c8d5dc" stroke-width="1.5"/>
+  <text x="66" y="815" class="node">统一表达：飞机目标等级 = 四个系统已知毁伤等级中的最高等级</text>
+  <text x="66" y="842" class="small">重度优先于中度，中度优先于轻度；未知证据保持未知，不能自动当作未毁伤。</text>
+</svg>
