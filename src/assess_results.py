@@ -13,7 +13,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CRITERIA = json.loads((ROOT / "config" / "damage_criteria.json").read_text(encoding="utf-8"))["groups"]
+CRITERIA_DOC = json.loads((ROOT / "config" / "damage_criteria.json").read_text(encoding="utf-8"))
+CRITERIA = CRITERIA_DOC["groups"]
 TREE = json.loads((ROOT / "config" / "damage_tree.json").read_text(encoding="utf-8"))
 EXCLUDED_PROBES = set(json.loads(
     (ROOT / "config" / "excluded_probe_ids_v5.json").read_text(encoding="utf-8")
@@ -711,6 +712,8 @@ def assess(case_dir: Path):
               "evaluation_status": evaluation_status(case_dir, sim_t_s),
               "configuration": case_configuration(case_dir, summary),
               "assessment_standard": TREE["interpretation"]["source"],
+              "damage_criteria_version": CRITERIA_DOC.get("schema_version", "unknown"),
+              "damage_criteria_source": CRITERIA_DOC.get("source", "unknown"),
               "assessed_at": datetime.now().astimezone().isoformat(timespec="seconds")}
     (case_dir / "damage_assessment.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     render_tree_svg(result, case_dir / "damage_tree.svg")

@@ -15,12 +15,12 @@
       "evidence": {
         "mild": {
           "temperature_C": 150,
-          "required_s": 300,
+          "required_s": 1200,
           "continuous_s": 1498.498844
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 180,
+          "required_s": 600,
           "continuous_s": 893.99863
         },
         "severe": {
@@ -177,17 +177,17 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
+          "required_s": 1200,
           "continuous_s": 1498.498844
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 300,
+          "required_s": 600,
           "continuous_s": 1498.498844
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
+          "required_s": 180,
           "continuous_s": 1496.9975937
         }
       }
@@ -204,17 +204,17 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
+          "required_s": 1200,
           "continuous_s": 1324.49552
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 300,
+          "required_s": 600,
           "continuous_s": 1184.9992
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
+          "required_s": 180,
           "continuous_s": 0.0
         }
       }
@@ -231,24 +231,24 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
+          "required_s": 1200,
           "continuous_s": 1498.498844
         },
         "moderate": {
           "temperature_C": 200,
-          "required_s": 240,
+          "required_s": 600,
           "continuous_s": 160.502094
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
+          "required_s": 180,
           "continuous_s": 0.0
         }
       }
     },
     "O2TANK": {
       "label": "Oxygen tank",
-      "level": "moderate",
+      "level": "mild",
       "peak_C": 235.90559,
       "probe_count": 8,
       "dynamic_probe_switches": 2,
@@ -261,17 +261,17 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
+          "required_s": 1200,
           "continuous_s": 1496.9975937
         },
         "moderate": {
           "temperature_C": 200,
-          "required_s": 240,
+          "required_s": 600,
           "continuous_s": 488.9973
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
+          "required_s": 180,
           "continuous_s": 0.0
         }
       }
@@ -545,7 +545,7 @@
       },
       "secondary": {
         "AL5052": "moderate",
-        "O2TANK": "moderate"
+        "O2TANK": "mild"
       },
       "triggers": [
         "WINS",
@@ -604,7 +604,9 @@
     "fds_input": "Q0300_W0100_az270_el15_H1H7_v5_Qnorm.fds"
   },
   "assessment_standard": "aircraft_damage_standard_20260711.pdf, Tables 10-15 and Section 6.3",
-  "assessed_at": "2026-07-22T11:37:45+08:00",
+  "damage_criteria_version": "pdf-20260711-verified-20260722",
+  "damage_criteria_source": "D:/Pyrosim/飞机模型/毁伤标准/转Word 2026-07-11 11.31.pdf, Table 9",
+  "assessed_at": "2026-07-22T22:17:07+08:00",
   "case_directory": "cases_qnorm/Q0300_W0100_az270_el15_H1H7_v5_Qnorm",
   "campaign_classification": "corrected Q-normalized baseline"
 }

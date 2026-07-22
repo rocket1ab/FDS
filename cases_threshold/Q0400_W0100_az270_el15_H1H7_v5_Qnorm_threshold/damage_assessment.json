@@ -15,12 +15,12 @@
       "evidence": {
         "mild": {
           "temperature_C": 150,
-          "required_s": 300,
+          "required_s": 1200,
           "continuous_s": 1450.4924256
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 180,
+          "required_s": 600,
           "continuous_s": 904.4991399999999
         },
         "severe": {
@@ -177,17 +177,17 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
+          "required_s": 1200,
           "continuous_s": 1450.4924256
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 300,
+          "required_s": 600,
           "continuous_s": 1450.4924256
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
+          "required_s": 180,
           "continuous_s": 1450.4924256
         }
       }
@@ -204,17 +204,17 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
+          "required_s": 1200,
           "continuous_s": 1289.99848
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 300,
+          "required_s": 600,
           "continuous_s": 1186.5003299999998
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
+          "required_s": 180,
           "continuous_s": 0.0
         }
       }
@@ -231,17 +231,17 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
+          "required_s": 1200,
           "continuous_s": 1450.4924256
         },
         "moderate": {
           "temperature_C": 200,
-          "required_s": 240,
+          "required_s": 600,
           "continuous_s": 197.9923056
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
+          "required_s": 180,
           "continuous_s": 13.499563
         }
       }
@@ -261,17 +261,17 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
+          "required_s": 1200,
           "continuous_s": 1450.4924256
         },
         "moderate": {
           "temperature_C": 200,
-          "required_s": 240,
+          "required_s": 600,
           "continuous_s": 601.49975
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
+          "required_s": 180,
           "continuous_s": 0.0
         }
       }
@@ -605,7 +605,9 @@
     "fds_input": "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_threshold.fds"
   },
   "assessment_standard": "aircraft_damage_standard_20260711.pdf, Tables 10-15 and Section 6.3",
-  "assessed_at": "2026-07-22T11:37:53+08:00",
+  "damage_criteria_version": "pdf-20260711-verified-20260722",
+  "damage_criteria_source": "D:/Pyrosim/飞机模型/毁伤标准/转Word 2026-07-11 11.31.pdf, Table 9",
+  "assessed_at": "2026-07-22T22:17:24+08:00",
   "case_directory": "cases_threshold/Q0400_W0100_az270_el15_H1H7_v5_Qnorm_threshold",
   "campaign_classification": "threshold-search case"
 }

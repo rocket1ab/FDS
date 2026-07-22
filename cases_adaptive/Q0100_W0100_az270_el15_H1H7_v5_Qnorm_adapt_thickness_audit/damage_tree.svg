@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="962" viewBox="0 0 1480 962">
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;letter-spacing:0}.title{font-size:20px;font-weight:700}.label{font-size:15px;font-weight:600}.small{font-size:12px}.line{stroke:#6c757d;stroke-width:2;fill:none}</style>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="560.0" y="24.0" width="360.0" height="64.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
+<text x="740.0" y="49.0" text-anchor="middle" class="label" fill="#212529">飞机目标</text>
+<text x="740.0" y="77.0" text-anchor="middle" class="small" fill="#a51111">重度 | PDF 毁伤树等级</text>
+<path class="line" d="M 740.0 88.0 V 104.0"/>
+<path class="line" d="M 199.2 104.0 H 1280.8"/>
+<path class="line" d="M 199.2 104.0 V 132.0"/>
+<rect x="28.0" y="132.0" width="342.5" height="64.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="199.2" y="157.0" text-anchor="middle" class="label" fill="#212529">机体结构系统</text>
+<text x="199.2" y="185.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | airframe</text>
+<path class="line" d="M 199.2 196.0 V 242.0"/>
+<rect x="38.0" y="258.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="199.2" y="281.0" text-anchor="middle" class="label" fill="#212529">RADM  雷达罩</text>
+<text x="199.2" y="303.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 199.2 242.0 V 258.0"/>
+<rect x="38.0" y="326.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="199.2" y="349.0" text-anchor="middle" class="label" fill="#212529">AL2024  2024 铝合金蒙皮</text>
+<text x="199.2" y="371.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 199.2 314.0 V 326.0"/>
+<rect x="38.0" y="394.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="199.2" y="417.0" text-anchor="middle" class="label" fill="#212529">AL7075  7075 铝合金框架</text>
+<text x="199.2" y="439.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 199.2 382.0 V 394.0"/>
+<path class="line" d="M 559.8 104.0 V 132.0"/>
+<rect x="388.5" y="132.0" width="342.5" height="64.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="559.8" y="157.0" text-anchor="middle" class="label" fill="#212529">航空电子系统</text>
+<text x="559.8" y="185.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | avionics</text>
+<path class="line" d="M 559.8 196.0 V 242.0"/>
+<rect x="398.5" y="258.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="559.8" y="281.0" text-anchor="middle" class="label" fill="#212529">H1  导航子系统</text>
+<text x="559.8" y="303.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 559.8 242.0 V 258.0"/>
+<rect x="398.5" y="326.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="559.8" y="349.0" text-anchor="middle" class="label" fill="#212529">H2  任务子系统</text>
+<text x="559.8" y="371.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 559.8 314.0 V 326.0"/>
+<rect x="398.5" y="394.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="559.8" y="417.0" text-anchor="middle" class="label" fill="#212529">H4  通信子系统</text>
+<text x="559.8" y="439.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 次要节点</text>
+<path class="line" d="M 559.8 382.0 V 394.0"/>
+<path class="line" d="M 920.2 104.0 V 132.0"/>
+<rect x="749.0" y="132.0" width="342.5" height="64.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="920.2" y="157.0" text-anchor="middle" class="label" fill="#212529">电源系统</text>
+<text x="920.2" y="185.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | power</text>
+<path class="line" d="M 920.2 196.0 V 242.0"/>
+<rect x="759.0" y="258.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="920.2" y="281.0" text-anchor="middle" class="label" fill="#212529">H5  电池</text>
+<text x="920.2" y="303.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 920.2 242.0 V 258.0"/>
+<rect x="759.0" y="326.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="920.2" y="349.0" text-anchor="middle" class="label" fill="#212529">H6  电力传输子系统</text>
+<text x="920.2" y="371.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 920.2 314.0 V 326.0"/>
+<path class="line" d="M 1280.8 104.0 V 132.0"/>
+<rect x="1109.5" y="132.0" width="342.5" height="64.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
+<text x="1280.8" y="157.0" text-anchor="middle" class="label" fill="#212529">座舱系统</text>
+<text x="1280.8" y="185.0" text-anchor="middle" class="small" fill="#a51111">重度 | cockpit</text>
+<path class="line" d="M 1280.8 196.0 V 242.0"/>
+<rect x="1119.5" y="258.0" width="322.5" height="56.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
+<text x="1280.8" y="281.0" text-anchor="middle" class="label" fill="#212529">WINS  有机玻璃舷窗</text>
+<text x="1280.8" y="303.0" text-anchor="middle" class="small" fill="#a51111">重度 | 主要节点</text>
+<path class="line" d="M 1280.8 242.0 V 258.0"/>
+<rect x="1119.5" y="326.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="1280.8" y="349.0" text-anchor="middle" class="label" fill="#212529">BED  尼龙床垫</text>
+<text x="1280.8" y="371.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 1280.8 314.0 V 326.0"/>
+<rect x="1119.5" y="394.0" width="322.5" height="56.0" rx="4" fill="#fff3bf" stroke="#7a5b00" stroke-width="2"/>
+<text x="1280.8" y="417.0" text-anchor="middle" class="label" fill="#212529">CURT  尼龙窗帘</text>
+<text x="1280.8" y="439.0" text-anchor="middle" class="small" fill="#7a5b00">轻度 | 主要节点</text>
+<path class="line" d="M 1280.8 382.0 V 394.0"/>
+<rect x="1119.5" y="462.0" width="322.5" height="56.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
+<text x="1280.8" y="485.0" text-anchor="middle" class="label" fill="#212529">SEAT  聚氨酯座椅</text>
+<text x="1280.8" y="507.0" text-anchor="middle" class="small" fill="#a51111">重度 | 主要节点</text>
+<path class="line" d="M 1280.8 450.0 V 462.0"/>
+<rect x="1119.5" y="530.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="1280.8" y="553.0" text-anchor="middle" class="label" fill="#212529">U4  U4 仪器设备</text>
+<text x="1280.8" y="575.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 1280.8 518.0 V 530.0"/>
+<rect x="1119.5" y="598.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="1280.8" y="621.0" text-anchor="middle" class="label" fill="#212529">H3  显示子系统</text>
+<text x="1280.8" y="643.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 1280.8 586.0 V 598.0"/>
+<rect x="1119.5" y="666.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="1280.8" y="689.0" text-anchor="middle" class="label" fill="#212529">H7  操纵子系统</text>
+<text x="1280.8" y="711.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<path class="line" d="M 1280.8 654.0 V 666.0"/>
+<rect x="1119.5" y="734.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="1280.8" y="757.0" text-anchor="middle" class="label" fill="#212529">AL5052  5052 铝合金风管</text>
+<text x="1280.8" y="779.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 次要节点</text>
+<path class="line" d="M 1280.8 722.0 V 734.0"/>
+<rect x="1119.5" y="802.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<text x="1280.8" y="825.0" text-anchor="middle" class="label" fill="#212529">O2TANK  氧气瓶</text>
+<text x="1280.8" y="847.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 次要节点</text>
+<path class="line" d="M 1280.8 790.0 V 802.0"/>
+<rect x="28" y="920" width="22" height="18" fill="#f1f3f5" stroke="#495057"/>
+<text x="58" y="934" class="small">未知</text>
+<rect x="156" y="920" width="22" height="18" fill="#e9ecef" stroke="#343a40"/>
+<text x="186" y="934" class="small">未毁伤</text>
+<rect x="284" y="920" width="22" height="18" fill="#fff3bf" stroke="#7a5b00"/>
+<text x="314" y="934" class="small">轻度</text>
+<rect x="412" y="920" width="22" height="18" fill="#ffd8a8" stroke="#8a3b00"/>
+<text x="442" y="934" class="small">中度</text>
+<rect x="540" y="920" width="22" height="18" fill="#ffc9c9" stroke="#a51111"/>
+<text x="570" y="934" class="small">重度</text>
+<text x="1452" y="934" text-anchor="end" class="small">严格全重度毁伤：2/17</text>
+</svg>

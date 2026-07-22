@@ -1,7 +1,7 @@
 {
   "case": "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
   "Q_J_cm2": 400,
-  "sim_t_s": 697.50016,
+  "sim_t_s": 718.50068,
   "equipment": {
     "RADM": {
       "label": "Nose/radome",
@@ -15,18 +15,18 @@
       "evidence": {
         "mild": {
           "temperature_C": 150,
-          "required_s": 300,
-          "continuous_s": 695.9986636000001
+          "required_s": 1200,
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 180,
-          "continuous_s": 695.9986636000001
+          "required_s": 600,
+          "continuous_s": 716.9991836
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 180,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         }
       }
     },
@@ -35,7 +35,7 @@
       "level": "severe",
       "peak_C": 1706.4809,
       "probe_count": 10,
-      "dynamic_probe_switches": 84,
+      "dynamic_probe_switches": 86,
       "positive_external_flux_probe_count": 10,
       "max_registered_external_flux_kw_m2": 1150.0,
       "excluded_invalid_probes": [],
@@ -43,17 +43,17 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 60,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 200,
           "required_s": 45,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         },
         "severe": {
           "temperature_C": 250,
           "required_s": 8,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         }
       }
     },
@@ -70,12 +70,12 @@
         "mild": {
           "temperature_C": 200,
           "required_s": 60,
-          "continuous_s": 568.49878
+          "continuous_s": 589.4993
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 90,
-          "continuous_s": 518.9980700000001
+          "continuous_s": 539.9985899999999
         },
         "severe": {
           "temperature_C": 500,
@@ -97,24 +97,24 @@
         "mild": {
           "temperature_C": 200,
           "required_s": 60,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 90,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         },
         "severe": {
           "temperature_C": 500,
           "required_s": 5,
-          "continuous_s": 196.49917000000005
+          "continuous_s": 217.49969
         }
       }
     },
     "U4": {
       "label": "U4 instrument equipment",
       "level": "severe",
-      "peak_C": 590.26495,
+      "peak_C": 598.97989,
       "probe_count": 6,
       "dynamic_probe_switches": 8,
       "positive_external_flux_probe_count": 0,
@@ -124,17 +124,17 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 566.9986200000001
+          "continuous_s": 587.99914
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 424.49941000000007
+          "continuous_s": 445.49993
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 5,
-          "continuous_s": 295.49930000000006
+          "continuous_s": 316.49982
         }
       }
     },
@@ -151,17 +151,17 @@
         "mild": {
           "temperature_C": 200,
           "required_s": 60,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 300,
           "required_s": 90,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         },
         "severe": {
           "temperature_C": 500,
           "required_s": 5,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         }
       }
     },
@@ -177,18 +177,18 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
-          "continuous_s": 695.9986636000001
+          "required_s": 1200,
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 300,
-          "continuous_s": 695.9986636000001
+          "required_s": 600,
+          "continuous_s": 716.9991836
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
-          "continuous_s": 695.9986636000001
+          "required_s": 180,
+          "continuous_s": 716.9991836
         }
       }
     },
@@ -204,18 +204,18 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
-          "continuous_s": 649.497389
+          "required_s": 1200,
+          "continuous_s": 670.4979089999999
         },
         "moderate": {
           "temperature_C": 250,
-          "required_s": 300,
-          "continuous_s": 611.9988410000001
+          "required_s": 600,
+          "continuous_s": 632.999361
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
-          "continuous_s": 581.9985700000001
+          "required_s": 180,
+          "continuous_s": 602.99909
         }
       }
     },
@@ -231,25 +231,25 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
-          "continuous_s": 695.9986636000001
+          "required_s": 1200,
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 200,
-          "required_s": 240,
-          "continuous_s": 695.9986636000001
+          "required_s": 600,
+          "continuous_s": 716.9991836
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
-          "continuous_s": 562.49878
+          "required_s": 180,
+          "continuous_s": 583.4993
         }
       }
     },
     "O2TANK": {
       "label": "Oxygen tank",
       "level": "severe",
-      "peak_C": 509.7328,
+      "peak_C": 514.15291,
       "probe_count": 8,
       "dynamic_probe_switches": 5,
       "positive_external_flux_probe_count": 6,
@@ -261,18 +261,18 @@
       "evidence": {
         "mild": {
           "temperature_C": 120,
-          "required_s": 600,
-          "continuous_s": 695.9986636000001
+          "required_s": 1200,
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 200,
-          "required_s": 240,
-          "continuous_s": 691.4995421000001
+          "required_s": 600,
+          "continuous_s": 712.5000621
         },
         "severe": {
           "temperature_C": 400,
-          "required_s": 60,
-          "continuous_s": 298.49953000000005
+          "required_s": 180,
+          "continuous_s": 319.50005
         }
       }
     },
@@ -291,7 +291,7 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 250,
@@ -321,7 +321,7 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 695.9986636000001
+          "continuous_s": 716.9991836
         },
         "moderate": {
           "temperature_C": 250,
@@ -338,7 +338,7 @@
     "H3": {
       "label": "Display subsystem",
       "level": "severe",
-      "peak_C": 656.02166,
+      "peak_C": 659.14586,
       "probe_count": 14,
       "dynamic_probe_switches": 6,
       "positive_external_flux_probe_count": 0,
@@ -348,26 +348,26 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 605.9990720000001
+          "continuous_s": 626.999592
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 563.9989800000001
+          "continuous_s": 584.9995
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 5,
-          "continuous_s": 502.49850000000004
+          "continuous_s": 523.49902
         }
       }
     },
     "H4": {
       "label": "Communication subsystem",
       "level": "severe",
-      "peak_C": 583.56492,
+      "peak_C": 585.75558,
       "probe_count": 10,
-      "dynamic_probe_switches": 2,
+      "dynamic_probe_switches": 3,
       "positive_external_flux_probe_count": 4,
       "max_registered_external_flux_kw_m2": 200.0,
       "excluded_invalid_probes": [],
@@ -375,24 +375,24 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 689.9995509
+          "continuous_s": 711.0000709
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 587.99801
+          "continuous_s": 608.99853
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 5,
-          "continuous_s": 493.49856000000005
+          "continuous_s": 514.49908
         }
       }
     },
     "H5": {
       "label": "Battery",
       "level": "severe",
-      "peak_C": 255.78804,
+      "peak_C": 260.02108,
       "probe_count": 6,
       "dynamic_probe_switches": 4,
       "positive_external_flux_probe_count": 3,
@@ -402,24 +402,24 @@
         "mild": {
           "temperature_C": 100,
           "required_s": 60,
-          "continuous_s": 418.49867000000006
+          "continuous_s": 439.49919
         },
         "moderate": {
           "temperature_C": 150,
           "required_s": 600,
-          "continuous_s": 301.49935000000005
+          "continuous_s": 322.49987
         },
         "severe": {
           "temperature_C": 200,
           "required_s": 180,
-          "continuous_s": 194.99886000000004
+          "continuous_s": 215.99937999999997
         }
       }
     },
     "H6": {
       "label": "Power transmission subsystem",
       "level": "severe",
-      "peak_C": 431.97428,
+      "peak_C": 435.74857,
       "probe_count": 8,
       "dynamic_probe_switches": 5,
       "positive_external_flux_probe_count": 0,
@@ -429,24 +429,24 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 1200,
-          "continuous_s": 674.999626
+          "continuous_s": 696.000146
         },
         "moderate": {
           "temperature_C": 200,
           "required_s": 600,
-          "continuous_s": 487.50005000000004
+          "continuous_s": 508.50057
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 180,
-          "continuous_s": 238.50007000000005
+          "continuous_s": 259.50059
         }
       }
     },
     "H7": {
       "label": "Flight-control subsystem",
-      "level": "moderate",
-      "peak_C": 400.2466,
+      "level": "severe",
+      "peak_C": 402.55198,
       "probe_count": 3,
       "dynamic_probe_switches": 6,
       "positive_external_flux_probe_count": 0,
@@ -458,25 +458,25 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 692.9995100000001
+          "continuous_s": 714.00003
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 499.49870000000004
+          "continuous_s": 520.4992199999999
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 5,
-          "continuous_s": 0.0
+          "continuous_s": 21.000519999999938
         }
       }
     }
   },
-  "severe_count": 16,
+  "severe_count": 17,
   "total_count": 17,
-  "severe_ratio": 0.9411764705882353,
-  "all_severe": false,
+  "severe_ratio": 1.0,
+  "all_severe": true,
   "excluded_invalid_probe_ids": [
     "P_H1_09_WT",
     "P_H2_08_WT",
@@ -546,7 +546,7 @@
         "SEAT": "severe",
         "U4": "severe",
         "H3": "severe",
-        "H7": "moderate"
+        "H7": "severe"
       },
       "secondary": {
         "AL5052": "severe",
@@ -558,7 +558,8 @@
         "CURT",
         "SEAT",
         "U4",
-        "H3"
+        "H3",
+        "H7"
       ],
       "rule": "at least one major item is severe"
     }
@@ -630,5 +631,7 @@
     "fds_input": "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit.fds"
   },
   "assessment_standard": "aircraft_damage_standard_20260711.pdf, Tables 10-15 and Section 6.3",
-  "assessed_at": "2026-07-22T21:47:01+08:00"
+  "damage_criteria_version": "pdf-20260711-verified-20260722",
+  "damage_criteria_source": "D:/Pyrosim/飞机模型/毁伤标准/转Word 2026-07-11 11.31.pdf, Table 9",
+  "assessed_at": "2026-07-22T22:16:29+08:00"
 }

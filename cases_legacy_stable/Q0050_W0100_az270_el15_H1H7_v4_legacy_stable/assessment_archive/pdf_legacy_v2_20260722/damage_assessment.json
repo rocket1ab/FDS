@@ -1,0 +1,426 @@
+{
+  "case": "Q0050_W0100_az270_el15_H1H7_v4_legacy_stable",
+  "Q_J_cm2": 50,
+  "sim_t_s": 919.50346,
+  "equipment": {
+    "RADM": {
+      "label": "Nose/radome",
+      "level": "none",
+      "peak_C": 107.67548,
+      "probe_count": 10,
+      "dynamic_probe_switches": 11,
+      "evidence": {
+        "mild": {
+          "temperature_C": 150,
+          "required_s": 300,
+          "continuous_s": 0.0
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 180,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 180,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "WINS": {
+      "label": "PMMA windows",
+      "level": "none",
+      "peak_C": 150.70646,
+      "probe_count": 10,
+      "dynamic_probe_switches": 7,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 60,
+          "continuous_s": 0.0
+        },
+        "moderate": {
+          "temperature_C": 200,
+          "required_s": 45,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 250,
+          "required_s": 8,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "BED": {
+      "label": "Nylon mattress",
+      "level": "none",
+      "peak_C": 169.71253,
+      "probe_count": 8,
+      "dynamic_probe_switches": 3,
+      "evidence": {
+        "mild": {
+          "temperature_C": 200,
+          "required_s": 60,
+          "continuous_s": 0.0
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 90,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 500,
+          "required_s": 5,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "CURT": {
+      "label": "Nylon curtain",
+      "level": "none",
+      "peak_C": 119.55195,
+      "probe_count": 10,
+      "dynamic_probe_switches": 3,
+      "evidence": {
+        "mild": {
+          "temperature_C": 200,
+          "required_s": 60,
+          "continuous_s": 0.0
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 90,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 500,
+          "required_s": 5,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "U4": {
+      "label": "U4 instrument equipment",
+      "level": "mild",
+      "peak_C": 212.48861,
+      "probe_count": 6,
+      "dynamic_probe_switches": 9,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 300,
+          "continuous_s": 667.50345
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 180,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 5,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "SEAT": {
+      "label": "Polyurethane seats",
+      "level": "severe",
+      "peak_C": 2163.6203,
+      "probe_count": 10,
+      "dynamic_probe_switches": 4,
+      "evidence": {
+        "mild": {
+          "temperature_C": 200,
+          "required_s": 60,
+          "continuous_s": 917.9835502
+        },
+        "moderate": {
+          "temperature_C": 300,
+          "required_s": 90,
+          "continuous_s": 917.9835502
+        },
+        "severe": {
+          "temperature_C": 500,
+          "required_s": 5,
+          "continuous_s": 917.9835502
+        }
+      }
+    },
+    "AL2024": {
+      "label": "Aluminium 2024 skin",
+      "level": "mild",
+      "peak_C": 260.78809,
+      "probe_count": 10,
+      "dynamic_probe_switches": 7,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 600,
+          "continuous_s": 830.996559
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 300,
+          "continuous_s": 32.99600000000001
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 60,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "AL5052": {
+      "label": "Aluminium 5052 duct",
+      "level": "moderate",
+      "peak_C": 272.16907,
+      "probe_count": 10,
+      "dynamic_probe_switches": 13,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 600,
+          "continuous_s": 545.99955
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 300,
+          "continuous_s": 316.50055
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 60,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "AL7075": {
+      "label": "Aluminium 7075 frame",
+      "level": "moderate",
+      "peak_C": 241.08176,
+      "probe_count": 10,
+      "dynamic_probe_switches": 3,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 600,
+          "continuous_s": 666.0026
+        },
+        "moderate": {
+          "temperature_C": 200,
+          "required_s": 240,
+          "continuous_s": 322.50239999999997
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 60,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "O2TANK": {
+      "label": "Oxygen tank",
+      "level": "none",
+      "peak_C": 186.69071,
+      "probe_count": 10,
+      "dynamic_probe_switches": 4,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 600,
+          "continuous_s": 487.50183000000004
+        },
+        "moderate": {
+          "temperature_C": 200,
+          "required_s": 240,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 60,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "H1": {
+      "label": "Navigation subsystem",
+      "level": "none",
+      "peak_C": 62.704965,
+      "probe_count": 7,
+      "dynamic_probe_switches": 2,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 300,
+          "continuous_s": 0.0
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 180,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 5,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "H2": {
+      "label": "Mission subsystem",
+      "level": "none",
+      "peak_C": 37.688661,
+      "probe_count": 10,
+      "dynamic_probe_switches": 3,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 300,
+          "continuous_s": 0.0
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 180,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 5,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "H3": {
+      "label": "Display subsystem",
+      "level": "severe",
+      "peak_C": 471.28523,
+      "probe_count": 14,
+      "dynamic_probe_switches": 5,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 300,
+          "continuous_s": 661.50187
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 180,
+          "continuous_s": 478.49967000000004
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 5,
+          "continuous_s": 348.00050999999996
+        }
+      }
+    },
+    "H4": {
+      "label": "Communication subsystem",
+      "level": "none",
+      "peak_C": 133.27142,
+      "probe_count": 10,
+      "dynamic_probe_switches": 3,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 300,
+          "continuous_s": 217.50148000000002
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 180,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 5,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "H5": {
+      "label": "Battery",
+      "level": "mild",
+      "peak_C": 153.58896,
+      "probe_count": 6,
+      "dynamic_probe_switches": 3,
+      "evidence": {
+        "mild": {
+          "temperature_C": 100,
+          "required_s": 60,
+          "continuous_s": 403.50187000000005
+        },
+        "moderate": {
+          "temperature_C": 150,
+          "required_s": 600,
+          "continuous_s": 34.50061000000005
+        },
+        "severe": {
+          "temperature_C": 200,
+          "required_s": 180,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "H6": {
+      "label": "Power transmission subsystem",
+      "level": "none",
+      "peak_C": 305.52702,
+      "probe_count": 8,
+      "dynamic_probe_switches": 8,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 1200,
+          "continuous_s": 679.50164
+        },
+        "moderate": {
+          "temperature_C": 200,
+          "required_s": 600,
+          "continuous_s": 536.99998
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 180,
+          "continuous_s": 0.0
+        }
+      }
+    },
+    "H7": {
+      "label": "Flight-control subsystem",
+      "level": "mild",
+      "peak_C": 185.29979,
+      "probe_count": 4,
+      "dynamic_probe_switches": 1,
+      "evidence": {
+        "mild": {
+          "temperature_C": 120,
+          "required_s": 300,
+          "continuous_s": 754.4984900000001
+        },
+        "moderate": {
+          "temperature_C": 250,
+          "required_s": 180,
+          "continuous_s": 0.0
+        },
+        "severe": {
+          "temperature_C": 400,
+          "required_s": 5,
+          "continuous_s": 0.0
+        }
+      }
+    }
+  },
+  "severe_count": 2,
+  "total_count": 17,
+  "severe_ratio": 0.11764705882352941,
+  "all_severe": false,
+  "systems": {
+    "airframe": "moderate",
+    "avionics": "none",
+    "power": "mild",
+    "cockpit": "severe"
+  },
+  "aircraft_level": "severe"
+}
