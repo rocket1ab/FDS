@@ -62,9 +62,9 @@
 <text x="1280.8" y="281.0" text-anchor="middle" class="label" fill="#212529">WINS  有机玻璃舷窗</text>
 <text x="1280.8" y="303.0" text-anchor="middle" class="small" fill="#a51111">重度 | 主要节点</text>
 <path class="line" d="M 1280.8 242.0 V 258.0"/>
-<rect x="1119.5" y="326.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect x="1119.5" y="326.0" width="322.5" height="56.0" rx="4" fill="#fff3bf" stroke="#7a5b00" stroke-width="2"/>
 <text x="1280.8" y="349.0" text-anchor="middle" class="label" fill="#212529">BED  尼龙床垫</text>
-<text x="1280.8" y="371.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<text x="1280.8" y="371.0" text-anchor="middle" class="small" fill="#7a5b00">轻度 | 主要节点</text>
 <path class="line" d="M 1280.8 314.0 V 326.0"/>
 <rect x="1119.5" y="394.0" width="322.5" height="56.0" rx="4" fill="#ffd8a8" stroke="#8a3b00" stroke-width="2"/>
 <text x="1280.8" y="417.0" text-anchor="middle" class="label" fill="#212529">CURT  尼龙窗帘</text>
