@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot live material temperature, surface heat flux, and global HRR snapshots."""
+"""Plot the active HRRPUA-upper campaign's live thermal snapshots."""
 from __future__ import annotations
 
 import csv
@@ -16,18 +16,33 @@ CRITERIA = json.loads(
 )["groups"]
 GROUPS = list(CRITERIA)
 COLORS = ["#00796b", "#c85a17", "#31557c"]
+GROUP_LABELS = {
+    "RADM": "雷达罩", "WINS": "舷窗", "BED": "床垫", "CURT": "窗帘",
+    "U4": "U4设备", "SEAT": "座椅", "AL2024": "2024铝合金蒙皮",
+    "AL5052": "5052铝合金风道", "AL7075": "7075铝合金框架",
+    "O2TANK": "氧气瓶", "H1": "导航子系统", "H2": "任务子系统",
+    "H3": "显示子系统", "H4": "通信子系统", "H5": "电池",
+    "H6": "电力传输子系统", "H7": "操纵子系统",
+}
 
 # These are input maxima from the current SURF definitions, not measured outputs.
 NOMINAL_HRRPUA = {
-    "RADM": 75.0,
-    "WINS": 250.0,
-    "BED": 180.0,
-    "CURT": 180.0,
-    "U4": 100.0,
-    "SEAT": 200.0,
-    "H6": 200.0,
-    "H7": 180.0,
+    "RADM": 840.0,
+    "WINS": 806.0,
+    "BED": 790.0,
+    "CURT": 324.0,
+    "U4": 840.0,
+    "SEAT": 860.0,
+    "H6": 259.0,
+    "H7": 458.0,
 }
+
+
+def setup_plot_style() -> None:
+    plt.rcParams.update({
+        "font.sans-serif": ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "DejaVu Sans"],
+        "axes.unicode_minus": False,
+    })
 
 
 def read_fds_csv(path: Path) -> dict[str, np.ndarray]:
@@ -89,9 +104,9 @@ def panel_plot(
             ax.plot(time, values, color=COLORS[index], lw=1.35, label=label)
         if threshold:
             severe = CRITERIA[group]["severe"][0]
-            ax.axhline(severe, color="#555555", lw=0.9, ls="--", label=f"Severe {severe:g} C")
-        ax.set_title(f"{group} | {CRITERIA[group]['label']}", fontsize=9)
-        ax.set_xlabel("Simulation time (s)")
+            ax.axhline(severe, color="#555555", lw=0.9, ls="--", label=f"重度阈值 {severe:g} C")
+        ax.set_title(f"{group} | {GROUP_LABELS.get(group, group)}", fontsize=9)
+        ax.set_xlabel("模拟时间（s）")
         ax.set_ylabel(ylabel)
         ax.grid(True, color="#d8dde3", lw=0.55)
         ax.legend(fontsize=6.5, loc="best")
@@ -109,11 +124,11 @@ def plot_hrr(datasets: list[dict], labels: list[str], output: Path) -> None:
         axes[0].plot(dataset["hrr_time"], dataset["hrr"], color=COLORS[index], lw=1.4, label=label)
         mask = dataset["hrr_time"] <= 300.0
         axes[1].plot(dataset["hrr_time"][mask], dataset["hrr"][mask], color=COLORS[index], lw=1.4, label=label)
-    axes[0].set_title("Whole-domain heat release rate")
-    axes[1].set_title("Whole-domain heat release rate: first 300 s")
+    axes[0].set_title("全域热释放速率")
+    axes[1].set_title("全域热释放速率：前 300 s")
     for ax in axes:
-        ax.set_xlabel("Simulation time (s)")
-        ax.set_ylabel("HRR (kW)")
+        ax.set_xlabel("模拟时间（s）")
+        ax.set_ylabel("HRR（kW）")
         ax.grid(True, color="#d8dde3", lw=0.6)
         ax.legend(fontsize=8)
     fig.savefig(output.with_suffix(".png"), dpi=180, facecolor="white")
@@ -129,8 +144,8 @@ def plot_nominal_hrrpua(output: Path) -> None:
     for bar, value in zip(bars, values):
         ax.text(bar.get_x() + bar.get_width() / 2, value + 4, f"{value:g}", ha="center", va="bottom", fontsize=8)
     ax.set_ylim(0, max(values) * 1.22)
-    ax.set_ylabel("Specified maximum HRRPUA (kW/m2)")
-    ax.set_title("Current SURF HRRPUA inputs (not time-resolved measured output)")
+    ax.set_ylabel("SURF 输入 HRRPUA 上限（kW/m2）")
+    ax.set_title("当前材料 HRRPUA 输入上限（非时变实测输出）")
     ax.grid(True, axis="y", color="#d8dde3", lw=0.6)
     fig.savefig(output.with_suffix(".png"), dpi=180, facecolor="white")
     fig.savefig(output.with_suffix(".svg"), facecolor="white")
@@ -156,19 +171,27 @@ def write_summary(datasets: list[dict], labels: list[str], output: Path) -> None
 
 
 def main() -> None:
-    snapshot = ROOT / "outputs" / "live_material_curves_20260722"
-    case_dirs = [
-        snapshot / "Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_thickness_audit",
-        snapshot / "Q0200_W0100_az270_el15_H1H7_v5_Qnorm_adapt_thickness_audit",
-        snapshot / "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_threshold",
+    setup_plot_style()
+    snapshot = ROOT / "outputs" / "live_HRRupper_thickness_monitor"
+    snapshot.mkdir(parents=True, exist_ok=True)
+    names = [
+        "Q0050_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
+        "Q0200_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
+        "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit",
     ]
-    labels = ["Q100 audited thickness", "Q200 audited thickness", "Q400 preserved old thickness"]
+    case_dirs = [ROOT / "cases_adaptive" / name for name in names]
+    labels = ["Q=50 J/cm2", "Q=200 J/cm2", "Q=400 J/cm2"]
+    available = [(case_dir, label) for case_dir, label in zip(case_dirs, labels)
+                 if list(case_dir.glob("*_devc.csv")) and list(case_dir.glob("*_hrr.csv"))]
+    if not available:
+        raise FileNotFoundError("No active-campaign DEVC/HRR snapshots are available")
+    case_dirs, labels = map(list, zip(*available))
     datasets = [load_case(case_dir) for case_dir in case_dirs]
-    panel_plot(datasets, labels, "temperatures", "Maximum valid-probe wall temperature (C)",
-               "Live maximum wall-temperature envelopes by material/equipment",
+    panel_plot(datasets, labels, "temperatures", "有效探针最大壁面温度（C）",
+               "当前方案各材料与设备最大温度包络",
                snapshot / "material_temperature_envelopes", threshold=True)
-    panel_plot(datasets, labels, "heat_fluxes", "Maximum valid-probe net surface heat flux (kW/m2)",
-               "Live net surface heat-flux envelopes by material/equipment",
+    panel_plot(datasets, labels, "heat_fluxes", "有效探针最大净表面热流（kW/m2）",
+               "当前方案各材料与设备净表面热流包络",
                snapshot / "material_net_surface_heat_flux_envelopes")
     plot_hrr(datasets, labels, snapshot / "whole_domain_hrr")
     plot_nominal_hrrpua(snapshot / "nominal_material_hrrpua_inputs")
