@@ -80,6 +80,7 @@
   <text x="66" y="1018" class="node">主要节点重度 → 系统重度；主要节点中度或次要节点重度 → 系统中度。</text>
   <text x="66" y="1052" class="node">轻度、中度判定均带有“不得存在更高等级触发事件”的约束，因此等级具有明确优先级。</text>
   <text x="66" y="1086" class="small">当前 H1-H7 模型通过映射表接入这些 PDF 功能节点，新增材料实体用于提供热响应证据，不改变 PDF 顶层系统逻辑。</text>
+  <text x="66" y="1116" class="small">RADM 表示雷达罩结构并归入机体结构；航电雷达电子子系统当前没有独立监测节点，二者不能互相替代。</text>
   <rect x="970" y="982" width="28" height="24" rx="3" class="major"/><text x="1008" y="1001" class="small">主要要害节点</text>
   <rect x="970" y="1022" width="28" height="24" rx="3" class="secondary"/><text x="1008" y="1041" class="small">次要要害节点</text>
 </svg>
