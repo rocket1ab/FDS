@@ -1,79 +1,47 @@
-# Complete damage-tree reporting
+# 完整毁伤树评估与报告机制
 
-Implemented: 2026-07-22
+实施日期：2026-07-22
 
-Every successful FDS case is now followed by a complete assessment based on
-`aircraft_damage_standard_20260711.pdf`, Tables 9-15 and Section 6.3. The assessment
-keeps the PDF aircraft-tree result separate from the stricter research objective that
-requires every monitored group to be severe.
+每个有效 FDS 案例均依据 `aircraft_damage_standard_20260711.pdf` 中表 9 至表 15 及第 6.3 节进行完整评估。报告将 PDF 毁伤树的整机等级，与“所有监测对象均达到重度毁伤”的严格研究目标分开表述。
 
-Cases that have reached at least 1000 s are also retained as long-duration snapshots,
-even when they lack a normal FDS stop. They are explicitly labeled provisional and are
-never presented as completed 1500 s results. Snapshots below 1000 s and cases with an
-earlier numerical instability are excluded from the aggregate report.
+模拟时间达到 1000 s 的案例，即使缺少 FDS 正常结束标记，也可作为长时快照保留。此类结果必须明确标为临时结果，不能表述为已完成 1500 s。低于 1000 s 的快照以及在 1000 s 前发生数值不稳定的案例不进入汇总报告。
 
-## Automatic outputs per completed case
+## 每个案例的自动输出
 
-The queue calls `src/assess_results.py` only after the FDS log contains
-`STOP: FDS completed successfully` and no numerical instability. The case directory
-then receives:
+案例完成或形成有效长时快照后，运行 `src/assess_results.py`，并在案例目录生成：
 
-* `damage_assessment.json`: machine-readable probe evidence, equipment levels, system
-  propagation evidence, aircraft level and strict severe count.
-* `damage_assessment.md`: complete equipment table, temperature-duration evidence,
-  system triggers, aircraft result and interpretation.
-* `damage_tree.svg`: color-coded aircraft-system-equipment tree for the case.
+* `damage_assessment.json`：供程序读取的探针证据、设备等级、系统传播证据、整机等级和严格重度毁伤数量。
+* `damage_assessment.md`：完整设备表、温度与持续时间证据、系统触发节点、整机结果和物理解释。
+* `damage_tree.svg`：按毁伤等级着色的“整机、系统、设备”毁伤树。
 
-After each assessment, `reports/completed_case_damage_tree_assessments.md` is rebuilt.
-It contains a campaign summary followed by the complete assessment and tree image for
-every normal completion and every explicitly labeled snapshot at or beyond 1000 s.
-Rebuilding rather than blind text appending prevents duplicate sections when a case is
-reassessed.
+每次评估后都会重建 `reports/completed_case_damage_tree_assessments.md`。汇总报告包含全部正常完成案例，以及明确标注的模拟时间不小于 1000 s 的长时快照。采用整体重建方式可避免重复评估时产生重复章节。
 
-Each case section records the FDS configuration available from `case_summary.json` and
-the input file: Q, yield, angles, target duration, MPI count, BURN_AWAY, radiative
-fraction, numerical controls, pulse integral, plane peak, local peak flux and fluence,
-HRRPUA values, audited thicknesses and changed-factor flags. It also states known model
-problems and gives a severe-damage conclusion for every group: reached, peak-temperature
-shortfall, duration shortfall or missing evidence. The physical interpretation also
-uses the count of monitored faces with positive assigned external flux to distinguish
-geometric shielding/insufficient secondary heating from an exposed surface whose peak
-is limited by pulse energy, thermal inertia and heat losses. A threshold crossing with
-insufficient duration is identified as transient heating without sustained feedback.
+每个案例章节记录可从 `case_summary.json` 和 FDS 输入文件中获得的完整配置，包括光冲量、核爆当量、方位角、俯仰角、目标时长、MPI 进程数、BURN_AWAY、辐射份额、数值控制参数、脉冲积分、入射面峰值辐照度、局部最大热流和积分光冲量、HRRPUA、材料厚度及各类参数修改标志。
 
-## PDF propagation rules
+报告还会列出已知模型问题，并对每个设备给出重度毁伤结论：已经达到、峰值温度不足、持续时间不足或证据缺失。物理解释结合具有正外部热流的探针数量，区分几何遮挡或二次加热不足，与材料受照后因脉冲能量、热惯性和散热造成的峰值不足。超过温度阈值但持续时间不足时，判定为瞬态加热后未形成持续热反馈。
 
-* A system is severe when at least one major item is severe.
-* A system is moderate when at least one major item is moderate, or a secondary item
-  is severe, and no major item is severe.
-* A system is mild when at least one mapped item is mild and no higher rule is met.
-* The aircraft level is the highest known level among airframe, avionics, power and
-  cockpit systems.
-* Missing probe evidence remains unknown and is never treated as undamaged.
+## PDF 毁伤树传播规则
 
-## H1-H5 mapping
+* 至少一个主要节点达到重度毁伤时，系统判为重度。
+* 至少一个主要节点达到中度，或次要节点达到重度，且没有主要节点达到重度时，系统判为中度。
+* 至少一个映射节点达到轻度，且未触发更高等级时，系统判为轻度。
+* 整机等级取机体结构、航空电子、电源和座舱系统已知等级中的最高等级。
+* 探针证据缺失时保持“未知”，不能按“未毁伤”处理。
 
-| Model group | PDF/project node | System role | Current temperature-duration criteria |
+## H1-H5 映射
+
+| 模型组 | PDF 或项目节点 | 系统角色 | 当前温度与持续时间判据 |
 |---|---|---|---|
-| H1 | Navigation subsystem | Avionics major | 120 C/300 s; 250 C/180 s; 400 C/5 s |
-| H2 | Mission subsystem, model-specific mapping | Avionics major | Generic electronics criteria: 120 C/300 s; 250 C/180 s; 400 C/5 s |
-| H3 | Display subsystem, model-specific mapping | Cockpit major | Generic electronics criteria: 120 C/300 s; 250 C/180 s; 400 C/5 s |
-| H4 | Communication subsystem | Avionics secondary | 120 C/300 s; 250 C/180 s; 400 C/5 s |
-| H5 | Battery | Power major | 100 C/60 s; 150 C/600 s; 200 C/180 s |
+| H1 | 导航子系统 | 航空电子系统主要节点 | 120 C/300 s；250 C/180 s；400 C/5 s |
+| H2 | 任务子系统，项目专用映射 | 航空电子系统主要节点 | 通用电子设备判据：120 C/300 s；250 C/180 s；400 C/5 s |
+| H3 | 显示子系统，项目专用映射 | 座舱系统主要节点 | 通用电子设备判据：120 C/300 s；250 C/180 s；400 C/5 s |
+| H4 | 通信子系统 | 航空电子系统次要节点 | 120 C/300 s；250 C/180 s；400 C/5 s |
+| H5 | 电池 | 电源系统主要节点 | 100 C/60 s；150 C/600 s；200 C/180 s |
 
-H1, H4 and H5 have same-name PDF criteria. H2 and H3 are explicit project mappings
-because the PDF does not provide same-name rows for the updated model. The report marks
-this limitation rather than presenting those mappings as direct quotations from the
-standard.
+H1、H4 和 H5 在 PDF 中有同名判据。H2 和 H3 属于明确的项目映射，因为 PDF 未给出新版模型对应的同名条目。报告会标明这一限制，不将其表述为标准中的直接原文。
 
-H1-H4 currently use aluminium-enclosure wall temperature as a proxy for internal
-electronics temperature. This remains a modeling limitation and is stated in every
-case report. A future internal-component or equivalent thermal-network model can replace
-the proxy without changing the tree reporting interface.
+H1-H4 当前使用铝合金外壳壁面温度代理内部电子器件温度，这是现阶段的建模限制。后续可使用内部元件模型或等效热网络替代，但不需要改变毁伤树报告接口。
 
-## Two non-equivalent outcomes
+## 两种不能混用的结果
 
-`aircraft_level=severe` follows the PDF: one severe aircraft system is sufficient for
-severe aircraft-target damage. `all_severe=true` requires every one of the 17 monitored
-groups to be severe. Threshold-search conclusions must state both values because a case
-can satisfy the PDF aircraft-level criterion without satisfying the 17/17 objective.
+PDF 毁伤树中，只要一个飞机系统达到重度，整机即可传播为重度。严格的全设备重度毁伤则要求 17 个监测组全部达到重度。阈值搜索必须同时报告这两个结果，因为满足 PDF 整机重度毁伤并不等于达到严格的 17/17。

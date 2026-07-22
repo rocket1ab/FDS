@@ -110,6 +110,72 @@ LEVEL_COLORS = {
     "severe": ("#ffc9c9", "#a51111"),
 }
 
+LEVEL_ZH = {"unknown": "未知", "none": "未毁伤", "mild": "轻度", "moderate": "中度", "severe": "重度"}
+STATUS_ZH = {
+    "normal_completion": "正常完成",
+    "long_duration_snapshot_without_normal_stop": "长时快照（无正常结束标记）",
+    "long_snapshot_with_numerical_instability": "长时快照（存在数值不稳定）",
+    "invalid_numerical_instability": "无效（数值不稳定）",
+    "insufficient_duration_snapshot": "时长不足的快照",
+}
+CAMPAIGN_ZH = {
+    "corrected Q-normalized baseline": "修正入射面归一化基线",
+    "probe-corrected sensitivity": "探针修正敏感性方案",
+    "adaptive sensitivity; compare separately": "自适应敏感性方案（单独比较）",
+    "threshold-search case": "阈值搜索方案",
+    "retired legacy-flux provenance": "已停用的旧热流追溯方案",
+    "retired numerical diagnostic": "已停用的数值诊断方案",
+    "corrected Q-normalized exploratory baseline": "修正入射面归一化探索基线",
+    "developmental provenance": "开发过程追溯方案",
+}
+CONFIG_LABEL_ZH = {
+    "purpose": "方案用途", "source_case": "来源案例", "changed_factor": "修改因素",
+    "Q_J_cm2": "光冲量 Q（J/cm2）", "yield_kt": "核爆当量（kt）",
+    "azimuth_deg": "方位角（度）", "elevation_deg": "俯仰角（度）",
+    "target_t_end_s": "目标模拟时长（s）", "mpi_processes": "MPI 进程数",
+    "burn_away": "BURN_AWAY", "radiative_fraction": "辐射份额",
+    "cfl_max": "最大 CFL", "time_step_dt_s": "指定时间步长（s）",
+    "nuclear_ramp_integral_s": "核辐射脉冲积分（s）",
+    "plane_peak_irradiance_kw_m2": "入射面峰值辐照度（kW/m2）",
+    "max_local_external_flux_kw_m2": "最大局部外部热流（kW/m2）",
+    "max_local_fluence_J_cm2": "最大局部积分光冲量（J/cm2）",
+    "hrrpua_group_values_kw_m2": "各材料 HRRPUA（kW/m2）",
+    "all_hrrpua_values_in_fds_kw_m2": "FDS 中全部 HRRPUA（kW/m2）",
+    "audited_group_thickness_m": "审查后的材料厚度（m）",
+    "all_layer_thicknesses_in_fds_m": "FDS 中全部材料层厚度（m）",
+    "geometry_changed": "几何是否修改", "materials_changed": "材料是否修改",
+    "combustion_changed": "燃烧参数是否修改", "external_flux_changed": "外部热流是否修改",
+    "ignition_temperature_changed": "点燃温度是否修改", "damage_thresholds_changed": "毁伤阈值是否修改",
+    "fds_input": "FDS 输入文件",
+}
+SYSTEM_LABEL_ZH = {"airframe": "机体结构系统", "avionics": "航空电子系统", "power": "电源系统", "cockpit": "座舱系统"}
+EQUIPMENT_LABEL_ZH = {
+    "RADM": "雷达罩", "WINS": "有机玻璃舷窗", "BED": "尼龙床垫", "CURT": "尼龙窗帘",
+    "U4": "U4 仪器设备", "SEAT": "聚氨酯座椅", "AL2024": "2024 铝合金蒙皮",
+    "AL5052": "5052 铝合金风管", "AL7075": "7075 铝合金框架", "O2TANK": "氧气瓶",
+    "H1": "导航子系统", "H2": "任务子系统", "H3": "显示子系统", "H4": "通信子系统",
+    "H5": "电池", "H6": "电力传输子系统", "H7": "操纵子系统",
+}
+VALUE_ZH = {
+    "unspecified": "未说明", "none recorded": "未记录", "corrected_incident_plane_fluence_normalization": "修正入射面光冲量归一化",
+}
+
+
+def level_zh(level):
+    return LEVEL_ZH.get(level, str(level))
+
+
+def status_zh(status):
+    return STATUS_ZH.get(status, str(status))
+
+
+def campaign_zh(value):
+    return CAMPAIGN_ZH.get(value, str(value))
+
+
+def equipment_label_zh(group, fallback=None):
+    return EQUIPMENT_LABEL_ZH.get(group, fallback or group)
+
 
 def render_tree_svg(result: dict, path: Path):
     specs = TREE["systems"]
@@ -134,11 +200,11 @@ def render_tree_svg(result: dict, path: Path):
         title_y = y + (25 if h >= 60 else 23)
         subtitle_y = y + h - 11
         parts.append(f'<text x="{x + w / 2:.1f}" y="{title_y:.1f}" text-anchor="middle" class="label" fill="#212529">{html.escape(title)}</text>')
-        parts.append(f'<text x="{x + w / 2:.1f}" y="{subtitle_y:.1f}" text-anchor="middle" class="small" fill="{stroke}">{html.escape(level.upper() + (" | " + subtitle if subtitle else ""))}</text>')
+        parts.append(f'<text x="{x + w / 2:.1f}" y="{subtitle_y:.1f}" text-anchor="middle" class="small" fill="{stroke}">{html.escape(level_zh(level) + (" | " + subtitle if subtitle else ""))}</text>')
 
     root_w = 360
     root_x = (width - root_w) / 2
-    box(root_x, root_y, root_w, box_h, "Aircraft target / 飞机目标", result["aircraft_level"], "PDF tree level")
+    box(root_x, root_y, root_w, box_h, "飞机目标", result["aircraft_level"], "PDF 毁伤树等级")
     parts.append(f'<path class="line" d="M {width / 2:.1f} {root_y + box_h:.1f} V {system_y - 28:.1f}"/>')
     first_center = margin + column_width / 2
     last_center = width - margin - column_width / 2
@@ -149,13 +215,13 @@ def render_tree_svg(result: dict, path: Path):
         x = margin + index * (column_width + gap)
         center = x + column_width / 2
         parts.append(f'<path class="line" d="M {center:.1f} {system_y - 28:.1f} V {system_y:.1f}"/>')
-        box(x, system_y, column_width, box_h, spec.get("label", name), result["systems"].get(name, "unknown"), name)
+        box(x, system_y, column_width, box_h, SYSTEM_LABEL_ZH.get(name, spec.get("label", name)), result["systems"].get(name, "unknown"), name)
         parts.append(f'<path class="line" d="M {center:.1f} {system_y + box_h:.1f} V {item_y - 16:.1f}"/>')
-        items = [(group, "major") for group in spec["major"]] + [(group, "secondary") for group in spec["secondary"]]
+        items = [(group, "主要节点") for group in spec["major"]] + [(group, "次要节点") for group in spec["secondary"]]
         for row, (group, role) in enumerate(items):
             y = item_y + row * (item_h + item_gap)
             item = result["equipment"].get(group, {"level": "unknown"})
-            title = f'{group}  {item.get("label", group)}'
+            title = f'{group}  {equipment_label_zh(group, item.get("label", group))}'
             box(x + 10, y, column_width - 20, item_h, title, item.get("level", "unknown"), role)
             if row == 0:
                 parts.append(f'<path class="line" d="M {center:.1f} {item_y - 16:.1f} V {y:.1f}"/>')
@@ -168,9 +234,9 @@ def render_tree_svg(result: dict, path: Path):
     for level in ("unknown", "none", "mild", "moderate", "severe"):
         fill, stroke = LEVEL_COLORS[level]
         parts.append(f'<rect x="{lx}" y="{legend_y}" width="22" height="18" fill="{fill}" stroke="{stroke}"/>')
-        parts.append(f'<text x="{lx + 30}" y="{legend_y + 14}" class="small">{level}</text>')
+        parts.append(f'<text x="{lx + 30}" y="{legend_y + 14}" class="small">{level_zh(level)}</text>')
         lx += 128
-    parts.append(f'<text x="{width - margin}" y="{legend_y + 14}" text-anchor="end" class="small">Strict all-severe: {result["severe_count"]}/{result["total_count"]}</text>')
+    parts.append(f'<text x="{width - margin}" y="{legend_y + 14}" text-anchor="end" class="small">严格全重度毁伤：{result["severe_count"]}/{result["total_count"]}</text>')
     parts.append("</svg>")
     path.write_text("\n".join(parts), encoding="utf-8")
 
@@ -186,18 +252,18 @@ def evidence_cell(item: dict, tier: str):
 def severe_conclusion(item: dict):
     evidence = item.get("evidence", {}).get("severe")
     if not evidence:
-        return "Unknown: severe-threshold evidence is missing"
+        return "未知：缺少重度毁伤阈值证据"
     threshold = evidence.get("temperature_C", float("nan"))
     required = evidence.get("required_s", float("nan"))
     continuous = evidence.get("continuous_s", 0.0)
     peak = item.get("peak_C", float("nan"))
     if item.get("level") == "severe":
-        return f"Reached: peak {peak:.1f} C; >= {threshold:g} C for {continuous:.1f}/{required:g} s"
+        return f"已达到：峰值 {peak:.1f} C；连续高于 {threshold:g} C 的时间为 {continuous:.1f}/{required:g} s"
     if not math.isfinite(peak):
-        return "Unknown: no finite valid-probe temperature"
+        return "未知：没有有效的有限温度探针数据"
     if peak < threshold:
-        return f"Not reached: peak {peak:.1f} C < {threshold:g} C"
-    return f"Not reached: duration above {threshold:g} C is {continuous:.1f}/{required:g} s"
+        return f"未达到：峰值 {peak:.1f} C < {threshold:g} C"
+    return f"未达到：连续高于 {threshold:g} C 的时间仅为 {continuous:.1f}/{required:g} s"
 
 
 def physical_interpretation(item: dict):
@@ -208,17 +274,17 @@ def physical_interpretation(item: dict):
     required = evidence.get("required_s", float("inf"))
     direct = item.get("positive_external_flux_probe_count", 0)
     if item.get("level") == "unknown":
-        return "Probe evidence is missing; no physical conclusion is valid."
+        return "缺少探针证据，不能形成可靠的物理结论。"
     if item.get("level") == "severe":
-        source = "direct-flux and/or fire heating" if direct else "secondary cabin-fire heating"
-        return f"The {source} supplied both sufficient temperature and duration."
+        source = "直接外部热流和/或火灾加热" if direct else "舱内二次火灾加热"
+        return f"{source}同时提供了足够的温度和持续时间。"
     if peak < threshold:
         if direct:
-            return "Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold."
-        return "No monitored face has positive assigned external flux; geometric shielding leaves secondary cabin-fire heating below severe threshold."
+            return "监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。"
+        return "监测表面未分配到正外部热流；几何遮挡后仅靠舱内二次火灾加热，温度低于重度毁伤阈值。"
     if continuous < required:
-        return "A transient flash/fire peak crosses the severe temperature, but combustion or heat feedback is not sustained for the required duration."
-    return "The severe criterion is not met for an unresolved evidence combination."
+        return "瞬态光辐射或火灾使温度短暂超过重度阈值，但燃烧或热反馈未维持到规定时间。"
+    return "证据组合尚未完全解析，当前不能判为重度毁伤。"
 
 
 def case_configuration(case_dir: Path, summary: dict):
@@ -268,33 +334,33 @@ def result_issues(result: dict):
     status = result.get("evaluation_status", "unknown")
     if status != "normal_completion":
         issues.append(
-            f'Long-duration snapshot at {result.get("sim_t_s", 0):.1f} s without a normal FDS completion marker; '
-            "temperatures and levels can still change before T_END."
+            f'该结果是 {result.get("sim_t_s", 0):.1f} s 的长时快照，缺少 FDS 正常结束标记；'
+            "在达到 T_END 前，温度和毁伤等级仍可能变化。"
         )
     classification = result.get("campaign_classification", "")
     if "retired" in classification or "provenance" in classification:
-        issues.append("This is a retired/provenance configuration and is excluded from the current threshold bracket.")
+        issues.append("这是已停用或仅用于追溯的配置，不纳入当前阈值区间。")
     config = result.get("configuration", {})
     q = config.get("Q_J_cm2")
     local_q = config.get("max_local_fluence_J_cm2")
     if q and local_q is not None and local_q < 0.8 * q:
-        issues.append(f"Maximum local integrated fluence is only {local_q:.3g} J/cm2 for nominal Q={q:g}; normalization/exposure must be considered.")
+        issues.append(f"标称 Q={q:g} J/cm2，但最大局部积分光冲量仅为 {local_q:.3g} J/cm2，解释结果时必须考虑归一化和实际受照情况。")
     if config.get("damage_thresholds_changed"):
-        issues.append("Damage thresholds differ from the fixed standard, so this case is not threshold-comparable.")
-    issues.append("H1-H4 use aluminium-enclosure wall temperature as a proxy for internal electronics temperature.")
+        issues.append("该案例的毁伤阈值不同于固定标准，因此不能直接用于阈值比较。")
+    issues.append("H1-H4 目前以铝合金外壳壁面温度代理内部电子器件温度。")
     return issues
 
 
 def format_config_value(value):
     if value is None:
-        return "not recorded"
+        return "未记录"
     if isinstance(value, bool):
-        return str(value).lower()
+        return "是" if value else "否"
     if isinstance(value, float):
         return f"{value:.6g}"
     if isinstance(value, (dict, list)):
         return json.dumps(value, ensure_ascii=False, sort_keys=True)
-    return str(value)
+    return VALUE_ZH.get(str(value), str(value))
 
 
 def evaluation_status(case_dir: Path, sim_t_s: float):
@@ -312,20 +378,30 @@ def evaluation_status(case_dir: Path, sim_t_s: float):
     return "insufficient_duration_snapshot"
 
 
+def propagation_rule_zh(level):
+    return {
+        "severe": "至少一个主要节点达到重度毁伤",
+        "moderate": "主要节点达到中度，或次要节点达到重度毁伤",
+        "mild": "至少一个已知节点达到轻度，且未触发更高等级",
+        "none": "所有已知节点均未达到毁伤标准",
+        "unknown": "证据不足，无法判定",
+    }.get(level, "按毁伤树规则传播")
+
+
 def case_markdown(result: dict, image_ref: str):
     lines = [
-        f'# Complete damage-tree assessment: {result["case"]}', "",
-        f'- Simulation time: **{result["sim_t_s"]:.2f} s**',
-        f'- Source directory: `{result.get("case_directory", "unknown")}`',
-        f'- Campaign classification: **{result.get("campaign_classification", "unclassified")}**',
-        f'- Evaluation status: **{result.get("evaluation_status", "unknown")}**',
-        f'- PDF aircraft-tree level: **{result["aircraft_level"].upper()}**',
-        f'- Strict all-equipment severe result: **{result["severe_count"]}/{result["total_count"]}** '
-        f'(`all_severe={str(result["all_severe"]).lower()}`)',
-        '- Maximum temperature: dynamic envelope of geometrically valid redundant wall-temperature probes.',
-        '- Important: the strict 17/17 metric is not the PDF aircraft-level rule.', "",
-        '## Case configuration', "",
-        '| Parameter | Value |', '|---|---|',
+        f'# 完整毁伤树评估：{result["case"]}', "",
+        f'- 模拟时间：**{result["sim_t_s"]:.2f} s**',
+        f'- 来源目录：`{result.get("case_directory", "未知")}`',
+        f'- 方案分类：**{campaign_zh(result.get("campaign_classification", "未分类"))}**',
+        f'- 评估状态：**{status_zh(result.get("evaluation_status", "unknown"))}**',
+        f'- PDF 毁伤树整机等级：**{level_zh(result["aircraft_level"])}**',
+        f'- 严格全设备重度毁伤结果：**{result["severe_count"]}/{result["total_count"]}** '
+        f'（全部重度毁伤={"是" if result["all_severe"] else "否"}）',
+        '- 最高温度定义：几何位置有效的冗余壁面温度探针动态包络最大值。',
+        '- 注意：严格的 17/17 指标不等同于 PDF 毁伤树的整机等级判据。', "",
+        '## 案例配置', "",
+        '| 参数 | 数值 |', '|---|---|',
     ]
     config_order = (
         "purpose", "source_case", "changed_factor", "Q_J_cm2", "yield_kt", "azimuth_deg",
@@ -339,32 +415,32 @@ def case_markdown(result: dict, image_ref: str):
     )
     for key in config_order:
         value = format_config_value(result.get("configuration", {}).get(key)).replace("|", "\\|")
-        lines.append(f'| `{key}` | {value} |')
-    lines += ["", "## Known issues and validity", ""]
+        lines.append(f'| {CONFIG_LABEL_ZH.get(key, key)} | {value} |')
+    lines += ["", "## 已知问题与结果有效性", ""]
     for issue in result_issues(result):
         lines.append(f'- {issue}')
-    lines += ["", '## Damage tree', "", f'![Damage tree]({image_ref})', "",
-        '## System propagation', "",
-        '| System | Level | Trigger nodes | Applied rule |',
+    lines += ["", '## 毁伤树', "", f'![毁伤树]({image_ref})', "",
+        '## 系统级传播结果', "",
+        '| 系统 | 等级 | 触发节点 | 采用的传播规则 |',
         '|---|---:|---|---|',
     ]
     for name, detail in result["system_evidence"].items():
-        label = TREE["systems"][name].get("label", name)
-        triggers = ", ".join(detail["triggers"]) or "none"
-        lines.append(f'| {label} (`{name}`) | {detail["level"]} | {triggers} | {detail["rule"]} |')
-    lines += ["", "## Complete equipment assessment", "",
-              '| Group | Equipment | Role | Level | Peak C | Mild evidence | Moderate evidence | Severe evidence | Severe conclusion | Physical interpretation | Positive-flux probes | Valid probes |',
+        label = SYSTEM_LABEL_ZH.get(name, TREE["systems"][name].get("label", name))
+        triggers = ", ".join(detail["triggers"]) or "无"
+        lines.append(f'| {label}（`{name}`） | {level_zh(detail["level"])} | {triggers} | {propagation_rule_zh(detail["level"])} |')
+    lines += ["", "## 完整设备毁伤评估", "",
+              '| 设备组 | 设备名称 | 毁伤树角色 | 等级 | 峰值温度（C） | 轻度证据 | 中度证据 | 重度证据 | 重度毁伤结论 | 物理解释 | 正外部热流探针数 | 有效温度探针数 |',
               '|---|---|---|---:|---:|---|---|---|---|---|---:|---:|']
     roles = {}
     for system, spec in TREE["systems"].items():
         for group in spec["major"]:
-            roles[group] = f'{system}:major'
+            roles[group] = f'{SYSTEM_LABEL_ZH.get(system, system)}：主要节点'
         for group in spec["secondary"]:
-            roles[group] = f'{system}:secondary'
+            roles[group] = f'{SYSTEM_LABEL_ZH.get(system, system)}：次要节点'
     for group, item in result["equipment"].items():
         lines.append(
-            f'| {group} | {item.get("label", group)} | {roles.get(group, "unmapped")} | '
-            f'{item.get("level", "unknown")} | {item.get("peak_C", float("nan")):.1f} | '
+            f'| {group} | {equipment_label_zh(group, item.get("label", group))} | {roles.get(group, "未映射")} | '
+            f'{level_zh(item.get("level", "unknown"))} | {item.get("peak_C", float("nan")):.1f} | '
             f'{evidence_cell(item, "mild")} | {evidence_cell(item, "moderate")} | '
             f'{evidence_cell(item, "severe")} | {severe_conclusion(item)} | '
             f'{physical_interpretation(item)} | {item.get("positive_external_flux_probe_count", 0)} | '
@@ -380,12 +456,12 @@ def case_markdown(result: dict, image_ref: str):
         and item.get("evidence", {}).get("severe", {}).get("continuous_s", 0) < item.get("evidence", {}).get("severe", {}).get("required_s", float("inf"))
         for item in result["equipment"].values() if item.get("level") != "severe"
     )
-    lines += ["", "## Assessment interpretation", "",
-              f'- Non-severe or unknown groups: **{", ".join(not_severe) if not_severe else "none"}**.',
-              f'- Severe-damage shortfalls: **{peak_shortfall} peak-temperature limited**, **{duration_shortfall} duration limited**.',
-              f'- Aircraft level is propagated from the highest system level: **{result["aircraft_level"]}**.',
-              '- H2 (mission) and H3 (display) are model-specific mappings; their generic electronics thresholds are not same-name PDF rows.',
-              '- H1-H4 probes currently measure aluminium enclosure surface temperature as a proxy for internal electronics temperature.', ""]
+    lines += ["", "## 评估结论与解释", "",
+              f'- 未达到重度或证据未知的设备组：**{", ".join(not_severe) if not_severe else "无"}**。',
+              f'- 重度毁伤未满足的原因统计：**{peak_shortfall} 项受峰值温度限制**，**{duration_shortfall} 项受持续时间限制**。',
+              f'- 整机等级取各系统已知等级中的最高等级：**{level_zh(result["aircraft_level"])}**。',
+              '- H2（任务子系统）和 H3（显示子系统）属于当前模型的专用映射，其通用电子设备阈值并非 PDF 中的同名条目。',
+              '- H1-H4 探针当前测量铝合金外壳表面温度，并将其作为内部电子器件温度的代理。', ""]
     return "\n".join(lines)
 
 
@@ -434,20 +510,20 @@ def update_campaign_damage_report():
         item["_assessment_path"] = path
         results.append(item)
     results.sort(key=lambda item: (item.get("Q_J_cm2", float("inf")), item.get("case", "")))
-    lines = ["# Long-duration and completed damage-tree assessments", "",
-             "Automatically rebuilt after assessment. It includes normal FDS completions and explicitly labeled snapshots at or beyond 1000 s.", "",
-             "| Case | Status | Campaign | Q (J/cm2) | Sim time (s) | PDF aircraft level | Strict severe |",
+    lines = ["# 长时及正常完成案例毁伤树评估汇总", "",
+             "本报告在每次评估后自动重建，包含 FDS 正常完成案例，以及明确标注的模拟时间不小于 1000 s 的长时快照。", "",
+             "| 案例 | 状态 | 方案分类 | Q（J/cm2） | 模拟时间（s） | PDF 整机等级 | 严格重度毁伤数 |",
              "|---|---|---|---:|---:|---:|---:|"]
     for item in results:
-        lines.append(f'| {item["case"]} | {item.get("evaluation_status", "unknown")} | '
-                     f'{item.get("campaign_classification", "unclassified")} | '
+        lines.append(f'| {item["case"]} | {status_zh(item.get("evaluation_status", "unknown"))} | '
+                     f'{campaign_zh(item.get("campaign_classification", "未分类"))} | '
                      f'{item.get("Q_J_cm2", float("nan")):g} | '
-                     f'{item.get("sim_t_s", 0):.1f} | {item.get("aircraft_level", "unknown")} | '
+                     f'{item.get("sim_t_s", 0):.1f} | {level_zh(item.get("aircraft_level", "unknown"))} | '
                      f'{item.get("severe_count", 0)}/{item.get("total_count", 0)} |')
     for item in results:
         assessment_path = item.pop("_assessment_path")
         case_rel = assessment_path.parent.relative_to(ROOT).as_posix()
-        lines += ["", "---", "", case_markdown(item, f'../{case_rel}/damage_tree.svg').replace("# Complete", "## Complete", 1)]
+        lines += ["", "---", "", case_markdown(item, f'../{case_rel}/damage_tree.svg').replace("# 完整", "## 完整", 1)]
     report = ROOT / "reports" / "completed_case_damage_tree_assessments.md"
     temp = report.with_name(f".{report.name}.{os.getpid()}.tmp")
     temp.write_text("\n".join(lines) + "\n", encoding="utf-8")

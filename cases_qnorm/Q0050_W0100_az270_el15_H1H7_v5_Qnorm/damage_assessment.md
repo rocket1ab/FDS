@@ -1,91 +1,91 @@
-# Complete damage-tree assessment: Q0050_W0100_az270_el15_H1H7_v5_Qnorm
+# 完整毁伤树评估：Q0050_W0100_az270_el15_H1H7_v5_Qnorm
 
-- Simulation time: **1500.00 s**
-- Source directory: `cases_qnorm/Q0050_W0100_az270_el15_H1H7_v5_Qnorm`
-- Campaign classification: **corrected Q-normalized baseline**
-- Evaluation status: **normal_completion**
-- PDF aircraft-tree level: **SEVERE**
-- Strict all-equipment severe result: **4/17** (`all_severe=false`)
-- Maximum temperature: dynamic envelope of geometrically valid redundant wall-temperature probes.
-- Important: the strict 17/17 metric is not the PDF aircraft-level rule.
+- 模拟时间：**1500.00 s**
+- 来源目录：`cases_qnorm/Q0050_W0100_az270_el15_H1H7_v5_Qnorm`
+- 方案分类：**修正入射面归一化基线**
+- 评估状态：**正常完成**
+- PDF 毁伤树整机等级：**重度**
+- 严格全设备重度毁伤结果：**4/17** （全部重度毁伤=否）
+- 最高温度定义：几何位置有效的冗余壁面温度探针动态包络最大值。
+- 注意：严格的 17/17 指标不等同于 PDF 毁伤树的整机等级判据。
 
-## Case configuration
+## 案例配置
 
-| Parameter | Value |
+| 参数 | 数值 |
 |---|---|
-| `purpose` | corrected_incident_plane_fluence_normalization |
-| `source_case` | not recorded |
-| `changed_factor` | none recorded |
-| `Q_J_cm2` | 50 |
-| `yield_kt` | 100 |
-| `azimuth_deg` | 270 |
-| `elevation_deg` | 15 |
-| `target_t_end_s` | 1500 |
-| `mpi_processes` | 32 |
-| `burn_away` | false |
-| `radiative_fraction` | 0.4 |
-| `cfl_max` | not recorded |
-| `time_step_dt_s` | not recorded |
-| `nuclear_ramp_integral_s` | 0.660398 |
-| `plane_peak_irradiance_kw_m2` | 757.119 |
-| `max_local_external_flux_kw_m2` | 735 |
-| `max_local_fluence_J_cm2` | 48.5393 |
-| `hrrpua_group_values_kw_m2` | not recorded |
-| `all_hrrpua_values_in_fds_kw_m2` | [75.0, 100.0, 180.0, 200.0, 250.0] |
-| `audited_group_thickness_m` | not recorded |
-| `all_layer_thicknesses_in_fds_m` | [0.001, 0.0015, 0.002, 0.003, 0.005, 0.03, 0.075, 0.12, 0.15] |
-| `geometry_changed` | false |
-| `materials_changed` | false |
-| `combustion_changed` | false |
-| `external_flux_changed` | false |
-| `ignition_temperature_changed` | false |
-| `damage_thresholds_changed` | false |
-| `fds_input` | Q0050_W0100_az270_el15_H1H7_v5_Qnorm.fds |
+| 方案用途 | 修正入射面光冲量归一化 |
+| 来源案例 | 未记录 |
+| 修改因素 | 未记录 |
+| 光冲量 Q（J/cm2） | 50 |
+| 核爆当量（kt） | 100 |
+| 方位角（度） | 270 |
+| 俯仰角（度） | 15 |
+| 目标模拟时长（s） | 1500 |
+| MPI 进程数 | 32 |
+| BURN_AWAY | 否 |
+| 辐射份额 | 0.4 |
+| 最大 CFL | 未记录 |
+| 指定时间步长（s） | 未记录 |
+| 核辐射脉冲积分（s） | 0.660398 |
+| 入射面峰值辐照度（kW/m2） | 757.119 |
+| 最大局部外部热流（kW/m2） | 735 |
+| 最大局部积分光冲量（J/cm2） | 48.5393 |
+| 各材料 HRRPUA（kW/m2） | 未记录 |
+| FDS 中全部 HRRPUA（kW/m2） | [75.0, 100.0, 180.0, 200.0, 250.0] |
+| 审查后的材料厚度（m） | 未记录 |
+| FDS 中全部材料层厚度（m） | [0.001, 0.0015, 0.002, 0.003, 0.005, 0.03, 0.075, 0.12, 0.15] |
+| 几何是否修改 | 否 |
+| 材料是否修改 | 否 |
+| 燃烧参数是否修改 | 否 |
+| 外部热流是否修改 | 否 |
+| 点燃温度是否修改 | 否 |
+| 毁伤阈值是否修改 | 否 |
+| FDS 输入文件 | Q0050_W0100_az270_el15_H1H7_v5_Qnorm.fds |
 
-## Known issues and validity
+## 已知问题与结果有效性
 
-- H1-H4 use aluminium-enclosure wall temperature as a proxy for internal electronics temperature.
+- H1-H4 目前以铝合金外壳壁面温度代理内部电子器件温度。
 
-## Damage tree
+## 毁伤树
 
-![Damage tree](damage_tree.svg)
+![毁伤树](damage_tree.svg)
 
-## System propagation
+## 系统级传播结果
 
-| System | Level | Trigger nodes | Applied rule |
+| 系统 | 等级 | 触发节点 | 采用的传播规则 |
 |---|---:|---|---|
-| Airframe structure (`airframe`) | severe | AL2024 | at least one major item is severe |
-| Avionics system (`avionics`) | mild | H4 | at least one known item is mild and no higher rule is met |
-| Power system (`power`) | moderate | H6 | a major item is moderate or a secondary item is severe |
-| Cockpit system (`cockpit`) | severe | WINS, SEAT, H3 | at least one major item is severe |
+| 机体结构系统（`airframe`） | 重度 | AL2024 | 至少一个主要节点达到重度毁伤 |
+| 航空电子系统（`avionics`） | 轻度 | H4 | 至少一个已知节点达到轻度，且未触发更高等级 |
+| 电源系统（`power`） | 中度 | H6 | 主要节点达到中度，或次要节点达到重度毁伤 |
+| 座舱系统（`cockpit`） | 重度 | WINS, SEAT, H3 | 至少一个主要节点达到重度毁伤 |
 
-## Complete equipment assessment
+## 完整设备毁伤评估
 
-| Group | Equipment | Role | Level | Peak C | Mild evidence | Moderate evidence | Severe evidence | Severe conclusion | Physical interpretation | Positive-flux probes | Valid probes |
+| 设备组 | 设备名称 | 毁伤树角色 | 等级 | 峰值温度（C） | 轻度证据 | 中度证据 | 重度证据 | 重度毁伤结论 | 物理解释 | 正外部热流探针数 | 有效温度探针数 |
 |---|---|---|---:|---:|---|---|---|---|---|---:|---:|
-| RADM | Nose/radome | airframe:major | none | 309.5 | 150 C; 4.5/300 s | 250 C; 0.0/180 s | 400 C; 0.0/180 s | Not reached: peak 309.5 C < 400 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 10 | 10 |
-| WINS | PMMA windows | cockpit:major | severe | 915.7 | 120 C; 1498.5/60 s | 200 C; 1498.5/45 s | 250 C; 1498.5/8 s | Reached: peak 915.7 C; >= 250 C for 1498.5/8 s | The direct-flux and/or fire heating supplied both sufficient temperature and duration. | 10 | 10 |
-| BED | Nylon mattress | cockpit:major | none | 136.1 | 200 C; 0.0/60 s | 250 C; 0.0/90 s | 500 C; 0.0/5 s | Not reached: peak 136.1 C < 500 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 8 | 8 |
-| CURT | Nylon curtain | cockpit:major | moderate | 350.2 | 200 C; 958.5/60 s | 250 C; 679.5/90 s | 500 C; 0.0/5 s | Not reached: peak 350.2 C < 500 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 10 | 10 |
-| U4 | U4 instrument equipment | cockpit:major | mild | 238.2 | 120 C; 1026.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | Not reached: peak 238.2 C < 400 C | No monitored face has positive assigned external flux; geometric shielding leaves secondary cabin-fire heating below severe threshold. | 0 | 6 |
-| SEAT | Polyurethane seats | cockpit:major | severe | 2713.3 | 200 C; 1498.5/60 s | 300 C; 1498.5/90 s | 500 C; 1498.5/5 s | Reached: peak 2713.3 C; >= 500 C for 1498.5/5 s | The direct-flux and/or fire heating supplied both sufficient temperature and duration. | 4 | 10 |
-| AL2024 | Aluminium 2024 skin | airframe:major | severe | 490.5 | 120 C; 1492.5/600 s | 250 C; 1416.0/300 s | 400 C; 1329.0/60 s | Reached: peak 490.5 C; >= 400 C for 1329.0/60 s | The direct-flux and/or fire heating supplied both sufficient temperature and duration. | 5 | 10 |
-| AL5052 | Aluminium 5052 duct | cockpit:secondary | moderate | 328.5 | 120 C; 1282.5/600 s | 250 C; 1138.5/300 s | 400 C; 0.0/60 s | Not reached: peak 328.5 C < 400 C | No monitored face has positive assigned external flux; geometric shielding leaves secondary cabin-fire heating below severe threshold. | 0 | 10 |
-| AL7075 | Aluminium 7075 frame | airframe:major | moderate | 224.8 | 120 C; 1314.0/600 s | 200 C; 450.0/240 s | 400 C; 0.0/60 s | Not reached: peak 224.8 C < 400 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 3 | 10 |
-| O2TANK | Oxygen tank | cockpit:secondary | moderate | 224.7 | 120 C; 963.0/600 s | 200 C; 286.5/240 s | 400 C; 0.0/60 s | Not reached: peak 224.7 C < 400 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 6 | 8 |
-| H1 | Navigation subsystem | avionics:major | none | 78.9 | 120 C; 0.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | Not reached: peak 78.9 C < 400 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 5 | 6 |
-| H2 | Mission subsystem | avionics:major | none | 79.0 | 120 C; 0.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | Not reached: peak 79.0 C < 400 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 8 | 8 |
-| H3 | Display subsystem | cockpit:major | severe | 549.3 | 120 C; 1284.0/300 s | 250 C; 1209.0/180 s | 400 C; 1111.5/5 s | Reached: peak 549.3 C; >= 400 C for 1111.5/5 s | The secondary cabin-fire heating supplied both sufficient temperature and duration. | 0 | 14 |
-| H4 | Communication subsystem | avionics:secondary | mild | 173.4 | 120 C; 888.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | Not reached: peak 173.4 C < 400 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 4 | 10 |
-| H5 | Battery | power:major | mild | 129.0 | 100 C; 708.0/60 s | 150 C; 0.0/600 s | 200 C; 0.0/180 s | Not reached: peak 129.0 C < 200 C | Positive external flux reaches monitored faces, but pulse energy, thermal inertia and heat losses keep the peak below severe threshold. | 3 | 6 |
-| H6 | Power transmission subsystem | power:major | moderate | 248.8 | 120 C; 1405.5/1200 s | 200 C; 769.5/600 s | 400 C; 0.0/180 s | Not reached: peak 248.8 C < 400 C | No monitored face has positive assigned external flux; geometric shielding leaves secondary cabin-fire heating below severe threshold. | 0 | 8 |
-| H7 | Flight-control subsystem | cockpit:major | mild | 208.8 | 120 C; 1473.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | Not reached: peak 208.8 C < 400 C | No monitored face has positive assigned external flux; geometric shielding leaves secondary cabin-fire heating below severe threshold. | 0 | 3 |
+| RADM | 雷达罩 | 机体结构系统：主要节点 | 未毁伤 | 309.5 | 150 C; 4.5/300 s | 250 C; 0.0/180 s | 400 C; 0.0/180 s | 未达到：峰值 309.5 C < 400 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 10 | 10 |
+| WINS | 有机玻璃舷窗 | 座舱系统：主要节点 | 重度 | 915.7 | 120 C; 1498.5/60 s | 200 C; 1498.5/45 s | 250 C; 1498.5/8 s | 已达到：峰值 915.7 C；连续高于 250 C 的时间为 1498.5/8 s | 直接外部热流和/或火灾加热同时提供了足够的温度和持续时间。 | 10 | 10 |
+| BED | 尼龙床垫 | 座舱系统：主要节点 | 未毁伤 | 136.1 | 200 C; 0.0/60 s | 250 C; 0.0/90 s | 500 C; 0.0/5 s | 未达到：峰值 136.1 C < 500 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 8 | 8 |
+| CURT | 尼龙窗帘 | 座舱系统：主要节点 | 中度 | 350.2 | 200 C; 958.5/60 s | 250 C; 679.5/90 s | 500 C; 0.0/5 s | 未达到：峰值 350.2 C < 500 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 10 | 10 |
+| U4 | U4 仪器设备 | 座舱系统：主要节点 | 轻度 | 238.2 | 120 C; 1026.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | 未达到：峰值 238.2 C < 400 C | 监测表面未分配到正外部热流；几何遮挡后仅靠舱内二次火灾加热，温度低于重度毁伤阈值。 | 0 | 6 |
+| SEAT | 聚氨酯座椅 | 座舱系统：主要节点 | 重度 | 2713.3 | 200 C; 1498.5/60 s | 300 C; 1498.5/90 s | 500 C; 1498.5/5 s | 已达到：峰值 2713.3 C；连续高于 500 C 的时间为 1498.5/5 s | 直接外部热流和/或火灾加热同时提供了足够的温度和持续时间。 | 4 | 10 |
+| AL2024 | 2024 铝合金蒙皮 | 机体结构系统：主要节点 | 重度 | 490.5 | 120 C; 1492.5/600 s | 250 C; 1416.0/300 s | 400 C; 1329.0/60 s | 已达到：峰值 490.5 C；连续高于 400 C 的时间为 1329.0/60 s | 直接外部热流和/或火灾加热同时提供了足够的温度和持续时间。 | 5 | 10 |
+| AL5052 | 5052 铝合金风管 | 座舱系统：次要节点 | 中度 | 328.5 | 120 C; 1282.5/600 s | 250 C; 1138.5/300 s | 400 C; 0.0/60 s | 未达到：峰值 328.5 C < 400 C | 监测表面未分配到正外部热流；几何遮挡后仅靠舱内二次火灾加热，温度低于重度毁伤阈值。 | 0 | 10 |
+| AL7075 | 7075 铝合金框架 | 机体结构系统：主要节点 | 中度 | 224.8 | 120 C; 1314.0/600 s | 200 C; 450.0/240 s | 400 C; 0.0/60 s | 未达到：峰值 224.8 C < 400 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 3 | 10 |
+| O2TANK | 氧气瓶 | 座舱系统：次要节点 | 中度 | 224.7 | 120 C; 963.0/600 s | 200 C; 286.5/240 s | 400 C; 0.0/60 s | 未达到：峰值 224.7 C < 400 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 6 | 8 |
+| H1 | 导航子系统 | 航空电子系统：主要节点 | 未毁伤 | 78.9 | 120 C; 0.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | 未达到：峰值 78.9 C < 400 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 5 | 6 |
+| H2 | 任务子系统 | 航空电子系统：主要节点 | 未毁伤 | 79.0 | 120 C; 0.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | 未达到：峰值 79.0 C < 400 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 8 | 8 |
+| H3 | 显示子系统 | 座舱系统：主要节点 | 重度 | 549.3 | 120 C; 1284.0/300 s | 250 C; 1209.0/180 s | 400 C; 1111.5/5 s | 已达到：峰值 549.3 C；连续高于 400 C 的时间为 1111.5/5 s | 舱内二次火灾加热同时提供了足够的温度和持续时间。 | 0 | 14 |
+| H4 | 通信子系统 | 航空电子系统：次要节点 | 轻度 | 173.4 | 120 C; 888.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | 未达到：峰值 173.4 C < 400 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 4 | 10 |
+| H5 | 电池 | 电源系统：主要节点 | 轻度 | 129.0 | 100 C; 708.0/60 s | 150 C; 0.0/600 s | 200 C; 0.0/180 s | 未达到：峰值 129.0 C < 200 C | 监测表面接收到正外部热流，但受脉冲能量、材料热惯性和散热影响，峰值仍低于重度毁伤阈值。 | 3 | 6 |
+| H6 | 电力传输子系统 | 电源系统：主要节点 | 中度 | 248.8 | 120 C; 1405.5/1200 s | 200 C; 769.5/600 s | 400 C; 0.0/180 s | 未达到：峰值 248.8 C < 400 C | 监测表面未分配到正外部热流；几何遮挡后仅靠舱内二次火灾加热，温度低于重度毁伤阈值。 | 0 | 8 |
+| H7 | 操纵子系统 | 座舱系统：主要节点 | 轻度 | 208.8 | 120 C; 1473.0/300 s | 250 C; 0.0/180 s | 400 C; 0.0/5 s | 未达到：峰值 208.8 C < 400 C | 监测表面未分配到正外部热流；几何遮挡后仅靠舱内二次火灾加热，温度低于重度毁伤阈值。 | 0 | 3 |
 
-## Assessment interpretation
+## 评估结论与解释
 
-- Non-severe or unknown groups: **RADM, BED, CURT, U4, AL5052, AL7075, O2TANK, H1, H2, H4, H5, H6, H7**.
-- Severe-damage shortfalls: **13 peak-temperature limited**, **0 duration limited**.
-- Aircraft level is propagated from the highest system level: **severe**.
-- H2 (mission) and H3 (display) are model-specific mappings; their generic electronics thresholds are not same-name PDF rows.
-- H1-H4 probes currently measure aluminium enclosure surface temperature as a proxy for internal electronics temperature.
+- 未达到重度或证据未知的设备组：**RADM, BED, CURT, U4, AL5052, AL7075, O2TANK, H1, H2, H4, H5, H6, H7**。
+- 重度毁伤未满足的原因统计：**13 项受峰值温度限制**，**0 项受持续时间限制**。
+- 整机等级取各系统已知等级中的最高等级：**重度**。
+- H2（任务子系统）和 H3（显示子系统）属于当前模型的专用映射，其通用电子设备阈值并非 PDF 中的同名条目。
+- H1-H4 探针当前测量铝合金外壳表面温度，并将其作为内部电子器件温度的代理。
 
