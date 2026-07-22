@@ -194,3 +194,17 @@ hard-coded 32-core reservation. A 20% low-load floor permits a full-node case af
 active FDS process count has reached zero while still rejecting a materially busy node.
 These cases are built by
 `src/build_thickness_corrected_campaign.py`; all non-Q inputs are identical.
+
+## 2026-07-22 Q200 入射角单因素方案
+
+根据新版几何的 DDA 精细角度扫描，新增案例
+`Q0200_W0100_az060_el75_H1H7_v5_Qnorm_adapt_HRRupper_thickness_audit_angle`。
+该案例保持光冲量 Q=200 J/cm2、核爆当量 W=100 kt、T_END=1500 s、几何、材料、
+审查后厚度、HRRPUA 上限敏感性参数、点燃温度、BURN_AWAY、探针和毁伤标准不变，
+仅将入射角由 az=270 deg、el=15 deg 改为 az=60 deg、el=75 deg。
+
+选择该角度的原因是：H1、H2 的 DDA P90 直接受照水平仍保持扫描最高值 950，
+同时 13 个监测组获得直接受照；SEAT、CURT 和 H7 的 P90 分别为 705、730 和 745，
+比 az=90 deg、el=75 deg 更有利于检验附近真实可燃物点燃后对 H1、H2 的二次加热。
+入射面归一化后的最大局部积分光冲量为 194.22 J/cm2。本案例是角度单因素对照，
+不得与改变材料或毁伤阈值的方案混为同一阈值序列。
