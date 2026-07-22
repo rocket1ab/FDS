@@ -1,43 +1,47 @@
-# Probe Position Validation
+# 探针位置与覆盖完整性校验
 
-Case: `Q0100_W0100_az270_el15_H1H7_v6_probe_fixed`
+校验案例：`Q0100_W0100_az270_el15_H1H7_v6_probe_fixed`
 
-## Result
+## 总体结果
 
-- Position validation: **PASS**
-- Temperature probes: **153**
-- Co-located net-heat-flux probes: **153**
-- Validated against current FDS and voxel exposed-face records: **153/153**
-- Probe coordinates are intentionally 0.035 m outside the selected voxel face; `IOR` points to that boundary.
+- 位置校验：**通过**
+- 监测对象：**17组**
+- 壁面温度探针（WT）：**153个**
+- 同位置净热流探针（HF）：**153个**
+- 通过FDS几何及体素暴露面校验：**153/153**
+- FDS网格尺寸：**0.100 m**；探针距目标体素面的偏移：**0.035 m**。
+- `IOR` 指向被监测材料边界；每个WT探针均配置同位置HF探针。
 
-## Per-group coverage
+## 各材料与设备探针覆盖表
 
-| Group | Component | Material | WT probes | Unique positions | Candidate faces | Directly irradiated | Status |
-|---|---|---|---:|---:|---:|---:|---|
-| RADM | Radome | Fiberglass | 10 | 10 | 386 | 10 | PASS |
-| WINS | Windows | PMMA | 10 | 10 | 213 | 10 | PASS |
-| BED | Mattress | Nylon | 8 | 8 | 99 | 8 | PASS |
-| CURT | Curtain | Nylon | 10 | 10 | 267 | 10 | PASS |
-| U4 | U4 equipment | Legacy U04 material | 6 | 6 | 0 | 0 | PASS |
-| SEAT | Seats | Polyurethane foam | 10 | 10 | 92 | 4 | PASS |
-| AL2024 | Aircraft skin | Aluminium 2024 | 10 | 10 | 674 | 5 | PASS |
-| AL5052 | Duct | Aluminium 5052 | 10 | 10 | 0 | 0 | PASS |
-| AL7075 | Frame | Aluminium 7075 | 10 | 10 | 121 | 3 | PASS |
-| O2TANK | Oxygen tank | Aluminium 7075 | 10 | 10 | 10 | 6 | PASS |
-| H1 | Navigation subsystem | Aluminium 6061, 3 mm | 7 | 7 | 5 | 5 | PASS |
-| H2 | Mission subsystem | Aluminium 6061, 3 mm | 10 | 10 | 37 | 8 | PASS |
-| H3 | Display subsystem | Aluminium 6061, 3 mm | 14 | 14 | 0 | 0 | PASS |
-| H4 | Communication subsystem | Aluminium 6061, 3 mm | 10 | 10 | 4 | 4 | PASS |
-| H5 | Battery | Aluminium 6061, 3 mm | 6 | 6 | 4 | 3 | PASS |
-| H6 | Power transmission | PVC, 1 mm | 8 | 8 | 0 | 0 | PASS |
-| H7 | Flight-control subsystem | CR rubber, 2 mm | 4 | 4 | 0 | 0 | PASS |
+| 分组代号 | 部件/设备 | 表面材料及厚度 | WT探针数 | 唯一位置数 | 候选暴露面数 | 直接受照探针数 | 遮挡/二次受热探针数 | 几何校验通过数 | 状态与覆盖说明 |
+|---|---|---|---:|---:|---:|---:|---:|---:|---|
+| RADM | 雷达罩 | 玻璃纤维复合材料 | 10 | 10 | 386 | 10 | 0 | 10 | 通过；当前角度均为直接受照点 |
+| WINS | 舷窗 | PMMA有机玻璃 | 10 | 10 | 213 | 10 | 0 | 10 | 通过；当前角度均为直接受照点 |
+| BED | 床垫内饰 | 尼龙织物（表层） | 8 | 8 | 99 | 8 | 0 | 8 | 通过；当前角度均为直接受照点 |
+| CURT | 窗帘内饰 | 尼龙织物 | 10 | 10 | 267 | 10 | 0 | 10 | 通过；当前角度均为直接受照点 |
+| U4 | U4仪表设备 | 沿用原U04材料参数 | 6 | 6 | 0 | 0 | 6 | 6 | 通过；当前角度受遮挡，用于监测二次加热 |
+| SEAT | 座椅内饰 | 聚氨酯泡沫 | 10 | 10 | 92 | 4 | 6 | 10 | 通过；兼顾直接辐照与空间冗余 |
+| AL2024 | 飞机蒙皮 | 2024铝合金 | 10 | 10 | 674 | 5 | 5 | 10 | 通过；兼顾直接辐照与空间冗余 |
+| AL5052 | 铝风管 | 5052铝合金 | 10 | 10 | 0 | 0 | 10 | 10 | 通过；当前角度受遮挡，用于监测二次加热 |
+| AL7075 | 铝隔框 | 7075铝合金 | 10 | 10 | 121 | 3 | 7 | 10 | 通过；兼顾直接辐照与空间冗余 |
+| O2TANK | 氧气瓶 | 7075铝合金 | 10 | 10 | 10 | 6 | 4 | 10 | 通过；兼顾直接辐照与空间冗余 |
+| H1 | 导航子系统 | 6061铝合金，厚3 mm | 7 | 7 | 5 | 5 | 2 | 7 | 通过；兼顾直接辐照与空间冗余 |
+| H2 | 任务子系统 | 6061铝合金，厚3 mm | 10 | 10 | 37 | 8 | 2 | 10 | 通过；兼顾直接辐照与空间冗余 |
+| H3 | 显示子系统 | 6061铝合金，厚3 mm | 14 | 14 | 0 | 0 | 14 | 14 | 通过；当前角度受遮挡，用于监测二次加热 |
+| H4 | 通信子系统 | 6061铝合金，厚3 mm | 10 | 10 | 4 | 4 | 6 | 10 | 通过；兼顾直接辐照与空间冗余 |
+| H5 | 电池 | 6061铝合金外壳，厚3 mm | 6 | 6 | 4 | 3 | 3 | 6 | 通过；兼顾直接辐照与空间冗余 |
+| H6 | 电力传输子系统 | PVC塑料，厚1 mm | 8 | 8 | 0 | 0 | 8 | 8 | 通过；当前角度受遮挡，用于监测二次加热 |
+| H7 | 操纵子系统 | CR氯丁橡胶，厚2 mm | 4 | 4 | 0 | 0 | 4 | 4 | 通过；当前角度受遮挡，用于监测二次加热 |
 
-## Suspect probes
+## 可疑探针
 
-None.
+无。153个WT探针及其同位置HF探针均通过几何校验。
 
-## Interpretation
+## 使用与解释
 
-The temperature reported for a material is the maximum among its redundant WALL TEMPERATURE probes. It is a monitored maximum, not a continuous maximum over every FDS surface cell. The probes deliberately combine high-flux locations with spatially separated locations, and each has a co-located NET HEAT FLUX probe.
+每一材料或设备的评估温度取该组全部有效 `WALL TEMPERATURE` 探针在每个时刻的动态最大值包络。它代表已布置探针范围内的监测最高温度，并不等同于整个连续表面的绝对最高温度。多探针同时覆盖高热流位置与空间分散位置，可在热点迁移或个别探针失效时保留冗余证据。
 
-Groups with zero directly irradiated probes are geometrically shielded for the current azimuth/elevation; their probes remain useful for secondary heating and fire exposure.
+直接受照探针数为0不表示没有探针或探针无效，而表示该对象在当前方位角和俯仰角下受几何遮挡。这些探针继续用于记录舱内火灾、热烟气、辐射和邻近可燃物产生的二次加热。候选暴露面数为0时，探针依据原设备表面与FDS边界定位，仍须结合HF输出和几何校验结果解释。
+
+RADM仅表示雷达罩物理结构，其温度不替代雷达电子设备毁伤证据。
