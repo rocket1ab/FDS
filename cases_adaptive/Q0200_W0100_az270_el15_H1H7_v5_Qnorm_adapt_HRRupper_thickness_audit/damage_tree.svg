@@ -28,9 +28,9 @@
 <text x="559.8" y="157.0" text-anchor="middle" class="label" fill="#212529">航空电子系统</text>
 <text x="559.8" y="185.0" text-anchor="middle" class="small" fill="#8a3b00">中度 | avionics</text>
 <path class="line" d="M 559.8 196.0 V 242.0"/>
-<rect x="398.5" y="258.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect x="398.5" y="258.0" width="322.5" height="56.0" rx="4" fill="#fff3bf" stroke="#7a5b00" stroke-width="2"/>
 <text x="559.8" y="281.0" text-anchor="middle" class="label" fill="#212529">H1  导航子系统</text>
-<text x="559.8" y="303.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<text x="559.8" y="303.0" text-anchor="middle" class="small" fill="#7a5b00">轻度 | 主要节点</text>
 <path class="line" d="M 559.8 242.0 V 258.0"/>
 <rect x="398.5" y="326.0" width="322.5" height="56.0" rx="4" fill="#fff3bf" stroke="#7a5b00" stroke-width="2"/>
 <text x="559.8" y="349.0" text-anchor="middle" class="label" fill="#212529">H2  任务子系统</text>

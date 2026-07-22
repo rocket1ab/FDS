@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib import font_manager
 import numpy as np
 
 
@@ -39,8 +40,18 @@ NOMINAL_HRRPUA = {
 
 
 def setup_plot_style() -> None:
+    font_names = []
+    for path in (
+        Path("/usr/share/fonts/google-noto-cjk/NotoSansCJK-Regular.ttc"),
+        Path("/usr/share/fonts/google-droid/DroidSansFallback.ttf"),
+        Path(r"C:\Windows\Fonts\msyh.ttc"),
+    ):
+        if not path.exists():
+            continue
+        font_manager.fontManager.addfont(path)
+        font_names.append(font_manager.FontProperties(fname=path).get_name())
     plt.rcParams.update({
-        "font.sans-serif": ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "DejaVu Sans"],
+        "font.sans-serif": font_names + ["Microsoft YaHei", "SimHei", "DejaVu Sans"],
         "axes.unicode_minus": False,
     })
 
