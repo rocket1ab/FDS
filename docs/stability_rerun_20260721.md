@@ -181,3 +181,16 @@ terminated). It now contains only the Q100 thickness-audit case. The older BED-H
 angle, HRRmax and BURN_AWAY variants remain preserved on disk but are not allowed to
 start with the superseded thicknesses. Any still-needed follow-up will be regenerated
 from the thickness-audit baseline and will change one additional factor at a time.
+
+At the user's request, the superseded active Q100 on node01 and Q200 on node05 were
+stopped on 2026-07-22. The node05 continuation queue and node03 waiting queue were also
+stopped so they cannot launch old-thickness inputs. The active node04 Q400 threshold
+case and its threshold controller were explicitly preserved. A new 32-process campaign
+was generated for Q=100, 200, 300 and 400 J/cm2 at W=100 kt, az=270 and el=15 using the
+same audited thicknesses. Q100 uses the physically equivalent validated 20-way mesh
+assignment because node01 has 20 logical CPUs; Q200-Q400 use 32-way assignments. The
+queue idle check was corrected to use each case's actual MPI requirement rather than a
+hard-coded 32-core reservation. A 20% low-load floor permits a full-node case after
+active FDS process count has reached zero while still rejecting a materially busy node.
+These cases are built by
+`src/build_thickness_corrected_campaign.py`; all non-Q inputs are identical.

@@ -55,7 +55,7 @@ def write_status(node: str, **fields):
     temp.replace(path)
 
 
-def node_busy(node: str):
+def node_busy(node: str, required_cores: int = 32):
     command = "printf '%s %s %s\\n' \"$(pgrep -c -x fds || true)\" \"$(nproc --all)\" \"$(cut -d' ' -f1 /proc/loadavg)\""
     result = subprocess.run(["ssh", "-o", "ConnectTimeout=8", node, command],
                             capture_output=True, text=True, timeout=15)
@@ -64,16 +64,21 @@ def node_busy(node: str):
     fds_count, logical_cpus, load_1m = result.stdout.strip().split()[-3:]
     telemetry = {"fds_processes": int(fds_count), "logical_cpus": int(logical_cpus),
                  "load_1m": round(float(load_1m), 2)}
+    # Allow a small residual system load when a case uses all logical CPUs. Without
+    # this floor, a 20-rank case on a 20-core node can never pass the idle check.
+    load_limit = max(telemetry["logical_cpus"] - required_cores,
+                     telemetry["logical_cpus"] * 0.20)
+    telemetry.update(required_cores=required_cores, load_limit=round(load_limit, 2))
     telemetry["busy_reason"] = "fds" if telemetry["fds_processes"] else (
-        "insufficient_free_cpu" if telemetry["load_1m"] > telemetry["logical_cpus"] - 32 else "idle")
+        "insufficient_free_cpu" if telemetry["load_1m"] > load_limit else "idle")
     return telemetry["busy_reason"] != "idle", telemetry
 
 
-def wait_for_idle(node: str):
+def wait_for_idle(node: str, required_cores: int = 32):
     clear = 0
     while clear < 2:
         try:
-            busy, telemetry = node_busy(node)
+            busy, telemetry = node_busy(node, required_cores)
             clear = 0 if busy else clear + 1
             write_status(node, state="waiting_for_idle" if busy else "confirming_idle",
                          clear_checks=clear, **telemetry)
@@ -208,13 +213,13 @@ def main():
     try:
         write_status(args.node, state="queued", cases=args.cases)
         failed = False
-        wait_for_idle(args.node)
+        wait_for_idle(args.node, case_mpi(args.cases[0]))
         if not run_preflight(args.node, args.cases[0]):
             failed = True
         for case in args.cases:
             if failed:
                 break
-            wait_for_idle(args.node)
+            wait_for_idle(args.node, case_mpi(case))
             if not run_case(args.node, case):
                 failed = True
                 break

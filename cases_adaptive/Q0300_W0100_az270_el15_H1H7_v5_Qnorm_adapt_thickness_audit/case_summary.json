@@ -1,17 +1,17 @@
 {
-  "case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_thickness_audit",
+  "case": "Q0300_W0100_az270_el15_H1H7_v5_Qnorm_adapt_thickness_audit",
   "purpose": "surface_layer_thickness_audit_campaign",
-  "Q_J_cm2": 100.0,
+  "Q_J_cm2": 300,
   "yield_kt": 100,
   "azimuth_deg": 270,
   "elevation_deg": 15,
   "t_end_s": 1500,
-  "mpi": 20,
+  "mpi": 32,
   "burn_away": false,
   "nuclear_ramp_integral_s": 0.6603982070000001,
-  "plane_peak_irradiance_kw_m2": 1514.237908886388,
-  "max_local_external_flux_kw_m2": 1471,
-  "max_local_fluence_J_cm2": 97.14457624970002,
+  "plane_peak_irradiance_kw_m2": 4542.7137266591635,
+  "max_local_external_flux_kw_m2": 4412,
+  "max_local_fluence_J_cm2": 291.36768892840007,
   "removed_overlay_vents": 1912,
   "removed_old_surface_variants": 99,
   "domain_vents": 2,
@@ -21,8 +21,8 @@
   "materials_changed": false,
   "damage_thresholds_changed": false,
   "adaptive_variant": true,
-  "source_case": "Q0100_W0100_az270_el15_H1H7_v5_Qnorm",
-  "source_case_root": "cases_exploratory",
+  "source_case": "Q0300_W0100_az270_el15_H1H7_v5_Qnorm",
+  "source_case_root": "cases_qnorm",
   "changed_factor": "surface_layer_thickness_only",
   "thickness_m": {
     "RADM": 0.1,
@@ -46,27 +46,27 @@
         "new_m": 0.1
       },
       {
-        "surface_id": "RADM_R0176",
+        "surface_id": "RADM_R0529",
         "old_m": 0.12,
         "new_m": 0.1
       },
       {
-        "surface_id": "RADM_R0412",
+        "surface_id": "RADM_R1235",
         "old_m": 0.12,
         "new_m": 0.1
       },
       {
-        "surface_id": "RADM_R0706",
+        "surface_id": "RADM_R2118",
         "old_m": 0.12,
         "new_m": 0.1
       },
       {
-        "surface_id": "RADM_R1118",
+        "surface_id": "RADM_R3353",
         "old_m": 0.12,
         "new_m": 0.1
       },
       {
-        "surface_id": "RADM_R1471",
+        "surface_id": "RADM_R4412",
         "old_m": 0.12,
         "new_m": 0.1
       }
@@ -78,37 +78,7 @@
         "new_m": 0.025
       },
       {
-        "surface_id": "WINS_R0176",
-        "old_m": 0.075,
-        "new_m": 0.025
-      },
-      {
-        "surface_id": "WINS_R0235",
-        "old_m": 0.075,
-        "new_m": 0.025
-      },
-      {
-        "surface_id": "WINS_R0294",
-        "old_m": 0.075,
-        "new_m": 0.025
-      },
-      {
-        "surface_id": "WINS_R0353",
-        "old_m": 0.075,
-        "new_m": 0.025
-      },
-      {
-        "surface_id": "WINS_R0412",
-        "old_m": 0.075,
-        "new_m": 0.025
-      },
-      {
-        "surface_id": "WINS_R0588",
-        "old_m": 0.075,
-        "new_m": 0.025
-      },
-      {
-        "surface_id": "WINS_R0647",
+        "surface_id": "WINS_R0529",
         "old_m": 0.075,
         "new_m": 0.025
       },
@@ -118,32 +88,62 @@
         "new_m": 0.025
       },
       {
-        "surface_id": "WINS_R0941",
+        "surface_id": "WINS_R0882",
         "old_m": 0.075,
         "new_m": 0.025
       },
       {
-        "surface_id": "WINS_R1000",
+        "surface_id": "WINS_R1059",
         "old_m": 0.075,
         "new_m": 0.025
       },
       {
-        "surface_id": "WINS_R1118",
+        "surface_id": "WINS_R1235",
         "old_m": 0.075,
         "new_m": 0.025
       },
       {
-        "surface_id": "WINS_R1177",
+        "surface_id": "WINS_R1765",
         "old_m": 0.075,
         "new_m": 0.025
       },
       {
-        "surface_id": "WINS_R1294",
+        "surface_id": "WINS_R1941",
         "old_m": 0.075,
         "new_m": 0.025
       },
       {
-        "surface_id": "WINS_R1353",
+        "surface_id": "WINS_R2118",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R2824",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R3000",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R3353",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R3530",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R3883",
+        "old_m": 0.075,
+        "new_m": 0.025
+      },
+      {
+        "surface_id": "WINS_R4059",
         "old_m": 0.075,
         "new_m": 0.025
       }
@@ -155,47 +155,47 @@
         "new_m": 0.00089
       },
       {
-        "surface_id": "BED_R0118",
-        "old_m": 0.12,
-        "new_m": 0.00089
-      },
-      {
-        "surface_id": "BED_R0176",
-        "old_m": 0.12,
-        "new_m": 0.00089
-      },
-      {
-        "surface_id": "BED_R0235",
-        "old_m": 0.12,
-        "new_m": 0.00089
-      },
-      {
-        "surface_id": "BED_R0294",
-        "old_m": 0.12,
-        "new_m": 0.00089
-      },
-      {
         "surface_id": "BED_R0353",
         "old_m": 0.12,
         "new_m": 0.00089
       },
       {
-        "surface_id": "BED_R0588",
+        "surface_id": "BED_R0529",
         "old_m": 0.12,
         "new_m": 0.00089
       },
       {
-        "surface_id": "BED_R0647",
-        "old_m": 0.12,
-        "new_m": 0.00089
-      },
-      {
-        "surface_id": "BED_R0765",
+        "surface_id": "BED_R0706",
         "old_m": 0.12,
         "new_m": 0.00089
       },
       {
         "surface_id": "BED_R0882",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R1059",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R1765",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R1941",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R2294",
+        "old_m": 0.12,
+        "new_m": 0.00089
+      },
+      {
+        "surface_id": "BED_R2647",
         "old_m": 0.12,
         "new_m": 0.00089
       }
@@ -207,32 +207,7 @@
         "new_m": 0.003
       },
       {
-        "surface_id": "CURT_R0118",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
-        "surface_id": "CURT_R0176",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
-        "surface_id": "CURT_R0235",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
-        "surface_id": "CURT_R0294",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
         "surface_id": "CURT_R0353",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
-        "surface_id": "CURT_R0471",
         "old_m": 0.03,
         "new_m": 0.003
       },
@@ -242,22 +217,7 @@
         "new_m": 0.003
       },
       {
-        "surface_id": "CURT_R0588",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
-        "surface_id": "CURT_R0647",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
         "surface_id": "CURT_R0706",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
-        "surface_id": "CURT_R0824",
         "old_m": 0.03,
         "new_m": 0.003
       },
@@ -267,32 +227,72 @@
         "new_m": 0.003
       },
       {
-        "surface_id": "CURT_R0941",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
-        "surface_id": "CURT_R1000",
-        "old_m": 0.03,
-        "new_m": 0.003
-      },
-      {
         "surface_id": "CURT_R1059",
         "old_m": 0.03,
         "new_m": 0.003
       },
       {
-        "surface_id": "CURT_R1118",
+        "surface_id": "CURT_R1412",
         "old_m": 0.03,
         "new_m": 0.003
       },
       {
-        "surface_id": "CURT_R1177",
+        "surface_id": "CURT_R1588",
         "old_m": 0.03,
         "new_m": 0.003
       },
       {
-        "surface_id": "CURT_R1235",
+        "surface_id": "CURT_R1765",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R1941",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R2118",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R2471",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R2647",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R2824",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R3000",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R3177",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R3353",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R3530",
+        "old_m": 0.03,
+        "new_m": 0.003
+      },
+      {
+        "surface_id": "CURT_R3706",
         "old_m": 0.03,
         "new_m": 0.003
       }
