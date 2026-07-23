@@ -203,6 +203,8 @@ def split_mesh_for_mpi(text: str, ncores: int = 32) -> str:
 
 def face_point(xb, face: str, offset: float = 0.035):
     point = np.array([(xb[0] + xb[1]) / 2, (xb[2] + xb[3]) / 2, (xb[4] + xb[5]) / 2])
+    axis = {"x": 0, "y": 1, "z": 2}[face[1]]
+    point[axis] = xb[2 * axis] if face[0] == "-" else xb[2 * axis + 1]
     point += V.FN[face] * offset
     ior = {"-x": -1, "+x": 1, "-y": -2, "+y": 2, "-z": -3, "+z": 3}[face]
     return point, ior
@@ -267,9 +269,10 @@ def build_geometry_records(obsts, domain):
     return records
 
 
-def build_case(base: str, parsed, records: list[dict], q: int, base_max: float):
-    case_name = f"Q{q:04d}_W0100_az270_el15_H1H7_v2"
-    case_dir = CASES / case_name
+def build_case(base: str, parsed, records: list[dict], q: int, base_max: float,
+               case_name: str | None = None, case_root: Path | None = None):
+    case_name = case_name or f"Q{q:04d}_W0100_az270_el15_H1H7_v2"
+    case_dir = (case_root or CASES) / case_name
     case_dir.mkdir(parents=True, exist_ok=True)
     scale = CONFIG["q400_reference_max_external_flux_kw_m2"] / base_max * q / 400.0
     surf_raw = {block_id(b): b for b in parsed["SURF"]}
