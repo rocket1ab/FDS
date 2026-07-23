@@ -108,7 +108,8 @@ def main() -> None:
         "! Only BURN_AWAY changed from the table-HRRPUA Q400 control; it is enabled\n"
         "! only on combustible SURFs with positive HRRPUA. All strict criteria remain unchanged.\n"
     )
-    (target / f"{TARGET}.fds").write_text(note + text, encoding="utf-8")
+    clean_text = "\n".join(line.rstrip() for line in (note + text).splitlines()) + "\n"
+    (target / f"{TARGET}.fds").write_text(clean_text, encoding="utf-8")
 
     summary = json.loads((source / "case_summary.json").read_text(encoding="utf-8"))
     summary.update(
