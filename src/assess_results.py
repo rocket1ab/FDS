@@ -54,6 +54,33 @@ def envelope(columns: dict, names: list[str], n: int):
     return result, active
 
 
+def probe_validity(times, columns, names):
+    """Describe trailing probe loss without turning missing samples into cooling."""
+    if not times:
+        return {}
+    positive_steps = [
+        later - earlier for earlier, later in zip(times, times[1:])
+        if later > earlier
+    ]
+    tolerance = max(2.0 * (positive_steps[-1] if positive_steps else 0.0), 1.0e-6)
+    result = {}
+    for name in names:
+        values = columns.get(name, [])
+        valid = [
+            index for index, value in enumerate(values[:len(times)])
+            if math.isfinite(value)
+        ]
+        last_valid = times[valid[-1]] if valid else None
+        result[name] = {
+            "valid_sample_count": len(valid),
+            "last_valid_time_s": last_valid,
+            "trailing_dropout": bool(
+                valid and last_valid < times[-1] - tolerance
+            ),
+        }
+    return result
+
+
 def longest_above(times, values, threshold):
     best = 0.0
     start = None
@@ -680,6 +707,7 @@ def assess(case_dir: Path):
             equipment[group] = {"level": "unknown", "reason": "missing_probe_data"}
             continue
         values, active = envelope(columns, names, len(times))
+        validity = probe_validity(times, columns, names)
         finite = [value for value in values if math.isfinite(value)]
         peak = max(finite) if finite else float("nan")
         level = "none"
@@ -700,6 +728,14 @@ def assess(case_dir: Path):
                                 (float(item.get("base_flux", 0) or 0) for item in positive_flux), default=0.0
                             ),
                             "excluded_invalid_probes": excluded,
+                            "probe_validity": validity,
+                            "probe_trailing_dropout_count": sum(
+                                item["trailing_dropout"] for item in validity.values()
+                            ),
+                            "missing_temperature_policy": (
+                                "missing values are excluded, never filled with zero; "
+                                "finite history and pre-dropout peak are retained"
+                            ),
                             "evidence": evidence}
     details = {name: system_evidence(spec, equipment) for name, spec in TREE["systems"].items()}
     systems = {name: detail["level"] for name, detail in details.items()}
@@ -714,6 +750,12 @@ def assess(case_dir: Path):
               "excluded_invalid_probe_ids": sorted(excluded_for_case),
               "maximum_temperature_definition": "maximum dynamic envelope of geometrically valid WT probes",
               "boundary_field_available": True,
+              "burnaway_assessment_policy": {
+                  "enabled": bool(summary.get("burn_away", False)),
+                  "surface_probe_dropout_is_supporting_evidence_only": True,
+                  "strict_temperature_duration_criteria_unchanged": True,
+                  "gas_temperature_does_not_replace_wall_temperature": True,
+              },
               "systems": systems, "system_evidence": details, "aircraft_level": aircraft,
               "evaluation_status": evaluation_status(case_dir, sim_t_s),
               "configuration": case_configuration(case_dir, summary),
