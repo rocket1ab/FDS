@@ -208,3 +208,16 @@ These cases are built by
 比 az=90 deg、el=75 deg 更有利于检验附近真实可燃物点燃后对 H1、H2 的二次加热。
 入射面归一化后的最大局部积分光冲量为 194.22 J/cm2。本案例是角度单因素对照，
 不得与改变材料或毁伤阈值的方案混为同一阈值序列。
+## 2026-07-23 22:20 BURN_AWAY案例失稳与恢复
+
+- Q400材料表近似HRRPUA的 `BURN_AWAY v1` 在8.01 s出现
+  `ERROR: Numerical Instability`。该案例保留为失败记录，不用于毁伤结论。
+- v1为满足FDS的 `BULK_DENSITY` 要求，将1748个零厚度可燃体素面扩展为
+  0.01 m实体，改变了局部几何并可能造成重叠或网格映射冲突。
+- 新建
+  `Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRtable_thickness_audit_BAtrue_v2_volumetric`。
+  v2不扩张几何，为可燃SURF生成BA副本，仅对284个原本具有非零体积的可燃OBST
+  启用 `BURN_AWAY=.TRUE.` 并继承MATL体积密度；1748个零体积面保留非BA SURF。
+- v2的0.01 s预检查正常完成，随后在node05以32 MPI进程启动正式计算。启动后
+  2.58 s未发现 `ERROR` 或 `Numerical Instability`。
+- 严格PDF温度持续时间判据未改变；烧蚀和探针末端失效仍只作为辅助证据。
