@@ -1,0 +1,16 @@
+{
+  "cases": [
+    "Q0050_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRnominal_thickness_audit_v1",
+    "Q0100_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRnominal_thickness_audit_v1",
+    "Q0200_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRnominal_thickness_audit_v1",
+    "Q0300_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRnominal_thickness_audit_v1",
+    "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRnominal_thickness_audit_v1"
+  ],
+  "Q_J_cm2": [
+    50,
+    100,
+    200,
+    300,
+    400
+  ]
+}
