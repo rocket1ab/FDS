@@ -35,6 +35,7 @@ def main() -> None:
         for node in NODES:
             inner = (
                 "echo HOST=$(hostname); "
+                "echo CPU=$(nproc --all) LOAD=$(cut -d' ' -f1-3 /proc/loadavg) MEM=$(free -m | awk '/^Mem:/{print $3\"/\"$2\"MB\"}'); "
                 "echo FDS_COUNT=$(ps -u zsh -o args= | grep -E '(^|/)(fds|fds_)[[:space:]]' | grep -v grep | wc -l); "
                 "ps -u zsh -o pid=,etimes=,args= | grep -E '(^|/)(fds|fds_)[[:space:]]' | grep -v grep | head -40"
             )
@@ -52,8 +53,18 @@ def main() -> None:
             "grep -E 'Time Step|Numerical Instability|ERROR|STOP: FDS completed successfully' | tail -3; done"
         )
         commands.append(
-            f"echo '=== QUEUE JSON ==='; for f in {shlex.quote(BASE)}/queue/node0{{1,3,4,5}}_status.json; "
+            f"echo '=== QUEUE JSON ==='; for f in {shlex.quote(BASE)}/queue/node0{{1,3,4,5}}_status.json "
+            f"{shlex.quote(BASE)}/queue/node03_verification_status.json; "
             "do echo ---$f; cat \"$f\" 2>/dev/null; echo; done"
+        )
+        commands.append(
+            f"echo '=== VERIFICATION SLOT ==='; cd {shlex.quote(BASE)}; "
+            "ls -l queue/node03_verification.lock queue/verification_node03.log 2>/dev/null; "
+            "test -f queue/node03_verification.lock && "
+            "p=$(cat queue/node03_verification.lock) && echo SLOT_PID=$p && ps -fp \"$p\"; "
+            "echo '--- verification log'; tail -100 queue/verification_node03.log 2>/dev/null"
+            "; echo '--- verification preflight'; "
+            "tail -120 queue/preflight_node03/preflight.log 2>/dev/null"
         )
         for relative in ACTIVE_CASES:
             case_dir = f"{BASE}/{relative}"

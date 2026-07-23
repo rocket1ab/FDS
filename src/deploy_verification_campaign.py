@@ -49,22 +49,28 @@ def main() -> None:
     try:
         sftp = client.open_sftp()
         upload_tree(sftp, ROOT / "cases_verification", REMOTE + "/cases_verification")
-        for name in ("queue_runner.py", "assess_results.py", "update_independence_report.py"):
+        for name in ("queue_runner.py", "assess_results.py", "update_independence_report.py",
+                     "verification_parallel_runner.py"):
             sftp.put(str(ROOT / "src" / name), REMOTE + "/src/" + name)
         sftp.put(str(ROOT / "reports" / "grid_and_yield_independence_verification.md"),
                  REMOTE + "/reports/grid_and_yield_independence_verification.md")
         sftp.close()
-        quoted_cases = " ".join(shlex.quote(case) for case in cases)
         inner = (
             f"cd {shlex.quote(REMOTE)} && "
             "if [ -e queue/node02.lock ]; then p=$(cat queue/node02.lock 2>/dev/null); "
             "case \"$(ps -p \"$p\" -o args= 2>/dev/null)\" in *'queue_runner.py --node node02'*) kill \"$p\" 2>/dev/null || true;; esac; "
             "rm -f queue/node02.lock; fi; "
-            "if [ -e queue/verification_node03_waiter.pid ] && kill -0 $(cat queue/verification_node03_waiter.pid) 2>/dev/null; "
-            "then echo WAITER_EXISTS; else "
-            f"nohup bash -c 'while [ -e queue/node03.lock ]; do sleep 60; done; exec /usr/bin/python3.11 src/queue_runner.py --node node03 {quoted_cases}' "
-            "> queue/verification_node03.log 2>&1 < /dev/null & echo $! > queue/verification_node03_waiter.pid; "
-            "echo WAITER_STARTED:$(cat queue/verification_node03_waiter.pid); fi"
+            "if [ -e queue/verification_node03_waiter.pid ]; then p=$(cat queue/verification_node03_waiter.pid); "
+            "case \"$(ps -p \"$p\" -o args= 2>/dev/null)\" in *'Q0050_W0100_grid_coarse'*) kill \"$p\" 2>/dev/null || true;; esac; "
+            "rm -f queue/verification_node03_waiter.pid; fi; "
+            "if [ -e queue/node03_verification.lock ] && "
+            "grep -q '\"state\": \"waiting_for_idle\"' queue/node03_verification_status.json 2>/dev/null; then "
+            "p=$(cat queue/node03_verification.lock); "
+            "case \"$(ps -p \"$p\" -o args= 2>/dev/null)\" in *verification_parallel_runner.py*) "
+            "kill \"$p\" 2>/dev/null || true; sleep 1; rm -f queue/node03_verification.lock;; esac; fi; "
+            "if [ -e queue/node03_verification.lock ]; then echo VERIFICATION_SLOT_EXISTS; "
+            "else nohup /usr/bin/python3.11 src/verification_parallel_runner.py "
+            "> queue/verification_node03.log 2>&1 < /dev/null & echo VERIFICATION_STARTED:$!; fi"
         )
         _, stdout, stderr = client.exec_command(inner, timeout=30)
         print(stdout.read().decode("utf-8", errors="replace"))
