@@ -2,6 +2,7 @@
 """Deploy the STL-filled U06 case in a dedicated node04 capacity slot."""
 from __future__ import annotations
 
+import argparse
 import json
 import posixpath
 import shlex
@@ -29,6 +30,14 @@ def mkdirs(sftp: paramiko.SFTPClient, path: str) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--case", default=CASE)
+    parser.add_argument("--node", default=NODE)
+    parser.add_argument("--slot", default=SLOT)
+    args = parser.parse_args()
+    case_name = args.case
+    node = args.node
+    slot = args.slot
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -39,10 +48,10 @@ def main() -> None:
     )
     try:
         sftp = client.open_sftp()
-        local_case = ROOT / "cases_adaptive" / CASE
-        remote_case = posixpath.join(REMOTE, "cases_adaptive", CASE)
+        local_case = ROOT / "cases_adaptive" / case_name
+        remote_case = posixpath.join(REMOTE, "cases_adaptive", case_name)
         mkdirs(sftp, remote_case)
-        for filename in (f"{CASE}.fds", "case_summary.json", "monitor_registry.json", "flux_faces.csv"):
+        for filename in (f"{case_name}.fds", "case_summary.json", "monitor_registry.json", "flux_faces.csv"):
             sftp.put(str(local_case / filename), posixpath.join(remote_case, filename))
         for filename in ("parallel_capacity_runner.py", "queue_runner.py", "assess_results.py"):
             sftp.put(str(ROOT / "src" / filename), posixpath.join(REMOTE, "src", filename))
@@ -50,10 +59,10 @@ def main() -> None:
 
         command = (
             f"cd {shlex.quote(REMOTE)} && mkdir -p queue && "
-            f"if [ -e queue/{SLOT}.lock ]; then echo SLOT_EXISTS; "
+            f"if [ -e queue/{slot}.lock ]; then echo SLOT_EXISTS; "
             f"else nohup /usr/bin/python3.11 src/parallel_capacity_runner.py "
-            f"--node {NODE} --slot {SLOT} {shlex.quote(CASE)} "
-            f"> queue/{SLOT}.log 2>&1 < /dev/null & echo SLOT_STARTED:$!; fi"
+            f"--node {node} --slot {slot} {shlex.quote(case_name)} "
+            f"> queue/{slot}.log 2>&1 < /dev/null & echo SLOT_STARTED:$!; fi"
         )
         _, stdout, stderr = client.exec_command(command, timeout=30)
         print(stdout.read().decode("utf-8", errors="replace").strip())

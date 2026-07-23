@@ -2,6 +2,7 @@
 """Build a Q400 BURN_AWAY case without expanding zero-volume voxel faces."""
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import shutil
@@ -14,16 +15,22 @@ TARGET = "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRtable_thickness_audit_BA
 
 
 def main() -> None:
-    source = ROOT / "cases_adaptive" / SOURCE
-    target = ROOT / "cases_adaptive" / TARGET
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source", default=SOURCE)
+    parser.add_argument("--target", default=TARGET)
+    args = parser.parse_args()
+    source_name = args.source
+    target_name = args.target
+    source = ROOT / "cases_adaptive" / source_name
+    target = ROOT / "cases_adaptive" / target_name
     target.mkdir(parents=True, exist_ok=True)
     for name in ("monitor_registry.json", "flux_faces.csv"):
         shutil.copy2(source / name, target / name)
 
-    text = (source / f"{SOURCE}.fds").read_text(encoding="utf-8", errors="replace")
+    text = (source / f"{source_name}.fds").read_text(encoding="utf-8", errors="replace")
     text = re.sub(
         r"(&HEAD\b[^/]*CHID\s*=\s*')[^']+(')",
-        rf"\g<1>{TARGET}\g<2>",
+        rf"\g<1>{target_name}\g<2>",
         text,
         count=1,
         flags=re.I,
@@ -109,14 +116,14 @@ def main() -> None:
         "! Zero-volume voxel faces retain the non-BA control SURFs; geometry is unchanged.\n"
     )
     clean_text = "\n".join(line.rstrip() for line in (note + text).splitlines()) + "\n"
-    (target / f"{TARGET}.fds").write_text(clean_text, encoding="utf-8")
+    (target / f"{target_name}.fds").write_text(clean_text, encoding="utf-8")
 
     summary = json.loads((source / "case_summary.json").read_text(encoding="utf-8"))
     summary.update(
-        case=TARGET,
+        case=target_name,
         mpi=32,
         purpose="Q400_material_table_HRRPUA_BURN_AWAY_finite_volume_sensitivity",
-        source_case=SOURCE,
+        source_case=source_name,
         changed_factor="BURN_AWAY_true_on_finite_volume_combustible_OBST_only",
         burn_away=True,
         burn_away_changed=True,
