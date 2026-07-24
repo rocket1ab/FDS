@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1480" height="962" viewBox="0 0 1480 962">
 <style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;letter-spacing:0}.title{font-size:20px;font-weight:700}.label{font-size:15px;font-weight:600}.small{font-size:12px}.line{stroke:#6c757d;stroke-width:2;fill:none}</style>
 <rect width="100%" height="100%" fill="#ffffff"/>
-<rect x="560.0" y="24.0" width="360.0" height="64.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect x="560.0" y="24.0" width="360.0" height="64.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
 <text x="740.0" y="49.0" text-anchor="middle" class="label" fill="#212529">飞机目标</text>
-<text x="740.0" y="77.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | PDF 毁伤树等级</text>
+<text x="740.0" y="77.0" text-anchor="middle" class="small" fill="#a51111">重度 | PDF 毁伤树等级</text>
 <path class="line" d="M 740.0 88.0 V 104.0"/>
 <path class="line" d="M 199.2 104.0 H 1280.8"/>
 <path class="line" d="M 199.2 104.0 V 132.0"/>
@@ -54,25 +54,25 @@
 <text x="920.2" y="371.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
 <path class="line" d="M 920.2 314.0 V 326.0"/>
 <path class="line" d="M 1280.8 104.0 V 132.0"/>
-<rect x="1109.5" y="132.0" width="342.5" height="64.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect x="1109.5" y="132.0" width="342.5" height="64.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
 <text x="1280.8" y="157.0" text-anchor="middle" class="label" fill="#212529">座舱系统</text>
-<text x="1280.8" y="185.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | cockpit</text>
+<text x="1280.8" y="185.0" text-anchor="middle" class="small" fill="#a51111">重度 | cockpit</text>
 <path class="line" d="M 1280.8 196.0 V 242.0"/>
 <rect x="1119.5" y="258.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
 <text x="1280.8" y="281.0" text-anchor="middle" class="label" fill="#212529">WINS  有机玻璃舷窗</text>
 <text x="1280.8" y="303.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
 <path class="line" d="M 1280.8 242.0 V 258.0"/>
-<rect x="1119.5" y="326.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect x="1119.5" y="326.0" width="322.5" height="56.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
 <text x="1280.8" y="349.0" text-anchor="middle" class="label" fill="#212529">BED  尼龙床垫</text>
-<text x="1280.8" y="371.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<text x="1280.8" y="371.0" text-anchor="middle" class="small" fill="#a51111">重度 | 主要节点</text>
 <path class="line" d="M 1280.8 314.0 V 326.0"/>
-<rect x="1119.5" y="394.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect x="1119.5" y="394.0" width="322.5" height="56.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
 <text x="1280.8" y="417.0" text-anchor="middle" class="label" fill="#212529">CURT  尼龙窗帘</text>
-<text x="1280.8" y="439.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<text x="1280.8" y="439.0" text-anchor="middle" class="small" fill="#a51111">重度 | 主要节点</text>
 <path class="line" d="M 1280.8 382.0 V 394.0"/>
-<rect x="1119.5" y="462.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect x="1119.5" y="462.0" width="322.5" height="56.0" rx="4" fill="#ffc9c9" stroke="#a51111" stroke-width="2"/>
 <text x="1280.8" y="485.0" text-anchor="middle" class="label" fill="#212529">SEAT  聚氨酯座椅</text>
-<text x="1280.8" y="507.0" text-anchor="middle" class="small" fill="#343a40">未毁伤 | 主要节点</text>
+<text x="1280.8" y="507.0" text-anchor="middle" class="small" fill="#a51111">重度 | 主要节点</text>
 <path class="line" d="M 1280.8 450.0 V 462.0"/>
 <rect x="1119.5" y="530.0" width="322.5" height="56.0" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
 <text x="1280.8" y="553.0" text-anchor="middle" class="label" fill="#212529">U4  U4 仪器设备</text>
@@ -104,5 +104,5 @@
 <text x="442" y="934" class="small">中度</text>
 <rect x="540" y="920" width="22" height="18" fill="#ffc9c9" stroke="#a51111"/>
 <text x="570" y="934" class="small">重度</text>
-<text x="1452" y="934" text-anchor="end" class="small">严格全重度毁伤：0/17</text>
+<text x="1452" y="934" text-anchor="end" class="small">严格全重度毁伤：3/17</text>
 </svg>
