@@ -1,66 +1,66 @@
 {
-  "case": "Q0400_W0100_az060_el75_H1H7_v5_Qnorm_adapt_HRRtable_seatSTLfill_thin4mm_v1",
-  "Q_J_cm2": 400.0,
-  "sim_t_s": 1437.0004,
+  "case": "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRmid_thickness_audit_BAtrue_v1",
+  "Q_J_cm2": 400,
+  "sim_t_s": 3.0007534,
   "equipment": {
     "RADM": {
       "label": "Nose/radome",
-      "level": "mild",
-      "peak_C": 1529.7517,
+      "level": "none",
+      "peak_C": 1526.5371,
       "probe_count": 10,
-      "dynamic_probe_switches": 129,
-      "positive_external_flux_probe_count": 9,
+      "dynamic_probe_switches": 2,
+      "positive_external_flux_probe_count": 10,
       "max_registered_external_flux_kw_m2": 1250.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_RADM_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_RADM_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -70,78 +70,78 @@
         "mild": {
           "temperature_C": 150,
           "required_s": 1200,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 600,
-          "continuous_s": 179.9886994
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 180,
-          "continuous_s": 8.9874404
+          "continuous_s": 1.4996075999999998
         }
       }
     },
     "WINS": {
       "label": "PMMA windows",
-      "level": "severe",
-      "peak_C": 1752.7573,
+      "level": "none",
+      "peak_C": 1714.5882,
       "probe_count": 10,
-      "dynamic_probe_switches": 297,
+      "dynamic_probe_switches": 1,
       "positive_external_flux_probe_count": 10,
-      "max_registered_external_flux_kw_m2": 1250.0,
+      "max_registered_external_flux_kw_m2": 1150.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_WINS_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_WINS_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -151,38 +151,68 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 60,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 200,
           "required_s": 45,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 250,
           "required_s": 8,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         }
       }
     },
     "BED": {
       "label": "Nylon mattress",
       "level": "none",
-      "peak_C": 148.77879,
-      "probe_count": 2,
+      "peak_C": 674.87936,
+      "probe_count": 8,
       "dynamic_probe_switches": 1,
-      "positive_external_flux_probe_count": 0,
-      "max_registered_external_flux_kw_m2": 0.0,
+      "positive_external_flux_probe_count": 8,
+      "max_registered_external_flux_kw_m2": 300.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_BED_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_BED_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
+          "trailing_dropout": false
+        },
+        "P_BED_03_WT": {
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
+          "trailing_dropout": false
+        },
+        "P_BED_04_WT": {
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
+          "trailing_dropout": false
+        },
+        "P_BED_05_WT": {
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
+          "trailing_dropout": false
+        },
+        "P_BED_07_WT": {
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
+          "trailing_dropout": false
+        },
+        "P_BED_08_WT": {
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
+          "trailing_dropout": false
+        },
+        "P_BED_09_WT": {
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -192,78 +222,78 @@
         "mild": {
           "temperature_C": 200,
           "required_s": 60,
-          "continuous_s": 0.0
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 90,
-          "continuous_s": 0.0
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 500,
           "required_s": 5,
-          "continuous_s": 0.0
+          "continuous_s": 1.4996075999999998
         }
       }
     },
     "CURT": {
       "label": "Nylon curtain",
-      "level": "severe",
-      "peak_C": 1554.5077,
+      "level": "none",
+      "peak_C": 1537.7922,
       "probe_count": 10,
-      "dynamic_probe_switches": 5,
-      "positive_external_flux_probe_count": 8,
-      "max_registered_external_flux_kw_m2": 1250.0,
+      "dynamic_probe_switches": 1,
+      "positive_external_flux_probe_count": 10,
+      "max_registered_external_flux_kw_m2": 1050.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_CURT_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_CURT_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -273,78 +303,58 @@
         "mild": {
           "temperature_C": 200,
           "required_s": 60,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 90,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 500,
           "required_s": 5,
-          "continuous_s": 28.499599999999873
+          "continuous_s": 1.4996075999999998
         }
       }
     },
     "U4": {
       "label": "U4 instrument equipment",
-      "level": "moderate",
-      "peak_C": 312.402,
-      "probe_count": 10,
-      "dynamic_probe_switches": 3,
+      "level": "none",
+      "peak_C": 20.669995,
+      "probe_count": 6,
+      "dynamic_probe_switches": 2,
       "positive_external_flux_probe_count": 0,
       "max_registered_external_flux_kw_m2": 0.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_U4_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_U4_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_U4_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_U4_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_U4_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_U4_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_U4_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_U4_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_U4_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_U4_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -354,12 +364,12 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 1081.49823
+          "continuous_s": 0.0
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 595.49813
+          "continuous_s": 0.0
         },
         "severe": {
           "temperature_C": 400,
@@ -370,62 +380,62 @@
     },
     "SEAT": {
       "label": "Polyurethane seats",
-      "level": "severe",
-      "peak_C": 1604.271,
+      "level": "none",
+      "peak_C": 2120.9515,
       "probe_count": 10,
-      "dynamic_probe_switches": 14,
-      "positive_external_flux_probe_count": 1,
-      "max_registered_external_flux_kw_m2": 550.0,
+      "dynamic_probe_switches": 1,
+      "positive_external_flux_probe_count": 4,
+      "max_registered_external_flux_kw_m2": 1050.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_SEAT_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_SEAT_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -435,78 +445,78 @@
         "mild": {
           "temperature_C": 200,
           "required_s": 60,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 300,
           "required_s": 90,
-          "continuous_s": 1213.4988899999998
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 500,
           "required_s": 5,
-          "continuous_s": 25.490202399999998
+          "continuous_s": 1.4996075999999998
         }
       }
     },
     "AL2024": {
       "label": "Aluminium 2024 skin",
-      "level": "severe",
-      "peak_C": 486.33025,
+      "level": "none",
+      "peak_C": 649.5073,
       "probe_count": 10,
-      "dynamic_probe_switches": 3,
-      "positive_external_flux_probe_count": 6,
+      "dynamic_probe_switches": 1,
+      "positive_external_flux_probe_count": 5,
       "max_registered_external_flux_kw_m2": 1250.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_AL2024_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL2024_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -516,78 +526,78 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 1200,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 600,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 180,
-          "continuous_s": 1028.9976499999998
+          "continuous_s": 1.4996075999999998
         }
       }
     },
     "AL5052": {
       "label": "Aluminium 5052 duct",
-      "level": "severe",
-      "peak_C": 832.93462,
+      "level": "none",
+      "peak_C": 20.038788,
       "probe_count": 10,
-      "dynamic_probe_switches": 0,
-      "positive_external_flux_probe_count": 3,
-      "max_registered_external_flux_kw_m2": 1250.0,
+      "dynamic_probe_switches": 2,
+      "positive_external_flux_probe_count": 0,
+      "max_registered_external_flux_kw_m2": 0.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_AL5052_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL5052_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -597,78 +607,78 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 1200,
-          "continuous_s": 1435.4858794
+          "continuous_s": 0.0
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 600,
-          "continuous_s": 1321.49858
+          "continuous_s": 0.0
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 180,
-          "continuous_s": 1240.4997099999998
+          "continuous_s": 0.0
         }
       }
     },
     "AL7075": {
       "label": "Aluminium 7075 frame",
-      "level": "severe",
-      "peak_C": 546.99247,
+      "level": "none",
+      "peak_C": 398.01976,
       "probe_count": 10,
       "dynamic_probe_switches": 1,
       "positive_external_flux_probe_count": 3,
-      "max_registered_external_flux_kw_m2": 1050.0,
+      "max_registered_external_flux_kw_m2": 1250.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_AL7075_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_AL7075_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -678,71 +688,71 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 1200,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 200,
           "required_s": 600,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 180,
-          "continuous_s": 1138.49813
+          "continuous_s": 0.0
         }
       }
     },
     "O2TANK": {
       "label": "Oxygen tank",
-      "level": "mild",
-      "peak_C": 277.41392,
+      "level": "none",
+      "peak_C": 187.01466,
       "probe_count": 8,
-      "dynamic_probe_switches": 1,
-      "positive_external_flux_probe_count": 3,
-      "max_registered_external_flux_kw_m2": 1050.0,
+      "dynamic_probe_switches": 0,
+      "positive_external_flux_probe_count": 6,
+      "max_registered_external_flux_kw_m2": 900.0,
       "excluded_invalid_probes": [
         "P_O2TANK_02_WT",
         "P_O2TANK_05_WT"
       ],
       "probe_validity": {
         "P_O2TANK_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_O2TANK_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_O2TANK_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_O2TANK_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_O2TANK_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_O2TANK_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_O2TANK_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_O2TANK_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -752,12 +762,12 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 1200,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 200,
           "required_s": 600,
-          "continuous_s": 396.00019999999995
+          "continuous_s": 0.0
         },
         "severe": {
           "temperature_C": 400,
@@ -768,10 +778,10 @@
     },
     "H1": {
       "label": "Navigation subsystem",
-      "level": "severe",
-      "peak_C": 488.03654,
+      "level": "none",
+      "peak_C": 435.27493,
       "probe_count": 6,
-      "dynamic_probe_switches": 2,
+      "dynamic_probe_switches": 0,
       "positive_external_flux_probe_count": 5,
       "max_registered_external_flux_kw_m2": 1250.0,
       "excluded_invalid_probes": [
@@ -779,33 +789,33 @@
       ],
       "probe_validity": {
         "P_H1_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H1_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H1_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H1_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H1_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H1_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -815,27 +825,27 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 301.4986999999999
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 5,
-          "continuous_s": 46.501584199999996
+          "continuous_s": 0.0
         }
       }
     },
     "H2": {
       "label": "Mission subsystem",
-      "level": "severe",
-      "peak_C": 491.59307,
+      "level": "none",
+      "peak_C": 440.68923,
       "probe_count": 8,
-      "dynamic_probe_switches": 4,
-      "positive_external_flux_probe_count": 6,
+      "dynamic_probe_switches": 1,
+      "positive_external_flux_probe_count": 8,
       "max_registered_external_flux_kw_m2": 1250.0,
       "excluded_invalid_probes": [
         "P_H2_08_WT",
@@ -843,43 +853,43 @@
       ],
       "probe_validity": {
         "P_H2_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H2_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H2_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H2_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H2_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H2_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H2_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H2_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -889,98 +899,98 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 1435.4858794
+          "continuous_s": 1.4996075999999998
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 148.4883094
+          "continuous_s": 1.4996075999999998
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 5,
-          "continuous_s": 39.001942199999995
+          "continuous_s": 0.0
         }
       }
     },
     "H3": {
       "label": "Display subsystem",
-      "level": "severe",
-      "peak_C": 582.4516,
+      "level": "none",
+      "peak_C": 23.236598,
       "probe_count": 14,
-      "dynamic_probe_switches": 2,
-      "positive_external_flux_probe_count": 6,
-      "max_registered_external_flux_kw_m2": 1050.0,
+      "dynamic_probe_switches": 1,
+      "positive_external_flux_probe_count": 0,
+      "max_registered_external_flux_kw_m2": 0.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_H3_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_10_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_11_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_12_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H3_13_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -990,78 +1000,78 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 1435.4858794
+          "continuous_s": 0.0
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 1247.9973599999998
+          "continuous_s": 0.0
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 5,
-          "continuous_s": 1164.0000699999998
+          "continuous_s": 0.0
         }
       }
     },
     "H4": {
       "label": "Communication subsystem",
-      "level": "mild",
-      "peak_C": 382.33872,
+      "level": "none",
+      "peak_C": 98.42799,
       "probe_count": 10,
-      "dynamic_probe_switches": 2,
-      "positive_external_flux_probe_count": 8,
-      "max_registered_external_flux_kw_m2": 900.0,
+      "dynamic_probe_switches": 0,
+      "positive_external_flux_probe_count": 4,
+      "max_registered_external_flux_kw_m2": 200.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_H4_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H4_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -1071,12 +1081,12 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 1435.4858794
+          "continuous_s": 0.0
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 81.0009862
+          "continuous_s": 0.0
         },
         "severe": {
           "temperature_C": 400,
@@ -1087,42 +1097,42 @@
     },
     "H5": {
       "label": "Battery",
-      "level": "mild",
-      "peak_C": 171.69657,
+      "level": "none",
+      "peak_C": 20.005855,
       "probe_count": 6,
-      "dynamic_probe_switches": 7,
-      "positive_external_flux_probe_count": 0,
-      "max_registered_external_flux_kw_m2": 0.0,
+      "dynamic_probe_switches": 1,
+      "positive_external_flux_probe_count": 3,
+      "max_registered_external_flux_kw_m2": 450.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_H5_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H5_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H5_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H5_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H5_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H5_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -1132,12 +1142,12 @@
         "mild": {
           "temperature_C": 100,
           "required_s": 60,
-          "continuous_s": 872.9983399999999
+          "continuous_s": 0.0
         },
         "moderate": {
           "temperature_C": 150,
           "required_s": 600,
-          "continuous_s": 484.5002299999999
+          "continuous_s": 0.0
         },
         "severe": {
           "temperature_C": 200,
@@ -1149,61 +1159,51 @@
     "H6": {
       "label": "Power transmission subsystem",
       "level": "none",
-      "peak_C": 545.77314,
-      "probe_count": 10,
-      "dynamic_probe_switches": 7,
+      "peak_C": 20.192932,
+      "probe_count": 8,
+      "dynamic_probe_switches": 1,
       "positive_external_flux_probe_count": 0,
       "max_registered_external_flux_kw_m2": 0.0,
       "excluded_invalid_probes": [],
       "probe_validity": {
         "P_H6_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H6_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H6_02_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H6_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H6_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H6_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H6_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H6_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_H6_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_H6_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -1213,75 +1213,45 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 1200,
-          "continuous_s": 1031.9982599999998
+          "continuous_s": 0.0
         },
         "moderate": {
           "temperature_C": 200,
           "required_s": 600,
-          "continuous_s": 403.4985999999999
+          "continuous_s": 0.0
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 180,
-          "continuous_s": 15.002793999999994
+          "continuous_s": 0.0
         }
       }
     },
     "H7": {
       "label": "Flight-control subsystem",
-      "level": "severe",
-      "peak_C": 1623.9711,
-      "probe_count": 9,
+      "level": "none",
+      "peak_C": 77.602386,
+      "probe_count": 3,
       "dynamic_probe_switches": 1,
-      "positive_external_flux_probe_count": 7,
-      "max_registered_external_flux_kw_m2": 1050.0,
+      "positive_external_flux_probe_count": 0,
+      "max_registered_external_flux_kw_m2": 0.0,
       "excluded_invalid_probes": [
         "P_H7_02_WT"
       ],
       "probe_validity": {
         "P_H7_00_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H7_01_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         },
         "P_H7_03_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_H7_04_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_H7_05_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_H7_06_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_H7_07_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_H7_08_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
-          "trailing_dropout": false
-        },
-        "P_H7_09_WT": {
-          "valid_sample_count": 959,
-          "last_valid_time_s": 1437.0004,
+          "valid_sample_count": 3,
+          "last_valid_time_s": 3.0007534,
           "trailing_dropout": false
         }
       },
@@ -1291,24 +1261,24 @@
         "mild": {
           "temperature_C": 120,
           "required_s": 300,
-          "continuous_s": 1435.4858794
+          "continuous_s": 0.0
         },
         "moderate": {
           "temperature_C": 250,
           "required_s": 180,
-          "continuous_s": 68.9865874
+          "continuous_s": 0.0
         },
         "severe": {
           "temperature_C": 400,
           "required_s": 5,
-          "continuous_s": 26.9915144
+          "continuous_s": 0.0
         }
       }
     }
   },
-  "severe_count": 10,
+  "severe_count": 0,
   "total_count": 17,
-  "severe_ratio": 0.5882352941176471,
+  "severe_ratio": 0.0,
   "all_severe": false,
   "excluded_invalid_probe_ids": [
     "P_H1_09_WT",
@@ -1321,125 +1291,121 @@
   "maximum_temperature_definition": "maximum dynamic envelope of geometrically valid WT probes",
   "boundary_field_available": true,
   "burnaway_assessment_policy": {
-    "enabled": false,
+    "enabled": true,
     "surface_probe_dropout_is_supporting_evidence_only": true,
     "strict_temperature_duration_criteria_unchanged": true,
     "gas_temperature_does_not_replace_wall_temperature": true
   },
   "systems": {
-    "airframe": "severe",
-    "avionics": "severe",
-    "power": "mild",
-    "cockpit": "severe"
+    "airframe": "none",
+    "avionics": "none",
+    "power": "none",
+    "cockpit": "none"
   },
   "system_evidence": {
     "airframe": {
-      "level": "severe",
+      "level": "none",
       "major": {
-        "RADM": "mild",
-        "AL2024": "severe",
-        "AL7075": "severe"
+        "RADM": "none",
+        "AL2024": "none",
+        "AL7075": "none"
       },
       "secondary": {},
-      "triggers": [
-        "AL2024",
-        "AL7075"
-      ],
-      "rule": "at least one major item is severe"
+      "triggers": [],
+      "rule": "all mapped items are known and none is damaged"
     },
     "avionics": {
-      "level": "severe",
+      "level": "none",
       "major": {
-        "H1": "severe",
-        "H2": "severe"
+        "H1": "none",
+        "H2": "none"
       },
       "secondary": {
-        "H4": "mild"
+        "H4": "none"
       },
-      "triggers": [
-        "H1",
-        "H2"
-      ],
-      "rule": "at least one major item is severe"
+      "triggers": [],
+      "rule": "all mapped items are known and none is damaged"
     },
     "power": {
-      "level": "mild",
+      "level": "none",
       "major": {
-        "H5": "mild",
+        "H5": "none",
         "H6": "none"
       },
       "secondary": {},
-      "triggers": [
-        "H5"
-      ],
-      "rule": "at least one known item is mild and no higher rule is met"
+      "triggers": [],
+      "rule": "all mapped items are known and none is damaged"
     },
     "cockpit": {
-      "level": "severe",
+      "level": "none",
       "major": {
-        "WINS": "severe",
+        "WINS": "none",
         "BED": "none",
-        "CURT": "severe",
-        "SEAT": "severe",
-        "U4": "moderate",
-        "H3": "severe",
-        "H7": "severe"
+        "CURT": "none",
+        "SEAT": "none",
+        "U4": "none",
+        "H3": "none",
+        "H7": "none"
       },
       "secondary": {
-        "AL5052": "severe",
-        "O2TANK": "mild"
+        "AL5052": "none",
+        "O2TANK": "none"
       },
-      "triggers": [
-        "WINS",
-        "CURT",
-        "SEAT",
-        "H3",
-        "H7"
-      ],
-      "rule": "at least one major item is severe"
+      "triggers": [],
+      "rule": "all mapped items are known and none is damaged"
     }
   },
-  "aircraft_level": "severe",
+  "aircraft_level": "none",
   "evaluation_status": "running_snapshot",
   "configuration": {
-    "purpose": "Q400_angle60_75_table_HRRPUA_STL_filled_seats_audited_4mm_shells",
-    "source_case": null,
-    "changed_factor": "none recorded",
-    "Q_J_cm2": 400.0,
+    "purpose": "mid_high_HRRPUA_shell_seat_BURN_AWAY_sensitivity",
+    "source_case": "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRtable_thickness_audit_BAtrue_v2_volumetric",
+    "changed_factor": "HRRPUA only",
+    "Q_J_cm2": 400,
     "yield_kt": 100,
-    "azimuth_deg": 60.0,
-    "elevation_deg": 75.0,
+    "azimuth_deg": 270,
+    "elevation_deg": 15,
     "target_t_end_s": 1500,
     "mpi_processes": 32,
-    "burn_away": false,
-    "radiative_fraction": 0.35,
+    "burn_away": true,
+    "radiative_fraction": 0.4,
     "cfl_max": null,
     "time_step_dt_s": null,
-    "nuclear_ramp_integral_s": 0.6603982070000001,
-    "plane_peak_irradiance_kw_m2": 6056.951635545552,
-    "max_local_external_flux_kw_m2": 5883.0,
-    "max_local_fluence_J_cm2": 388.51226517810005,
-    "hrrpua_group_values_kw_m2": null,
+    "nuclear_ramp_integral_s": null,
+    "plane_peak_irradiance_kw_m2": null,
+    "max_local_external_flux_kw_m2": null,
+    "max_local_fluence_J_cm2": null,
+    "hrrpua_group_values_kw_m2": {
+      "RADM": 400.0,
+      "WINS": 500.0,
+      "BED": 600.0,
+      "CURT": 400.0,
+      "U4": 600.0,
+      "SEAT": 650.0,
+      "H6": 230.0,
+      "H7": 320.0
+    },
     "all_hrrpua_values_in_fds_kw_m2": [
-      75.0,
-      180.0,
-      200.0,
+      230.0,
       250.0,
-      350.0,
+      320.0,
       400.0,
-      450.0
+      450.0,
+      500.0,
+      600.0,
+      650.0
     ],
     "audited_group_thickness_m": null,
     "all_layer_thicknesses_in_fds_m": [
+      0.00089,
       0.001,
       0.0015,
       0.002,
       0.003,
-      0.004,
       0.005,
-      0.03,
-      0.075,
-      0.12,
+      0.006,
+      0.025,
+      0.1,
       0.15
     ],
     "geometry_changed": false,
@@ -1448,12 +1414,12 @@
     "external_flux_changed": false,
     "ignition_temperature_changed": false,
     "damage_thresholds_changed": false,
-    "fds_input": "Q0400_W0100_az060_el75_H1H7_v5_Qnorm_adapt_HRRtable_seatSTLfill_thin4mm_v1.fds"
+    "fds_input": "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRmid_thickness_audit_BAtrue_v1.fds"
   },
   "assessment_standard": "aircraft_damage_standard_20260711.pdf, Tables 10-15 and Section 6.3",
   "damage_criteria_version": "pdf-20260711-verified-20260722",
   "damage_criteria_source": "D:/Pyrosim/飞机模型/毁伤标准/转Word 2026-07-11 11.31.pdf, Table 9",
-  "assessed_at": "2026-07-25T01:38:42+08:00",
-  "case_directory": "cases_adaptive/Q0400_W0100_az060_el75_H1H7_v5_Qnorm_adapt_HRRtable_seatSTLfill_thin4mm_v1",
+  "assessed_at": "2026-07-25T01:39:34+08:00",
+  "case_directory": "cases_adaptive/Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_HRRmid_thickness_audit_BAtrue_v1",
   "campaign_classification": "adaptive sensitivity; compare separately"
 }
