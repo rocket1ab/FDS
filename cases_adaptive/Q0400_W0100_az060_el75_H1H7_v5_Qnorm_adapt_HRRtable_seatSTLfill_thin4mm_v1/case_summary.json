@@ -1,0 +1,68 @@
+{
+  "case": "Q0400_W0100_az060_el75_H1H7_v5_Qnorm_adapt_HRRtable_seatSTLfill_thin4mm_v1",
+  "Q_J_cm2": 400.0,
+  "yield_kt": 100,
+  "azimuth_deg": 60.0,
+  "elevation_deg": 75.0,
+  "t_end_s": 1500,
+  "mpi": 32,
+  "burn_away": false,
+  "surface_variants": 145,
+  "illuminated_vents": 1867,
+  "temperature_probes": 159,
+  "probe_counts": {
+    "RADM": 10,
+    "WINS": 10,
+    "BED": 2,
+    "CURT": 10,
+    "U4": 10,
+    "SEAT": 10,
+    "AL2024": 10,
+    "AL5052": 10,
+    "AL7075": 10,
+    "O2TANK": 10,
+    "H1": 7,
+    "H2": 10,
+    "H3": 14,
+    "H4": 10,
+    "H5": 6,
+    "H6": 10,
+    "H7": 10
+  },
+  "max_external_flux_kw_m2": 5883,
+  "purpose": "Q400_angle60_75_table_HRRPUA_STL_filled_seats_audited_4mm_shells",
+  "source_geometry": "reference/Separated_merge_20260720.fds",
+  "nuclear_ramp_integral_s": 0.6603982070000001,
+  "plane_peak_irradiance_kw_m2": 6056.951635545552,
+  "max_local_external_flux_kw_m2": 5883.0,
+  "max_local_fluence_J_cm2": 388.51226517810005,
+  "flux_normalization": "incident_plane_integral",
+  "changed_factors": [
+    "incident_angle_az60_el75",
+    "U06_shell_to_STL_interior_voxel_fill",
+    "RADM_AL2024_AL7075_thermal_thickness_to_4mm"
+  ],
+  "audited_group_thickness_m": {
+    "RADM": 0.004,
+    "AL2024": 0.004,
+    "AL7075": 0.004
+  },
+  "audited_surface_update_counts": {
+    "RADM": 1,
+    "AL2024": 1,
+    "AL7075": 1
+  },
+  "seat_geometry_audit": {
+    "stl": "D:\\Pyrosim\\飞机模型\\psm\\52光分模块导出（实体）(1)\\52光分模块导出（实体）\\U06.stl",
+    "component_count": 12,
+    "all_components_watertight": true,
+    "stl_volume_m3": 0.2790000259935858,
+    "fds_voxel_pitch_m": 0.1,
+    "filled_cell_count": 257,
+    "merged_obst_count": 137,
+    "fds_voxel_volume_m3": 0.25700000000000006
+  },
+  "buried_probe_face_records_removed": 237,
+  "removed_zero_thickness_u06_obst_count": 72,
+  "damage_thresholds_changed": false
+}

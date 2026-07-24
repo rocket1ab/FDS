@@ -270,11 +270,16 @@ def build_geometry_records(obsts, domain):
 
 
 def build_case(base: str, parsed, records: list[dict], q: int, base_max: float,
-               case_name: str | None = None, case_root: Path | None = None):
+               case_name: str | None = None, case_root: Path | None = None,
+               flux_scale: float | None = None):
     case_name = case_name or f"Q{q:04d}_W0100_az270_el15_H1H7_v2"
     case_dir = (case_root or CASES) / case_name
     case_dir.mkdir(parents=True, exist_ok=True)
-    scale = CONFIG["q400_reference_max_external_flux_kw_m2"] / base_max * q / 400.0
+    scale = (
+        flux_scale
+        if flux_scale is not None
+        else CONFIG["q400_reference_max_external_flux_kw_m2"] / base_max * q / 400.0
+    )
     surf_raw = {block_id(b): b for b in parsed["SURF"]}
     variants = {}
     vents = []
