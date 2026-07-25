@@ -1,0 +1,87 @@
+{
+  "case": "Q0400_W0100_az060_el75_H1H7_v6_combined_RF040_BA0_shell4",
+  "Q_J_cm2": 400.0,
+  "yield_kt": 100,
+  "azimuth_deg": 60.0,
+  "elevation_deg": 75.0,
+  "t_end_s": 1500,
+  "mpi": 32,
+  "burn_away": false,
+  "surface_variants": 145,
+  "illuminated_vents": 1867,
+  "temperature_probes": 159,
+  "probe_counts": {
+    "RADM": 10,
+    "WINS": 10,
+    "BED": 2,
+    "CURT": 10,
+    "U4": 10,
+    "SEAT": 10,
+    "AL2024": 10,
+    "AL5052": 10,
+    "AL7075": 10,
+    "O2TANK": 10,
+    "H1": 7,
+    "H2": 10,
+    "H3": 14,
+    "H4": 10,
+    "H5": 6,
+    "H6": 10,
+    "H7": 10
+  },
+  "max_external_flux_kw_m2": 5883,
+  "purpose": "test broader DDA exposure with bounded combined combustion inputs",
+  "source_geometry": "reference/Separated_merge_20260720.fds",
+  "nuclear_ramp_integral_s": 0.6603982070000001,
+  "plane_peak_irradiance_kw_m2": 6056.951635545552,
+  "max_local_external_flux_kw_m2": 5883.0,
+  "max_local_fluence_J_cm2": 388.51226517810005,
+  "flux_normalization": "incident_plane_integral",
+  "changed_factors": [
+    "incident_angle_az60_el75",
+    "U06_shell_to_STL_interior_voxel_fill",
+    "RADM_AL2024_AL7075_thermal_thickness_to_4mm"
+  ],
+  "audited_group_thickness_m": {
+    "RADM": 0.004,
+    "AL2024": 0.004,
+    "AL7075": 0.004
+  },
+  "audited_surface_update_counts": {
+    "RADM": 1,
+    "AL2024": 1,
+    "AL7075": 1
+  },
+  "seat_geometry_audit": {
+    "stl": "D:\\Pyrosim\\飞机模型\\psm\\52光分模块导出（实体）(1)\\52光分模块导出（实体）\\U06.stl",
+    "component_count": 12,
+    "all_components_watertight": true,
+    "stl_volume_m3": 0.2790000259935858,
+    "fds_voxel_pitch_m": 0.1,
+    "filled_cell_count": 257,
+    "merged_obst_count": 137,
+    "fds_voxel_volume_m3": 0.25700000000000006
+  },
+  "buried_probe_face_records_removed": 237,
+  "removed_zero_thickness_u06_obst_count": 72,
+  "damage_thresholds_changed": false,
+  "created_at": "2026-07-25T08:15:33.536489+08:00",
+  "source_case": "Q0400_W0100_az060_el75_H1H7_v5_Qnorm_adapt_HRRtable_seatSTLfill_thin4mm_v1",
+  "comparison_case": "Q0400_W0100_az270_el15_H1H7_v5_Qnorm_adapt_combined_SEAT650_BED600_RF040_BAfalse_thin4mm_v1",
+  "classification": "bounded favorable-angle combined engineering scenario; compare separately from fluence threshold cases",
+  "mpi_processes": 32,
+  "radiative_fraction": 0.4,
+  "combined_hrrpua_kW_m2": {
+    "SEAT": 650.0,
+    "BED": 600.0,
+    "CURT": 400.0
+  },
+  "group_surface_replacement_counts": {
+    "SEAT": 5,
+    "BED": 1,
+    "CURT": 23
+  },
+  "physical_rationale": "The completed az60/el75 filled-seat case produced 10/17 severe groups with lower combustion inputs, versus 5/17 for az270/el15.",
+  "known_geometry_delta": "The existing az60 DDA build contains 257 filled seat cells versus 256 in the az270 comparison, a 0.001 m3 difference.",
+  "hrrpua_consistency_fix": "SEAT, BED and CURT HRRPUA values are applied to both base and DDA-irradiated SURF definitions so secondary ignition uses the same material HRRPUA."
+}
